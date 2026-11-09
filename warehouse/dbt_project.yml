@@ -1,0 +1,42 @@
+name: earned_autonomy
+version: "1.0.0"
+config-version: 2
+profile: earned_autonomy
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  earned_autonomy:
+    staging:
+      +materialized: view
+      +schema: staging
+      +tags: ["pre_agent"]
+    intermediate:
+      +materialized: table
+      +schema: intermediate
+      +tags: ["post_resolution"]
+    marts:
+      +materialized: table
+      +schema: marts
+      +tags: ["post_agent"]
+    stockport:
+      +tags: ["stockport"]
+      staging:
+        +materialized: view
+        +schema: stockport_staging
+      intermediate:
+        +materialized: table
+        +schema: stockport_intermediate
+      marts:
+        +materialized: table
+        +schema: stockport_marts
+
+seeds:
+  earned_autonomy:
+    +schema: seeds
+    +tags: ["stockport"]

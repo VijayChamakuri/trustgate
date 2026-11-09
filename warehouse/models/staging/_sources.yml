@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: raw
+    description: What a spend platform actually receives. Loaded by `ea load`.
+    schema: raw
+    tables:
+      - name: card_transactions
+        columns:
+          - name: txn_id
+            data_tests: [unique, not_null]
+      - name: receipts
+      - name: employees
+      - name: departments
+      - name: merchant_registry
+        description: Approved vendor registry, including guardrail tokens for look-alike merchants.
+      - name: gl_accounts
+      - name: historical_reviews
+        description: >
+          What human reviewers did in the first 8 months. Lenient and slightly noisy, so it is
+          used for training only, never as evaluation ground truth.
+
+  - name: agent
+    description: Outputs written back by the agents (merchant resolver, GL coder, policy agent).
+    schema: agent
+    tables:
+      - name: merchant_resolutions
+      - name: gl_predictions
+      - name: policy_decisions

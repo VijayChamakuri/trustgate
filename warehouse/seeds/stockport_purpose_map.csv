@@ -1,0 +1,57 @@
+raw_purpose_key,gl_account,is_placeholder,note
+catering supplies,Catering Supplies,false,
+travelling expenses,Travelling Expenses,false,
+furniture and equipment,Furniture and Equipment,false,
+equipment,Furniture and Equipment,false,merged: generic equipment
+fixtures and fittings,Furniture and Equipment,false,merged
+care payments,Care Payments,false,
+care,Care Payments,false,lower-case variant
+publicity and promotion,Publicity and Promotion,false,
+advertising/publicity,Publicity and Promotion,false,merged
+office expenses,Office Expenses,false,
+office supplies/stationary,Office Expenses,false,merged (publisher typo kept in key)
+postage,Office Expenses,false,merged
+printing and photocopying,Office Expenses,false,merged
+information and communications technology,ICT,false,
+computer equipment and software,ICT,false,merged
+computer equipment/software,ICT,false,merged
+computer licences,ICT,false,merged
+zoom membership,ICT,false,merged
+subscriptions,ICT,false,merged: all six are software subscriptions on inspection
+expenses and allowances,Expenses and Allowances,false,
+mileage claims /allowances,Expenses and Allowances,false,merged
+staff training,Staff Training,false,
+library equipment,Library Equipment,false,
+books/publications,Library Equipment,false,merged
+books,Library Equipment,false,merged
+fees and charges,Fees and Charges,false,
+legal fees,Legal and Professional Fees,false,
+professional fees,Legal and Professional Fees,false,merged
+covid 19,COVID 19,false,pandemic cost code introduced 2020
+covid,COVID 19,false,merged
+covid supplies,COVID 19,false,merged
+repairs and maintenance,Repairs and Maintenance,false,
+repairs,Repairs and Maintenance,false,merged
+vehicle repairs and maintenance,Repairs and Maintenance,false,merged
+grounds maintenance,Repairs and Maintenance,false,merged
+cleaning,Cleaning,false,
+third party payments - private/voluntary sector,Third Party Payments,false,
+third party payments - public sector,Third Party Payments,false,merged
+fuel,Fuel,false,
+leasing /transport hire,Transport and Vehicles,false,
+vehicle excise duty,Transport and Vehicles,false,merged
+clothing uniforns and laundry,Clothing and Uniforms,false,publisher typo kept in key
+activities and events,Activities and Events,false,
+activities/events,Activities and Events,false,merged
+educational visit,Activities and Events,false,merged
+rents,Other,false,rare (<10) accounts pooled
+utilities,Other,false,rare
+insurance,Other,false,rare
+tv licensing,Other,false,rare
+security,Other,false,rare
+electoral services,Other,false,rare
+waste management equipment,Other,false,rare
+materials,Other,false,rare
+details to follow,,true,placeholder: not yet coded
+to be added,,true,placeholder: not yet coded
+misclassified? check before publication,,true,publisher flagged as unreliable

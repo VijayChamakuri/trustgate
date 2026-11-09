@@ -1,0 +1,801 @@
+{
+  "dataset": {
+    "labelled_lines": 14851,
+    "accounts": 21,
+    "merchants": 1992,
+    "years": [
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022
+    ],
+    "lines_per_year": {
+      "2017": 3095,
+      "2018": 3387,
+      "2019": 3382,
+      "2020": 2143,
+      "2021": 1910,
+      "2022": 934
+    },
+    "account_distribution": {
+      "Catering Supplies": 2945,
+      "Travelling Expenses": 2599,
+      "Furniture and Equipment": 2484,
+      "Care Payments": 1274,
+      "Publicity and Promotion": 895,
+      "Office Expenses": 878,
+      "ICT": 842,
+      "Expenses and Allowances": 735,
+      "Staff Training": 500,
+      "Library Equipment": 460,
+      "Fees and Charges": 445,
+      "Legal and Professional Fees": 210,
+      "COVID 19": 176,
+      "Repairs and Maintenance": 114,
+      "Third Party Payments": 82,
+      "Cleaning": 77,
+      "Fuel": 43,
+      "Transport and Vehicles": 40,
+      "Other": 21,
+      "Clothing and Uniforms": 20,
+      "Activities and Events": 11
+    }
+  },
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "benchmark": {
+    "settings": {
+      "card_feed": {
+        "majority": {
+          "n": 11756,
+          "accuracy": 0.16970057842803674,
+          "accuracy_ci": [
+            0.16306566859476013,
+            0.17608242599523646
+          ],
+          "macro_f1": 0.0190146121766018,
+          "top3": null,
+          "accuracy_seen_merchants": 0.19222513713331743,
+          "accuracy_new_merchants": 0.11364985163204748,
+          "ece": null
+        },
+        "merchant_lookup": {
+          "n": 11756,
+          "accuracy": 0.5450833616876488,
+          "accuracy_ci": [
+            0.53623681524328,
+            0.55435522286492
+          ],
+          "macro_f1": 0.31269065179412053,
+          "top3": null,
+          "accuracy_seen_merchants": 0.7005723825423325,
+          "accuracy_new_merchants": 0.15816023738872403,
+          "ece": null
+        },
+        "tfidf_logreg": {
+          "n": 11756,
+          "accuracy": 0.6092208234093229,
+          "accuracy_ci": [
+            0.6000297720313031,
+            0.6184097482136781
+          ],
+          "macro_f1": 0.35416892500608343,
+          "top3": 0.8067477572193578,
+          "accuracy_seen_merchants": 0.7148819461006439,
+          "accuracy_new_merchants": 0.3462908011869436,
+          "ece": 0.05869969587788255
+        },
+        "embed_knn": {
+          "n": 11756,
+          "accuracy": 0.600714528751276,
+          "accuracy_ci": [
+            0.5919509186798231,
+            0.6095610751956447
+          ],
+          "macro_f1": 0.33937184327884734,
+          "top3": 0.7838434323686084,
+          "accuracy_seen_merchants": 0.6922251371333175,
+          "accuracy_new_merchants": 0.3729970326409496,
+          "ece": 0.1091398982747324
+        },
+        "embed_logreg": {
+          "n": 11756,
+          "accuracy": 0.6127934671657026,
+          "accuracy_ci": [
+            0.6038618577747533,
+            0.6222354542361347
+          ],
+          "macro_f1": 0.36603532500970365,
+          "top3": 0.8247437979264653,
+          "accuracy_seen_merchants": 0.7027188170760792,
+          "accuracy_new_merchants": 0.3890207715133531,
+          "ece": 0.10982780012967813
+        },
+        "tfidf+embed_logreg": {
+          "n": 11756,
+          "accuracy": 0.624106839060905,
+          "accuracy_ci": [
+            0.6150880401497107,
+            0.6333787002381762
+          ],
+          "macro_f1": 0.3787634063780648,
+          "top3": 0.8292839883606696,
+          "accuracy_seen_merchants": 0.7114238015740519,
+          "accuracy_new_merchants": 0.40682492581602375,
+          "ece": 0.105816974217888
+        }
+      },
+      "upstream": {
+        "merchant_lookup": {
+          "n": 11756,
+          "accuracy": 0.7509356924123851,
+          "accuracy_ci": [
+            0.743109901326982,
+            0.7589316093909493
+          ],
+          "macro_f1": 0.5490317425889063,
+          "top3": null,
+          "accuracy_seen_merchants": 0.7005723825423325,
+          "accuracy_new_merchants": 0.8762611275964391,
+          "ece": null
+        },
+        "tfidf+embed_logreg": {
+          "n": 11756,
+          "accuracy": 0.9137461721674038,
+          "accuracy_ci": [
+            0.9084722694794147,
+            0.9184267608029942
+          ],
+          "macro_f1": 0.7558188509072226,
+          "top3": 0.9697002167554174,
+          "accuracy_seen_merchants": 0.917839255902695,
+          "accuracy_new_merchants": 0.9035608308605341,
+          "ece": 0.030306274947069604
+        },
+        "category_lookup": {
+          "n": 11756,
+          "accuracy": 0.9078768288533515,
+          "accuracy_ci": [
+            0.9026007995916979,
+            0.9128955427015992
+          ],
+          "macro_f1": 0.7580351822187784,
+          "top3": null,
+          "accuracy_seen_merchants": 0.9062723586930599,
+          "accuracy_new_merchants": 0.9118694362017804,
+          "ece": null
+        }
+      }
+    },
+    "per_year": [
+      {
+        "setting": "card_feed",
+        "model": "majority",
+        "year": 2018,
+        "n": 3387,
+        "accuracy": 0.2146442279303218,
+        "top3": NaN,
+        "macro_f1": 0.018601437965355783,
+        "seen_merchant_share": 0.7567168585769117,
+        "accuracy_new_merchants": 0.05218446601941747,
+        "seconds": 0.02
+      },
+      {
+        "setting": "card_feed",
+        "model": "merchant_lookup",
+        "year": 2018,
+        "n": 3387,
+        "accuracy": 0.5686448184233835,
+        "top3": NaN,
+        "macro_f1": 0.3333493999476478,
+        "seen_merchant_share": 0.7567168585769117,
+        "accuracy_new_merchants": 0.11407766990291263,
+        "seconds": 0.09
+      },
+      {
+        "setting": "card_feed",
+        "model": "tfidf_logreg",
+        "year": 2018,
+        "n": 3387,
+        "accuracy": 0.6120460584588131,
+        "top3": 0.8012990847357544,
+        "macro_f1": 0.35047105578850046,
+        "seen_merchant_share": 0.7567168585769117,
+        "accuracy_new_merchants": 0.3058252427184466,
+        "seconds": 1.74
+      },
+      {
+        "setting": "card_feed",
+        "model": "embed_knn",
+        "year": 2018,
+        "n": 3387,
+        "accuracy": 0.6002361972246826,
+        "top3": 0.7670504871567759,
+        "macro_f1": 0.33180321391678413,
+        "seen_merchant_share": 0.7567168585769117,
+        "accuracy_new_merchants": 0.2354368932038835,
+        "seconds": 0.16
+      },
+      {
+        "setting": "card_feed",
+        "model": "embed_logreg",
+        "year": 2018,
+        "n": 3387,
+        "accuracy": 0.6079126070268674,
+        "top3": 0.8027753173900206,
+        "macro_f1": 0.35468079275269904,
+        "seen_merchant_share": 0.7567168585769117,
+        "accuracy_new_merchants": 0.2827669902912621,
+        "seconds": 2.02
+      },
+      {
+        "setting": "card_feed",
+        "model": "tfidf+embed_logreg",
+        "year": 2018,
+        "n": 3387,
+        "accuracy": 0.6135222911130794,
+        "top3": 0.8139946855624446,
+        "macro_f1": 0.3592409797849349,
+        "seen_merchant_share": 0.7567168585769117,
+        "accuracy_new_merchants": 0.2936893203883495,
+        "seconds": 3.56
+      },
+      {
+        "setting": "card_feed",
+        "model": "majority",
+        "year": 2019,
+        "n": 3382,
+        "accuracy": 0.22028385570668244,
+        "top3": NaN,
+        "macro_f1": 0.019001951207070256,
+        "seen_merchant_share": 0.52602010644589,
+        "accuracy_new_merchants": 0.20087336244541484,
+        "seconds": 0.0
+      },
+      {
+        "setting": "card_feed",
+        "model": "merchant_lookup",
+        "year": 2019,
+        "n": 3382,
+        "accuracy": 0.4689532820816085,
+        "top3": NaN,
+        "macro_f1": 0.30239952522409763,
+        "seen_merchant_share": 0.52602010644589,
+        "accuracy_new_merchants": 0.2183406113537118,
+        "seconds": 0.1
+      },
+      {
+        "setting": "card_feed",
+        "model": "tfidf_logreg",
+        "year": 2019,
+        "n": 3382,
+        "accuracy": 0.57806031933767,
+        "top3": 0.7915434654050858,
+        "macro_f1": 0.382205102764003,
+        "seen_merchant_share": 0.52602010644589,
+        "accuracy_new_merchants": 0.4298190892077355,
+        "seconds": 3.45
+      },
+      {
+        "setting": "card_feed",
+        "model": "embed_knn",
+        "year": 2019,
+        "n": 3382,
+        "accuracy": 0.6002365464222353,
+        "top3": 0.8018923713778829,
+        "macro_f1": 0.34742781917251336,
+        "seen_merchant_share": 0.52602010644589,
+        "accuracy_new_merchants": 0.5028072364316906,
+        "seconds": 0.28
+      },
+      {
+        "setting": "card_feed",
+        "model": "embed_logreg",
+        "year": 2019,
+        "n": 3382,
+        "accuracy": 0.5996451803666469,
+        "top3": 0.8211117681845063,
+        "macro_f1": 0.35393787348855116,
+        "seen_merchant_share": 0.52602010644589,
+        "accuracy_new_merchants": 0.5071740486587648,
+        "seconds": 5.6
+      },
+      {
+        "setting": "card_feed",
+        "model": "tfidf+embed_logreg",
+        "year": 2019,
+        "n": 3382,
+        "accuracy": 0.6191602602010644,
+        "top3": 0.8317563571850976,
+        "macro_f1": 0.3925536937913381,
+        "seen_merchant_share": 0.52602010644589,
+        "accuracy_new_merchants": 0.5265127885215222,
+        "seconds": 9.96
+      },
+      {
+        "setting": "card_feed",
+        "model": "majority",
+        "year": 2020,
+        "n": 2143,
+        "accuracy": 0.09939337377508166,
+        "top3": NaN,
+        "macro_f1": 0.008610235265583313,
+        "seen_merchant_share": 0.810079328044797,
+        "accuracy_new_merchants": 0.02457002457002457,
+        "seconds": 0.0
+      },
+      {
+        "setting": "card_feed",
+        "model": "merchant_lookup",
+        "year": 2020,
+        "n": 2143,
+        "accuracy": 0.5716285580961269,
+        "top3": NaN,
+        "macro_f1": 0.30786440262172965,
+        "seen_merchant_share": 0.810079328044797,
+        "accuracy_new_merchants": 0.10810810810810811,
+        "seconds": 0.12
+      },
+      {
+        "setting": "card_feed",
+        "model": "tfidf_logreg",
+        "year": 2020,
+        "n": 2143,
+        "accuracy": 0.6066262249183387,
+        "top3": 0.7680821278581428,
+        "macro_f1": 0.3398826367895706,
+        "seen_merchant_share": 0.810079328044797,
+        "accuracy_new_merchants": 0.20638820638820637,
+        "seconds": 5.93
+      },
+      {
+        "setting": "card_feed",
+        "model": "embed_knn",
+        "year": 2020,
+        "n": 2143,
+        "accuracy": 0.5823611759216052,
+        "top3": 0.7410172655156323,
+        "macro_f1": 0.3410512602859984,
+        "seen_merchant_share": 0.810079328044797,
+        "accuracy_new_merchants": 0.24815724815724816,
+        "seconds": 0.28
+      },
+      {
+        "setting": "card_feed",
+        "model": "embed_logreg",
+        "year": 2020,
+        "n": 2143,
+        "accuracy": 0.5879608026131591,
+        "top3": 0.7802146523565096,
+        "macro_f1": 0.34410248001624233,
+        "seen_merchant_share": 0.810079328044797,
+        "accuracy_new_merchants": 0.21867321867321868,
+        "seconds": 10.06
+      },
+      {
+        "setting": "card_feed",
+        "model": "tfidf+embed_logreg",
+        "year": 2020,
+        "n": 2143,
+        "accuracy": 0.6070928604759682,
+        "top3": 0.783481101259916,
+        "macro_f1": 0.34521743736934357,
+        "seen_merchant_share": 0.810079328044797,
+        "accuracy_new_merchants": 0.24078624078624078,
+        "seconds": 16.72
+      },
+      {
+        "setting": "card_feed",
+        "model": "majority",
+        "year": 2021,
+        "n": 1910,
+        "accuracy": 0.060732984293193716,
+        "top3": NaN,
+        "macro_f1": 0.005725567620927937,
+        "seen_merchant_share": 0.8115183246073299,
+        "accuracy_new_merchants": 0.016666666666666666,
+        "seconds": 0.0
+      },
+      {
+        "setting": "card_feed",
+        "model": "merchant_lookup",
+        "year": 2021,
+        "n": 1910,
+        "accuracy": 0.5717277486910994,
+        "top3": NaN,
+        "macro_f1": 0.3204827974968458,
+        "seen_merchant_share": 0.8115183246073299,
+        "accuracy_new_merchants": 0.06388888888888888,
+        "seconds": 0.13
+      },
+      {
+        "setting": "card_feed",
+        "model": "tfidf_logreg",
+        "year": 2021,
+        "n": 1910,
+        "accuracy": 0.6361256544502618,
+        "top3": 0.837696335078534,
+        "macro_f1": 0.3929990034406087,
+        "seen_merchant_share": 0.8115183246073299,
+        "accuracy_new_merchants": 0.2388888888888889,
+        "seconds": 8.72
+      },
+      {
+        "setting": "card_feed",
+        "model": "embed_knn",
+        "year": 2021,
+        "n": 1910,
+        "accuracy": 0.5942408376963351,
+        "top3": 0.8073298429319372,
+        "macro_f1": 0.36491896831474097,
+        "seen_merchant_share": 0.8115183246073299,
+        "accuracy_new_merchants": 0.25,
+        "seconds": 0.28
+      },
+      {
+        "setting": "card_feed",
+        "model": "embed_logreg",
+        "year": 2021,
+        "n": 1910,
+        "accuracy": 0.6424083769633507,
+        "top3": 0.8513089005235602,
+        "macro_f1": 0.43886671621157386,
+        "seen_merchant_share": 0.8115183246073299,
+        "accuracy_new_merchants": 0.2916666666666667,
+        "seconds": 13.84
+      },
+      {
+        "setting": "card_feed",
+        "model": "tfidf+embed_logreg",
+        "year": 2021,
+        "n": 1910,
+        "accuracy": 0.6455497382198953,
+        "top3": 0.8403141361256544,
+        "macro_f1": 0.4424783874291512,
+        "seen_merchant_share": 0.8115183246073299,
+        "accuracy_new_merchants": 0.3194444444444444,
+        "seconds": 23.16
+      },
+      {
+        "setting": "card_feed",
+        "model": "majority",
+        "year": 2022,
+        "n": 934,
+        "accuracy": 0.20770877944325483,
+        "top3": NaN,
+        "macro_f1": 0.019109535066981875,
+        "seen_merchant_share": 0.8115631691648822,
+        "accuracy_new_merchants": 0.011363636363636364,
+        "seconds": 0.0
+      },
+      {
+        "setting": "card_feed",
+        "model": "merchant_lookup",
+        "year": 2022,
+        "n": 934,
+        "accuracy": 0.619914346895075,
+        "top3": NaN,
+        "macro_f1": 0.3774798956730307,
+        "seen_merchant_share": 0.8115631691648822,
+        "accuracy_new_merchants": 0.125,
+        "seconds": 0.13
+      },
+      {
+        "setting": "card_feed",
+        "model": "tfidf_logreg",
+        "year": 2022,
+        "n": 934,
+        "accuracy": 0.6627408993576017,
+        "top3": 0.8351177730192719,
+        "macro_f1": 0.423345213244904,
+        "seen_merchant_share": 0.8115631691648822,
+        "accuracy_new_merchants": 0.3181818181818182,
+        "seconds": 9.28
+      },
+      {
+        "setting": "card_feed",
+        "model": "embed_knn",
+        "year": 2022,
+        "n": 934,
+        "accuracy": 0.6595289079229122,
+        "top3": 0.8019271948608137,
+        "macro_f1": 0.4436006615277241,
+        "seen_merchant_share": 0.8115631691648822,
+        "accuracy_new_merchants": 0.375,
+        "seconds": 0.15
+      },
+      {
+        "setting": "card_feed",
+        "model": "embed_logreg",
+        "year": 2022,
+        "n": 934,
+        "accuracy": 0.6745182012847966,
+        "top3": 0.8683083511777302,
+        "macro_f1": 0.4205038915711311,
+        "seen_merchant_share": 0.8115631691648822,
+        "accuracy_new_merchants": 0.4034090909090909,
+        "seconds": 17.27
+      },
+      {
+        "setting": "card_feed",
+        "model": "tfidf+embed_logreg",
+        "year": 2022,
+        "n": 934,
+        "accuracy": 0.6755888650963597,
+        "top3": 0.8768736616702355,
+        "macro_f1": 0.43264859727239263,
+        "seen_merchant_share": 0.8115631691648822,
+        "accuracy_new_merchants": 0.4090909090909091,
+        "seconds": 26.92
+      },
+      {
+        "setting": "upstream",
+        "model": "merchant_lookup",
+        "year": 2018,
+        "n": 3387,
+        "accuracy": 0.733392382639504,
+        "top3": NaN,
+        "macro_f1": 0.5327136542599461,
+        "seen_merchant_share": 0.7567168585769117,
+        "accuracy_new_merchants": 0.7912621359223301,
+        "seconds": 0.09
+      },
+      {
+        "setting": "upstream",
+        "model": "tfidf+embed_logreg",
+        "year": 2018,
+        "n": 3387,
+        "accuracy": 0.937112488928255,
+        "top3": 0.9914378506052554,
+        "macro_f1": 0.7406096852582885,
+        "seen_merchant_share": 0.7567168585769117,
+        "accuracy_new_merchants": 0.9162621359223301,
+        "seconds": 1.2
+      },
+      {
+        "setting": "upstream",
+        "model": "category_lookup",
+        "year": 2018,
+        "n": 3387,
+        "accuracy": 0.9406554472984943,
+        "top3": NaN,
+        "macro_f1": 0.7961042748233397,
+        "seen_merchant_share": 0.7567168585769117,
+        "accuracy_new_merchants": 0.912621359223301,
+        "seconds": 0.01
+      },
+      {
+        "setting": "upstream",
+        "model": "merchant_lookup",
+        "year": 2019,
+        "n": 3382,
+        "accuracy": 0.8166765227675932,
+        "top3": NaN,
+        "macro_f1": 0.6720726074645718,
+        "seen_merchant_share": 0.52602010644589,
+        "accuracy_new_merchants": 0.9519650655021834,
+        "seconds": 0.11
+      },
+      {
+        "setting": "upstream",
+        "model": "tfidf+embed_logreg",
+        "year": 2019,
+        "n": 3382,
+        "accuracy": 0.9441159077468954,
+        "top3": 0.9955647545830869,
+        "macro_f1": 0.8582146567457981,
+        "seen_merchant_share": 0.52602010644589,
+        "accuracy_new_merchants": 0.9463505926388023,
+        "seconds": 3.24
+      },
+      {
+        "setting": "upstream",
+        "model": "category_lookup",
+        "year": 2019,
+        "n": 3382,
+        "accuracy": 0.9432288586635127,
+        "top3": NaN,
+        "macro_f1": 0.7876104347244643,
+        "seen_merchant_share": 0.52602010644589,
+        "accuracy_new_merchants": 0.9569557080474111,
+        "seconds": 0.01
+      },
+      {
+        "setting": "upstream",
+        "model": "merchant_lookup",
+        "year": 2020,
+        "n": 2143,
+        "accuracy": 0.6850209986000934,
+        "top3": NaN,
+        "macro_f1": 0.43972120813116256,
+        "seen_merchant_share": 0.810079328044797,
+        "accuracy_new_merchants": 0.7051597051597052,
+        "seconds": 0.13
+      },
+      {
+        "setting": "upstream",
+        "model": "tfidf+embed_logreg",
+        "year": 2020,
+        "n": 2143,
+        "accuracy": 0.7746150256649557,
+        "top3": 0.8688754083061129,
+        "macro_f1": 0.6150853367991467,
+        "seen_merchant_share": 0.810079328044797,
+        "accuracy_new_merchants": 0.7002457002457002,
+        "seconds": 5.03
+      },
+      {
+        "setting": "upstream",
+        "model": "category_lookup",
+        "year": 2020,
+        "n": 2143,
+        "accuracy": 0.7456836210919272,
+        "top3": NaN,
+        "macro_f1": 0.6085190357357325,
+        "seen_merchant_share": 0.810079328044797,
+        "accuracy_new_merchants": 0.7051597051597052,
+        "seconds": 0.01
+      },
+      {
+        "setting": "upstream",
+        "model": "merchant_lookup",
+        "year": 2021,
+        "n": 1910,
+        "accuracy": 0.7287958115183246,
+        "top3": NaN,
+        "macro_f1": 0.5347044903568923,
+        "seen_merchant_share": 0.8115183246073299,
+        "accuracy_new_merchants": 0.8972222222222223,
+        "seconds": 0.15
+      },
+      {
+        "setting": "upstream",
+        "model": "tfidf+embed_logreg",
+        "year": 2021,
+        "n": 1910,
+        "accuracy": 0.9523560209424083,
+        "top3": 0.9947643979057592,
+        "macro_f1": 0.8425305583643257,
+        "seen_merchant_share": 0.8115183246073299,
+        "accuracy_new_merchants": 0.9055555555555556,
+        "seconds": 7.12
+      },
+      {
+        "setting": "upstream",
+        "model": "category_lookup",
+        "year": 2021,
+        "n": 1910,
+        "accuracy": 0.943979057591623,
+        "top3": NaN,
+        "macro_f1": 0.8481932196682045,
+        "seen_merchant_share": 0.8115183246073299,
+        "accuracy_new_merchants": 0.9166666666666666,
+        "seconds": 0.01
+      },
+      {
+        "setting": "upstream",
+        "model": "merchant_lookup",
+        "year": 2022,
+        "n": 934,
+        "accuracy": 0.7730192719486081,
+        "top3": NaN,
+        "macro_f1": 0.6111823478986037,
+        "seen_merchant_share": 0.8115631691648822,
+        "accuracy_new_merchants": 0.9375,
+        "seconds": 0.15
+      },
+      {
+        "setting": "upstream",
+        "model": "tfidf+embed_logreg",
+        "year": 2022,
+        "n": 934,
+        "accuracy": 0.9593147751605996,
+        "top3": 0.9978586723768736,
+        "macro_f1": 0.9424584773950284,
+        "seen_merchant_share": 0.8115631691648822,
+        "accuracy_new_merchants": 0.9204545454545454,
+        "seconds": 8.75
+      },
+      {
+        "setting": "upstream",
+        "model": "category_lookup",
+        "year": 2022,
+        "n": 934,
+        "accuracy": 0.9593147751605996,
+        "top3": NaN,
+        "macro_f1": 0.9279253024811973,
+        "seen_merchant_share": 0.8115631691648822,
+        "accuracy_new_merchants": 0.9659090909090909,
+        "seconds": 0.01
+      }
+    ],
+    "ceiling": {
+      "card_feed": 0.8608174533701434,
+      "upstream": 0.9907076964514174
+    },
+    "confusions": [
+      {
+        "booked": "Catering Supplies",
+        "predicted": "Furniture and Equipment",
+        "count": 351,
+        "examples": [
+          "ASDA STORES 4840",
+          "GROCERY STORES, SUPERMARKETS",
+          "DELIVEROO"
+        ]
+      },
+      {
+        "booked": "Furniture and Equipment",
+        "predicted": "Catering Supplies",
+        "count": 270,
+        "examples": [
+          "WM MORRISONS STORE",
+          "ASDA STORES 4840",
+          "B & M RETAIL"
+        ]
+      },
+      {
+        "booked": "Catering Supplies",
+        "predicted": "Travelling Expenses",
+        "count": 241,
+        "examples": [
+          "ASDA STORES 4840",
+          "GROCERY STORES, SUPERMARKETS",
+          "TESCO STORES 3378"
+        ]
+      },
+      {
+        "booked": "Office Expenses",
+        "predicted": "Furniture and Equipment",
+        "count": 228,
+        "examples": [
+          "AMZNMKTPLACE",
+          "AMZNMKTPLACE AMAZON.CO",
+          "AMAZON UK MARKETPLACE"
+        ]
+      },
+      {
+        "booked": "Travelling Expenses",
+        "predicted": "Catering Supplies",
+        "count": 224,
+        "examples": [
+          "TRAINLINE",
+          "PASSENGER RAILWAYS",
+          "STOCKPORT STN SST"
+        ]
+      },
+      {
+        "booked": "Travelling Expenses",
+        "predicted": "Furniture and Equipment",
+        "count": 212,
+        "examples": [
+          "TRAINLINE",
+          "PASSENGER RAILWAYS",
+          "STOCKPORT STN SST"
+        ]
+      },
+      {
+        "booked": "Furniture and Equipment",
+        "predicted": "Travelling Expenses",
+        "count": 167,
+        "examples": [
+          "AMZNMKTPLACE",
+          "THE REPLACE BASE LTD",
+          "REPLACEBASE"
+        ]
+      },
+      {
+        "booked": "Publicity and Promotion",
+        "predicted": "Furniture and Equipment",
+        "count": 155,
+        "examples": [
+          "AMZNMKTPLACE AMAZON.CO",
+          "AMZNMKTPLACE",
+          "MISCELLANEOUS AND SPECIALTY RETAIL STORES"
+        ]
+      }
+    ]
+  },
+  "seconds": 1117.0
+}

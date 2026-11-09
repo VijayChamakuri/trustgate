@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "earned-autonomy: evidence-gated autonomy for finance agents"
+authors:
+  - family-names: Chamakuri
+    given-names: Vijay
+version: 1.0.0
+date-released: 2026-11-10
+license: MIT
+repository-code: "https://github.com/VijayChamakuri/earned-autonomy"
+url: "https://vijaychamakuri.github.io/earned-autonomy/"
+keywords: [finance agents, evaluation, autonomy, dbt, analytics engineering, GL coding]

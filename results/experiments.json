@@ -1,0 +1,3121 @@
+{
+  "n_seeds": 10,
+  "seeds": {
+    "trust_engine_everywhere": {
+      "automation_rate": {
+        "mean": 0.8873750846017259,
+        "sd": 0.005236841214231503
+      },
+      "auto_error_rate": {
+        "mean": 0.05363587742480176,
+        "sd": 0.0036562933341701223
+      },
+      "leaked_dollars": {
+        "mean": 24270.371,
+        "sd": 4382.257591248424
+      },
+      "total_cost": {
+        "mean": 30541.771,
+        "sd": 5206.650505485909
+      }
+    },
+    "thresholds_from_reviewer_history": {
+      "automation_rate": {
+        "mean": 0.8041422356012197,
+        "sd": 0.01593817221362803
+      },
+      "auto_error_rate": {
+        "mean": 0.009669819562687034,
+        "sd": 0.00380149575332062
+      },
+      "leaked_dollars": {
+        "mean": 6612.269,
+        "sd": 3528.9985802253054
+      },
+      "total_cost": {
+        "mean": 10475.471,
+        "sd": 3273.9260245883174
+      }
+    },
+    "point_estimate_thresholds": {
+      "automation_rate": {
+        "mean": 0.8466196553229823,
+        "sd": 0.006704994088573978
+      },
+      "auto_error_rate": {
+        "mean": 0.014412556394162659,
+        "sd": 0.0022622284135374597
+      },
+      "leaked_dollars": {
+        "mean": 11086.706999999999,
+        "sd": 2772.252471631647
+      },
+      "total_cost": {
+        "mean": 14196.708999999999,
+        "sd": 2829.1085006272046
+      }
+    },
+    "earned_without_novelty_guard": {
+      "automation_rate": {
+        "mean": 0.7507581219627946,
+        "sd": 0.08661115240269923
+      },
+      "auto_error_rate": {
+        "mean": 0.0067973195694843004,
+        "sd": 0.003057712934640513
+      },
+      "leaked_dollars": {
+        "mean": 4054.5370000000003,
+        "sd": 2274.3087855338963
+      },
+      "total_cost": {
+        "mean": 8984.935000000001,
+        "sd": 1744.502813553032
+      }
+    },
+    "earned_without_value_tiers": {
+      "automation_rate": {
+        "mean": 0.7184492940496121,
+        "sd": 0.07344518067090998
+      },
+      "auto_error_rate": {
+        "mean": 0.004470402821884886,
+        "sd": 0.001386687771174146
+      },
+      "leaked_dollars": {
+        "mean": 3954.6059999999998,
+        "sd": 1697.2129823867783
+      },
+      "total_cost": {
+        "mean": 9513.407000000001,
+        "sd": 1661.5448119950834
+      }
+    },
+    "earned_autonomy": {
+      "automation_rate": {
+        "mean": 0.6229796662563759,
+        "sd": 0.11133771753404012
+      },
+      "auto_error_rate": {
+        "mean": 0.0044820047907113275,
+        "sd": 0.0012526977810439542
+      },
+      "leaked_dollars": {
+        "mean": 1415.336,
+        "sd": 692.62956548376
+      },
+      "total_cost": {
+        "mean": 8866.133,
+        "sd": 2068.8260487642638
+      }
+    },
+    "ablation_without_wilson": {
+      "automation_rate": {
+        "mean": 0.7731771717663051,
+        "sd": 0.009856719912936487
+      },
+      "auto_error_rate": {
+        "mean": 0.006924296374527464,
+        "sd": 0.000884164108454399
+      },
+      "leaked_dollars": {
+        "mean": 4515.916,
+        "sd": 1660.6350204745972
+      },
+      "total_cost": {
+        "mean": 9059.516,
+        "sd": 1770.2738727364567
+      }
+    },
+    "ablation_without_novelty_guard": {
+      "automation_rate": {
+        "mean": 0.6571314627040736,
+        "sd": 0.128202308904071
+      },
+      "auto_error_rate": {
+        "mean": 0.007179815014500396,
+        "sd": 0.002959993156009228
+      },
+      "leaked_dollars": {
+        "mean": 2386.9300000000003,
+        "sd": 1160.1255807119426
+      },
+      "total_cost": {
+        "mean": 9174.127,
+        "sd": 2001.5958359716099
+      }
+    },
+    "within_budget_share": 1.0
+  },
+  "seed_runs": [
+    {
+      "trust_engine_everywhere": {
+        "automation_rate": 0.8987996688741722,
+        "auto_error_rate": 0.05387980658530969,
+        "leaked_dollars": 24113.67,
+        "total_cost": 30029.67
+      },
+      "thresholds_from_reviewer_history": {
+        "automation_rate": 0.7994619205298014,
+        "auto_error_rate": 0.005695055656225731,
+        "leaked_dollars": 3066.68,
+        "total_cost": 6942.67
+      },
+      "point_estimate_thresholds": {
+        "automation_rate": 0.8503725165562914,
+        "auto_error_rate": 0.01192504258943782,
+        "leaked_dollars": 8299.85,
+        "total_cost": 11311.85
+      },
+      "earned_without_novelty_guard": {
+        "automation_rate": 0.8013245033112583,
+        "auto_error_rate": 0.005681818181818182,
+        "leaked_dollars": 3066.68,
+        "total_cost": 6906.67
+      },
+      "earned_without_value_tiers": {
+        "automation_rate": 0.7531043046357616,
+        "auto_error_rate": 0.0032976092333058533,
+        "leaked_dollars": 3059.49,
+        "total_cost": 7831.49
+      },
+      "earned_autonomy": {
+        "automation_rate": 0.6746688741721855,
+        "auto_error_rate": 0.004601226993865031,
+        "leaked_dollars": 2031.11,
+        "total_cost": 8319.11
+      },
+      "ablation_without_wilson": {
+        "automation_rate": 0.7826986754966887,
+        "auto_error_rate": 0.007139079851930196,
+        "leaked_dollars": 4222.98,
+        "total_cost": 8542.98
+      },
+      "ablation_without_novelty_guard": {
+        "automation_rate": 0.7270281456953642,
+        "auto_error_rate": 0.00825505266154284,
+        "leaked_dollars": 2972.75,
+        "total_cost": 8248.76
+      },
+      "_meta": {
+        "seed": 0,
+        "drift_rate": 0.35,
+        "leniency": 0.06,
+        "audit_per_month": 500,
+        "approve_budget": 0.01,
+        "engine_accuracy": 0.9056291390728477,
+        "verifier_auc": 0.984131697216075
+      }
+    },
+    {
+      "trust_engine_everywhere": {
+        "automation_rate": 0.8858603066439523,
+        "auto_error_rate": 0.04855769230769231,
+        "leaked_dollars": 21761.25,
+        "total_cost": 27085.25
+      },
+      "thresholds_from_reviewer_history": {
+        "automation_rate": 0.8168654173764907,
+        "auto_error_rate": 0.010427528675703858,
+        "leaked_dollars": 6543.469999999999,
+        "total_cost": 9983.490000000002
+      },
+      "point_estimate_thresholds": {
+        "automation_rate": 0.8556218057921635,
+        "auto_error_rate": 0.017919362867098058,
+        "leaked_dollars": 12880.39,
+        "total_cost": 15652.39
+      },
+      "earned_without_novelty_guard": {
+        "automation_rate": 0.8172913117546848,
+        "auto_error_rate": 0.011724856696195935,
+        "leaked_dollars": 7455.65,
+        "total_cost": 10887.650000000001
+      },
+      "earned_without_value_tiers": {
+        "automation_rate": 0.7546848381601363,
+        "auto_error_rate": 0.006207674943566591,
+        "leaked_dollars": 5387.43,
+        "total_cost": 9995.43
+      },
+      "earned_autonomy": {
+        "automation_rate": 0.6637563884156729,
+        "auto_error_rate": 0.005453962143086301,
+        "leaked_dollars": 1824.51,
+        "total_cost": 8140.51
+      },
+      "ablation_without_wilson": {
+        "automation_rate": 0.7853492333901193,
+        "auto_error_rate": 0.008134490238611713,
+        "leaked_dollars": 6064.33,
+        "total_cost": 10156.34
+      },
+      "ablation_without_novelty_guard": {
+        "automation_rate": 0.7267887563884157,
+        "auto_error_rate": 0.011133899794901847,
+        "leaked_dollars": 4133.929999999999,
+        "total_cost": 9265.92
+      },
+      "_meta": {
+        "seed": 1,
+        "drift_rate": 0.35,
+        "leniency": 0.06,
+        "audit_per_month": 500,
+        "approve_budget": 0.01,
+        "engine_accuracy": 0.9086456558773425,
+        "verifier_auc": 0.9759456620248745
+      }
+    },
+    {
+      "trust_engine_everywhere": {
+        "automation_rate": 0.8840788840788841,
+        "auto_error_rate": 0.05223068552774755,
+        "leaked_dollars": 19790.39,
+        "total_cost": 24988.39
+      },
+      "thresholds_from_reviewer_history": {
+        "automation_rate": 0.7873977873977874,
+        "auto_error_rate": 0.0076359193646915085,
+        "leaked_dollars": 3530.3599999999997,
+        "total_cost": 7066.360000000001
+      },
+      "point_estimate_thresholds": {
+        "automation_rate": 0.8429533429533429,
+        "auto_error_rate": 0.013694721825962911,
+        "leaked_dollars": 7653.790000000001,
+        "total_cost": 10415.800000000001
+      },
+      "earned_without_novelty_guard": {
+        "automation_rate": 0.7616642616642617,
+        "auto_error_rate": 0.006315124723713293,
+        "leaked_dollars": 2925.1499999999996,
+        "total_cost": 6889.150000000001
+      },
+      "earned_without_value_tiers": {
+        "automation_rate": 0.7479557479557479,
+        "auto_error_rate": 0.0045016077170418,
+        "leaked_dollars": 4240.25,
+        "total_cost": 8432.25
+      },
+      "earned_autonomy": {
+        "automation_rate": 0.6594516594516594,
+        "auto_error_rate": 0.0040116703136396795,
+        "leaked_dollars": 1824.13,
+        "total_cost": 7488.120000000001
+      },
+      "ablation_without_wilson": {
+        "automation_rate": 0.7696007696007696,
+        "auto_error_rate": 0.0059375,
+        "leaked_dollars": 2953.71,
+        "total_cost": 6905.71
+      },
+      "ablation_without_novelty_guard": {
+        "automation_rate": 0.6856661856661856,
+        "auto_error_rate": 0.00701508242721852,
+        "leaked_dollars": 2325.98,
+        "total_cost": 7553.97
+      },
+      "_meta": {
+        "seed": 2,
+        "drift_rate": 0.35,
+        "leniency": 0.06,
+        "audit_per_month": 500,
+        "approve_budget": 0.01,
+        "engine_accuracy": 0.9062049062049062,
+        "verifier_auc": 0.9800152430725677
+      }
+    },
+    {
+      "trust_engine_everywhere": {
+        "automation_rate": 0.8837863167760075,
+        "auto_error_rate": 0.05434782608695652,
+        "leaked_dollars": 21054.04,
+        "total_cost": 26728.04
+      },
+      "thresholds_from_reviewer_history": {
+        "automation_rate": 0.8163074039362699,
+        "auto_error_rate": 0.012916188289322618,
+        "leaked_dollars": 8445.98,
+        "total_cost": 11581.98
+      },
+      "point_estimate_thresholds": {
+        "automation_rate": 0.8481724461105904,
+        "auto_error_rate": 0.017679558011049725,
+        "leaked_dollars": 12526.470000000001,
+        "total_cost": 15268.470000000001
+      },
+      "earned_without_novelty_guard": {
+        "automation_rate": 0.8041237113402062,
+        "auto_error_rate": 0.01078088578088578,
+        "leaked_dollars": 5366.92,
+        "total_cost": 8710.93
+      },
+      "earned_without_value_tiers": {
+        "automation_rate": 0.7478912839737581,
+        "auto_error_rate": 0.006265664160401002,
+        "leaked_dollars": 4011.3099999999995,
+        "total_cost": 8315.32
+      },
+      "earned_autonomy": {
+        "automation_rate": 0.6576850984067479,
+        "auto_error_rate": 0.00641254007837549,
+        "leaked_dollars": 1931.08,
+        "total_cost": 7775.08
+      },
+      "ablation_without_wilson": {
+        "automation_rate": 0.7703842549203374,
+        "auto_error_rate": 0.007907542579075427,
+        "leaked_dollars": 3038.43,
+        "total_cost": 7048.43
+      },
+      "ablation_without_novelty_guard": {
+        "automation_rate": 0.718369259606373,
+        "auto_error_rate": 0.010763209393346379,
+        "leaked_dollars": 3453.79,
+        "total_cost": 8261.8
+      },
+      "_meta": {
+        "seed": 3,
+        "drift_rate": 0.35,
+        "leniency": 0.06,
+        "audit_per_month": 500,
+        "approve_budget": 0.01,
+        "engine_accuracy": 0.9027647610121837,
+        "verifier_auc": 0.9750171201285809
+      }
+    },
+    {
+      "trust_engine_everywhere": {
+        "automation_rate": 0.890203403902034,
+        "auto_error_rate": 0.04849615294940546,
+        "leaked_dollars": 22029.16,
+        "total_cost": 27475.16
+      },
+      "thresholds_from_reviewer_history": {
+        "automation_rate": 0.823785803237858,
+        "auto_error_rate": 0.015117157974300832,
+        "leaked_dollars": 11381.82,
+        "total_cost": 14777.82
+      },
+      "point_estimate_thresholds": {
+        "automation_rate": 0.8578248235782482,
+        "auto_error_rate": 0.01572707476409388,
+        "leaked_dollars": 12813.009999999998,
+        "total_cost": 15583.009999999998
+      },
+      "earned_without_novelty_guard": {
+        "automation_rate": 0.6832710668327107,
+        "auto_error_rate": 0.004860267314702308,
+        "leaked_dollars": 2127.5299999999997,
+        "total_cost": 8231.52
+      },
+      "earned_without_value_tiers": {
+        "automation_rate": 0.6878372768783728,
+        "auto_error_rate": 0.0051297525648762825,
+        "leaked_dollars": 3191.0,
+        "total_cost": 9207.0
+      },
+      "earned_autonomy": {
+        "automation_rate": 0.6359485263594853,
+        "auto_error_rate": 0.00587467362924282,
+        "leaked_dollars": 2437.3199999999997,
+        "total_cost": 9453.310000000001
+      },
+      "ablation_without_wilson": {
+        "automation_rate": 0.773557492735575,
+        "auto_error_rate": 0.008049369466058493,
+        "leaked_dollars": 5281.9400000000005,
+        "total_cost": 9675.939999999999
+      },
+      "ablation_without_novelty_guard": {
+        "automation_rate": 0.6309672063096721,
+        "auto_error_rate": 0.007236842105263158,
+        "leaked_dollars": 2911.97,
+        "total_cost": 10023.96
+      },
+      "_meta": {
+        "seed": 4,
+        "drift_rate": 0.35,
+        "leniency": 0.06,
+        "audit_per_month": 500,
+        "approve_budget": 0.01,
+        "engine_accuracy": 0.9066002490660025,
+        "verifier_auc": 0.9747041615791615
+      }
+    },
+    {
+      "trust_engine_everywhere": {
+        "automation_rate": 0.8787404654801486,
+        "auto_error_rate": 0.05875806810594258,
+        "leaked_dollars": 24636.14,
+        "total_cost": 31586.14
+      },
+      "thresholds_from_reviewer_history": {
+        "automation_rate": 0.7997261881478585,
+        "auto_error_rate": 0.010271460014673514,
+        "leaked_dollars": 6781.88,
+        "total_cost": 10877.880000000001
+      },
+      "point_estimate_thresholds": {
+        "automation_rate": 0.8359084686094269,
+        "auto_error_rate": 0.014974262985493684,
+        "leaked_dollars": 10515.24,
+        "total_cost": 13931.24
+      },
+      "earned_without_novelty_guard": {
+        "automation_rate": 0.5327596323097985,
+        "auto_error_rate": 0.0022026431718061676,
+        "leaked_dollars": 731.26,
+        "total_cost": 10287.25
+      },
+      "earned_without_value_tiers": {
+        "automation_rate": 0.5229806375904557,
+        "auto_error_rate": 0.0029917726252804786,
+        "leaked_dollars": 2258.0199999999995,
+        "total_cost": 12014.02
+      },
+      "earned_autonomy": {
+        "automation_rate": 0.3090162331312341,
+        "auto_error_rate": 0.0037974683544303796,
+        "leaked_dollars": 396.34000000000003,
+        "total_cost": 14528.34
+      },
+      "ablation_without_wilson": {
+        "automation_rate": 0.7582632505378447,
+        "auto_error_rate": 0.007222078927005417,
+        "leaked_dollars": 3770.2200000000003,
+        "total_cost": 8744.22
+      },
+      "ablation_without_novelty_guard": {
+        "automation_rate": 0.3025620966164678,
+        "auto_error_rate": 0.0019392372333548805,
+        "leaked_dollars": 188.64,
+        "total_cost": 14452.64
+      },
+      "_meta": {
+        "seed": 5,
+        "drift_rate": 0.35,
+        "leniency": 0.06,
+        "audit_per_month": 500,
+        "approve_budget": 0.01,
+        "engine_accuracy": 0.8898885194601995,
+        "verifier_auc": 0.9830509632463451
+      }
+    },
+    {
+      "trust_engine_everywhere": {
+        "automation_rate": 0.8879038613081166,
+        "auto_error_rate": 0.05191923674284447,
+        "leaked_dollars": 23290.93,
+        "total_cost": 29526.93
+      },
+      "thresholds_from_reviewer_history": {
+        "automation_rate": 0.7742316784869976,
+        "auto_error_rate": 0.004325699745547073,
+        "leaked_dollars": 2291.6600000000003,
+        "total_cost": 6875.66
+      },
+      "point_estimate_thresholds": {
+        "automation_rate": 0.8406225374310481,
+        "auto_error_rate": 0.011014764471525662,
+        "leaked_dollars": 6775.0,
+        "total_cost": 10251.000000000002
+      },
+      "earned_without_novelty_guard": {
+        "automation_rate": 0.7360126083530338,
+        "auto_error_rate": 0.0032119914346895075,
+        "leaked_dollars": 1453.74,
+        "total_cost": 6813.740000000001
+      },
+      "earned_without_value_tiers": {
+        "automation_rate": 0.6970055161544523,
+        "auto_error_rate": 0.001978518937252685,
+        "leaked_dollars": 846.13,
+        "total_cost": 6998.13
+      },
+      "earned_autonomy": {
+        "automation_rate": 0.6284475965327029,
+        "auto_error_rate": 0.0028213166144200625,
+        "leaked_dollars": 1048.15,
+        "total_cost": 8592.15
+      },
+      "ablation_without_wilson": {
+        "automation_rate": 0.7653664302600472,
+        "auto_error_rate": 0.006177606177606178,
+        "leaked_dollars": 2301.5,
+        "total_cost": 7305.5
+      },
+      "ablation_without_novelty_guard": {
+        "automation_rate": 0.663317572892041,
+        "auto_error_rate": 0.003564003564003564,
+        "leaked_dollars": 1194.1799999999998,
+        "total_cost": 8030.18
+      },
+      "_meta": {
+        "seed": 6,
+        "drift_rate": 0.35,
+        "leniency": 0.06,
+        "audit_per_month": 500,
+        "approve_budget": 0.01,
+        "engine_accuracy": 0.9038613081166272,
+        "verifier_auc": 0.985809381565595
+      }
+    },
+    {
+      "trust_engine_everywhere": {
+        "automation_rate": 0.8881524440762221,
+        "auto_error_rate": 0.058069029850746266,
+        "leaked_dollars": 21759.58,
+        "total_cost": 28449.58
+      },
+      "thresholds_from_reviewer_history": {
+        "automation_rate": 0.8177299088649544,
+        "auto_error_rate": 0.014184397163120567,
+        "leaked_dollars": 11956.849999999999,
+        "total_cost": 15476.849999999999
+      },
+      "point_estimate_thresholds": {
+        "automation_rate": 0.8448632974316487,
+        "auto_error_rate": 0.014219171365530768,
+        "leaked_dollars": 10917.75,
+        "total_cost": 13943.75
+      },
+      "earned_without_novelty_guard": {
+        "automation_rate": 0.7943247721623861,
+        "auto_error_rate": 0.008604954367666232,
+        "leaked_dollars": 5512.389999999999,
+        "total_cost": 9484.390000000001
+      },
+      "earned_without_value_tiers": {
+        "automation_rate": 0.7506213753106876,
+        "auto_error_rate": 0.004966887417218543,
+        "leaked_dollars": 6516.28,
+        "total_cost": 11332.279999999999
+      },
+      "earned_autonomy": {
+        "automation_rate": 0.658036454018227,
+        "auto_error_rate": 0.004091910607491344,
+        "leaked_dollars": 1205.49,
+        "total_cost": 7809.490000000001
+      },
+      "ablation_without_wilson": {
+        "automation_rate": 0.776304888152444,
+        "auto_error_rate": 0.005869797225186766,
+        "leaked_dollars": 5056.5,
+        "total_cost": 9406.5
+      },
+      "ablation_without_novelty_guard": {
+        "automation_rate": 0.7040182270091135,
+        "auto_error_rate": 0.0088261253309797,
+        "leaked_dollars": 2877.07,
+        "total_cost": 8593.06
+      },
+      "_meta": {
+        "seed": 7,
+        "drift_rate": 0.35,
+        "leniency": 0.06,
+        "audit_per_month": 500,
+        "approve_budget": 0.01,
+        "engine_accuracy": 0.899751449875725,
+        "verifier_auc": 0.9823704777559623
+      }
+    },
+    {
+      "trust_engine_everywhere": {
+        "automation_rate": 0.8864197530864197,
+        "auto_error_rate": 0.05252686032630322,
+        "leaked_dollars": 32123.93,
+        "total_cost": 39709.93
+      },
+      "thresholds_from_reviewer_history": {
+        "automation_rate": 0.7932980599647266,
+        "auto_error_rate": 0.005335704757670075,
+        "leaked_dollars": 3230.68,
+        "total_cost": 7918.68
+      },
+      "point_estimate_thresholds": {
+        "automation_rate": 0.8428571428571429,
+        "auto_error_rate": 0.012764176605984516,
+        "leaked_dollars": 15356.12,
+        "total_cost": 18920.120000000003
+      },
+      "earned_without_novelty_guard": {
+        "automation_rate": 0.8047619047619048,
+        "auto_error_rate": 0.006574621959237344,
+        "leaked_dollars": 5674.18,
+        "total_cost": 10102.18
+      },
+      "earned_without_value_tiers": {
+        "automation_rate": 0.7610229276895943,
+        "auto_error_rate": 0.004171494785631518,
+        "leaked_dollars": 4297.82,
+        "total_cost": 9717.830000000002
+      },
+      "earned_autonomy": {
+        "automation_rate": 0.67336860670194,
+        "auto_error_rate": 0.0026191723415400735,
+        "leaked_dollars": 472.34000000000003,
+        "total_cost": 7880.34
+      },
+      "ablation_without_wilson": {
+        "automation_rate": 0.7876543209876543,
+        "auto_error_rate": 0.006493506493506494,
+        "leaked_dollars": 7887.78,
+        "total_cost": 12703.779999999999
+      },
+      "ablation_without_novelty_guard": {
+        "automation_rate": 0.7148148148148148,
+        "auto_error_rate": 0.004934616333580064,
+        "leaked_dollars": 1492.38,
+        "total_cost": 7960.38
+      },
+      "_meta": {
+        "seed": 8,
+        "drift_rate": 0.35,
+        "leniency": 0.06,
+        "audit_per_month": 500,
+        "approve_budget": 0.01,
+        "engine_accuracy": 0.8971781305114639,
+        "verifier_auc": 0.982322679712623
+      }
+    },
+    {
+      "trust_engine_everywhere": {
+        "automation_rate": 0.8898057417913013,
+        "auto_error_rate": 0.05757341576506955,
+        "leaked_dollars": 32144.62,
+        "total_cost": 39838.62
+      },
+      "thresholds_from_reviewer_history": {
+        "automation_rate": 0.8126181880694516,
+        "auto_error_rate": 0.010789083985614555,
+        "leaked_dollars": 8893.31,
+        "total_cost": 13253.320000000002
+      },
+      "point_estimate_thresholds": {
+        "automation_rate": 0.8470001719099192,
+        "auto_error_rate": 0.014207428455449563,
+        "leaked_dollars": 13129.449999999999,
+        "total_cost": 16689.46
+      },
+      "earned_without_novelty_guard": {
+        "automation_rate": 0.7720474471376998,
+        "auto_error_rate": 0.008016032064128256,
+        "leaked_dollars": 6231.870000000001,
+        "total_cost": 11535.87
+      },
+      "earned_without_value_tiers": {
+        "automation_rate": 0.7613890321471549,
+        "auto_error_rate": 0.005193045834274102,
+        "leaked_dollars": 5738.33,
+        "total_cost": 11290.32
+      },
+      "earned_autonomy": {
+        "automation_rate": 0.669417225373904,
+        "auto_error_rate": 0.005136106831022085,
+        "leaked_dollars": 982.8900000000001,
+        "total_cost": 8674.880000000001
+      },
+      "ablation_without_wilson": {
+        "automation_rate": 0.7625924015815713,
+        "auto_error_rate": 0.0063119927862939585,
+        "leaked_dollars": 4581.77,
+        "total_cost": 10105.76
+      },
+      "ablation_without_novelty_guard": {
+        "automation_rate": 0.6977823620422898,
+        "auto_error_rate": 0.008130081300813009,
+        "leaked_dollars": 2318.6099999999997,
+        "total_cost": 9350.6
+      },
+      "_meta": {
+        "seed": 9,
+        "drift_rate": 0.35,
+        "leniency": 0.06,
+        "audit_per_month": 500,
+        "approve_budget": 0.01,
+        "engine_accuracy": 0.8970259583977995,
+        "verifier_auc": 0.9781258338447048
+      }
+    }
+  ],
+  "sensitivity": {
+    "leniency": [
+      {
+        "value": 0.0,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8007875050637949,
+            "sd": 0.00905015348993355
+          },
+          "auto_error_rate": {
+            "mean": 0.006797924386592179,
+            "sd": 0.001033682597665233
+          },
+          "leaked_dollars": {
+            "mean": 3671.94,
+            "sd": 711.9900748605979
+          },
+          "total_cost": {
+            "mean": 7298.600000000001,
+            "sd": 644.6084479744276
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.848010943439724,
+            "sd": 0.006528188378767539
+          },
+          "auto_error_rate": {
+            "mean": 0.013061637079519581,
+            "sd": 0.002549462829318667
+          },
+          "leaked_dollars": {
+            "mean": 8534.563333333334,
+            "sd": 2454.091532937053
+          },
+          "total_cost": {
+            "mean": 11372.563333333334,
+            "sd": 2437.3203712342242
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7986304128537808,
+            "sd": 0.022276361145356527
+          },
+          "auto_error_rate": {
+            "mean": 0.007781113192815573,
+            "sd": 0.0021484034793461918
+          },
+          "leaked_dollars": {
+            "mean": 4262.356666666667,
+            "sd": 1912.7496665620758
+          },
+          "total_cost": {
+            "mean": 7917.0199999999995,
+            "sd": 1769.5270814259945
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.7533413811795019,
+            "sd": 0.0038866382169206277
+          },
+          "auto_error_rate": {
+            "mean": 0.004957042221401229,
+            "sd": 0.0017472301894876695
+          },
+          "leaked_dollars": {
+            "mean": 4386.2733333333335,
+            "sd": 1203.7895264677018
+          },
+          "total_cost": {
+            "mean": 8883.606666666667,
+            "sd": 1205.9807229111643
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.6652487619887192,
+            "sd": 0.007005988868088372
+          },
+          "auto_error_rate": {
+            "mean": 0.004371246116616659,
+            "sd": 0.0012140726844127414
+          },
+          "leaked_dollars": {
+            "mean": 1719.5966666666666,
+            "sd": 159.53538238689683
+          },
+          "total_cost": {
+            "mean": 7822.260000000001,
+            "sd": 495.4862261455913
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.7817957220689714,
+            "sd": 0.006093577190441028
+          },
+          "auto_error_rate": {
+            "mean": 0.00642470918985431,
+            "sd": 0.0005898023857875833
+          },
+          "leaked_dollars": {
+            "mean": 4524.06,
+            "sd": 1081.7252903117317
+          },
+          "total_cost": {
+            "mean": 8560.06,
+            "sd": 1073.120255935932
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7068986348086076,
+            "sd": 0.031748748052938126
+          },
+          "auto_error_rate": {
+            "mean": 0.007995540461066255,
+            "sd": 0.0010074208718835295
+          },
+          "leaked_dollars": {
+            "mean": 2708.6033333333335,
+            "sd": 570.9141793066043
+          },
+          "total_cost": {
+            "mean": 8027.273333333332,
+            "sd": 423.36192948035995
+          }
+        },
+        "within_budget_share": 1.0
+      },
+      {
+        "value": 0.03,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8006749069484815,
+            "sd": 0.011514395201359997
+          },
+          "auto_error_rate": {
+            "mean": 0.00701580287539606,
+            "sd": 0.0010390563268466602
+          },
+          "leaked_dollars": {
+            "mean": 4112.95,
+            "sd": 1110.7167294589563
+          },
+          "total_cost": {
+            "mean": 7739.613333333334,
+            "sd": 1118.1449790314914
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.849296414132017,
+            "sd": 0.00533695075512414
+          },
+          "auto_error_rate": {
+            "mean": 0.01376619916607791,
+            "sd": 0.0029985240869979677
+          },
+          "leaked_dollars": {
+            "mean": 9277.663333333332,
+            "sd": 2425.026826085297
+          },
+          "total_cost": {
+            "mean": 12114.333333333334,
+            "sd": 2391.977365953392
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7928644006284881,
+            "sd": 0.032270725408962524
+          },
+          "auto_error_rate": {
+            "mean": 0.007826572297035064,
+            "sd": 0.0024952814411465145
+          },
+          "leaked_dollars": {
+            "mean": 4431.166666666667,
+            "sd": 2207.295725573112
+          },
+          "total_cost": {
+            "mean": 8181.833333333332,
+            "sd": 1925.6223618439133
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.7536792239129205,
+            "sd": 0.003083146406263911
+          },
+          "auto_error_rate": {
+            "mean": 0.004862435551424627,
+            "sd": 0.001875903732047134
+          },
+          "leaked_dollars": {
+            "mean": 4214.7733333333335,
+            "sd": 1230.570712081729
+          },
+          "total_cost": {
+            "mean": 8706.773333333333,
+            "sd": 1186.1438181912567
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.6659629697109812,
+            "sd": 0.00756059602028683
+          },
+          "auto_error_rate": {
+            "mean": 0.004571722760421045,
+            "sd": 0.0010883543903162085
+          },
+          "leaked_dollars": {
+            "mean": 1800.17,
+            "sd": 180.1951200782087
+          },
+          "total_cost": {
+            "mean": 7889.500000000001,
+            "sd": 548.4540198594591
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.7813208216323592,
+            "sd": 0.005581220372436056
+          },
+          "auto_error_rate": {
+            "mean": 0.0066115895976691,
+            "sd": 0.0010911867543317519
+          },
+          "leaked_dollars": {
+            "mean": 4637.953333333334,
+            "sd": 1111.1524486915973
+          },
+          "total_cost": {
+            "mean": 8703.286666666667,
+            "sd": 1135.2985881402883
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7125352612332984,
+            "sd": 0.024369982542337736
+          },
+          "auto_error_rate": {
+            "mean": 0.008539201431186054,
+            "sd": 0.001536748099710254
+          },
+          "leaked_dollars": {
+            "mean": 2906.443333333334,
+            "sd": 797.6234763554377
+          },
+          "total_cost": {
+            "mean": 8129.1033333333335,
+            "sd": 753.0137481702002
+          }
+        },
+        "within_budget_share": 1.0
+      },
+      {
+        "value": 0.06,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8012417084346931,
+            "sd": 0.014814217423820997
+          },
+          "auto_error_rate": {
+            "mean": 0.007919501232207032,
+            "sd": 0.002378947083629604
+          },
+          "leaked_dollars": {
+            "mean": 4380.169999999999,
+            "sd": 1887.7632142564912
+          },
+          "total_cost": {
+            "mean": 7997.506666666668,
+            "sd": 1721.0235774774662
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.8496492217672659,
+            "sd": 0.0063651279789583405
+          },
+          "auto_error_rate": {
+            "mean": 0.014513042427499595,
+            "sd": 0.003079806057687188
+          },
+          "leaked_dollars": {
+            "mean": 9611.343333333332,
+            "sd": 2849.4469573117744
+          },
+          "total_cost": {
+            "mean": 12460.013333333334,
+            "sd": 2800.7459697432982
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7934266922434016,
+            "sd": 0.02864216716989621
+          },
+          "auto_error_rate": {
+            "mean": 0.007907266533909137,
+            "sd": 0.003321259592292281
+          },
+          "leaked_dollars": {
+            "mean": 4482.493333333333,
+            "sd": 2575.801449769243
+          },
+          "total_cost": {
+            "mean": 8227.823333333334,
+            "sd": 2303.4941198391057
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.7519149635838819,
+            "sd": 0.0035186734500324978
+          },
+          "auto_error_rate": {
+            "mean": 0.004668963964638082,
+            "sd": 0.0014622334610847761
+          },
+          "leaked_dollars": {
+            "mean": 4229.056666666666,
+            "sd": 1164.01036461594
+          },
+          "total_cost": {
+            "mean": 8753.056666666665,
+            "sd": 1117.0706194924894
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.6659589740131726,
+            "sd": 0.007844070591751686
+          },
+          "auto_error_rate": {
+            "mean": 0.004688953150197003,
+            "sd": 0.0007251367727544281
+          },
+          "leaked_dollars": {
+            "mean": 1893.25,
+            "sd": 119.39041335048631
+          },
+          "total_cost": {
+            "mean": 7982.580000000002,
+            "sd": 437.4271467341731
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.779216226162526,
+            "sd": 0.008432029290442065
+          },
+          "auto_error_rate": {
+            "mean": 0.007070356696847303,
+            "sd": 0.0011001062135867603
+          },
+          "leaked_dollars": {
+            "mean": 4413.673333333333,
+            "sd": 1564.0531182262748
+          },
+          "total_cost": {
+            "mean": 8535.01,
+            "sd": 1625.3296557621782
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7131610292499886,
+            "sd": 0.02381153385616747
+          },
+          "auto_error_rate": {
+            "mean": 0.008801344961221069,
+            "sd": 0.0021130524329978774
+          },
+          "leaked_dollars": {
+            "mean": 3144.22,
+            "sd": 916.0907549473466
+          },
+          "total_cost": {
+            "mean": 8356.216666666667,
+            "sd": 861.018816306202
+          }
+        },
+        "within_budget_share": 1.0
+      },
+      {
+        "value": 0.1,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.806043402356055,
+            "sd": 0.00896392868783994
+          },
+          "auto_error_rate": {
+            "mean": 0.008723853948233119,
+            "sd": 0.0016471231928112753
+          },
+          "leaked_dollars": {
+            "mean": 5315.156666666667,
+            "sd": 1158.0749873964696
+          },
+          "total_cost": {
+            "mean": 8848.49,
+            "sd": 1040.3650047459314
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.8495001769706464,
+            "sd": 0.005902089801776751
+          },
+          "auto_error_rate": {
+            "mean": 0.014896923293968226,
+            "sd": 0.00347529044737829
+          },
+          "leaked_dollars": {
+            "mean": 9912.436666666666,
+            "sd": 3538.815066181523
+          },
+          "total_cost": {
+            "mean": 12795.103333333333,
+            "sd": 3434.8759559310633
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7952597712118991,
+            "sd": 0.022709946389573136
+          },
+          "auto_error_rate": {
+            "mean": 0.008303303836945152,
+            "sd": 0.0033319590350394356
+          },
+          "leaked_dollars": {
+            "mean": 4797.223333333333,
+            "sd": 2783.4736770505547
+          },
+          "total_cost": {
+            "mean": 8517.22,
+            "sd": 2513.6907245522466
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.7523256800648954,
+            "sd": 0.004094192581805991
+          },
+          "auto_error_rate": {
+            "mean": 0.004760157975761912,
+            "sd": 0.001609293747626043
+          },
+          "leaked_dollars": {
+            "mean": 4275.650000000001,
+            "sd": 1195.6277703365708
+          },
+          "total_cost": {
+            "mean": 8791.653333333334,
+            "sd": 1178.7420540700723
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.6658716207647758,
+            "sd": 0.007882587979744088
+          },
+          "auto_error_rate": {
+            "mean": 0.004704016733581327,
+            "sd": 0.00038528022624758783
+          },
+          "leaked_dollars": {
+            "mean": 1914.1866666666667,
+            "sd": 126.5798618791051
+          },
+          "total_cost": {
+            "mean": 8004.850000000001,
+            "sd": 366.81776565482784
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.7810711370413911,
+            "sd": 0.0062043370741930075
+          },
+          "auto_error_rate": {
+            "mean": 0.00757354523829255,
+            "sd": 0.0005152054929104447
+          },
+          "leaked_dollars": {
+            "mean": 4574.546666666666,
+            "sd": 1527.65184261118
+          },
+          "total_cost": {
+            "mean": 8693.876666666665,
+            "sd": 1578.5595383555644
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7152586512136088,
+            "sd": 0.01878850195841087
+          },
+          "auto_error_rate": {
+            "mean": 0.008438039272157543,
+            "sd": 0.0021114927364785717
+          },
+          "leaked_dollars": {
+            "mean": 2872.6966666666667,
+            "sd": 1079.6176659046168
+          },
+          "total_cost": {
+            "mean": 8051.36,
+            "sd": 1023.0649249681079
+          }
+        },
+        "within_budget_share": 1.0
+      },
+      {
+        "value": 0.15,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8056718000291697,
+            "sd": 0.011446719361189251
+          },
+          "auto_error_rate": {
+            "mean": 0.008257268903460667,
+            "sd": 0.0016481859803981933
+          },
+          "leaked_dollars": {
+            "mean": 4690.236666666667,
+            "sd": 1219.6964216694798
+          },
+          "total_cost": {
+            "mean": 8226.23,
+            "sd": 1145.38910227049
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.8481091973243718,
+            "sd": 0.006772439377367222
+          },
+          "auto_error_rate": {
+            "mean": 0.014234846619966676,
+            "sd": 0.003455114829502143
+          },
+          "leaked_dollars": {
+            "mean": 9764.49,
+            "sd": 3726.3722640525325
+          },
+          "total_cost": {
+            "mean": 12632.49,
+            "sd": 3630.9290395572307
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7924407550244531,
+            "sd": 0.02704586273977514
+          },
+          "auto_error_rate": {
+            "mean": 0.008382025397739657,
+            "sd": 0.0033709005001772464
+          },
+          "leaked_dollars": {
+            "mean": 4686.623333333333,
+            "sd": 2539.0614655091226
+          },
+          "total_cost": {
+            "mean": 8453.293333333333,
+            "sd": 2239.761135865459
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.7529505366898563,
+            "sd": 0.004551010010323029
+          },
+          "auto_error_rate": {
+            "mean": 0.004955398537326368,
+            "sd": 0.0014625130721395117
+          },
+          "leaked_dollars": {
+            "mean": 4135.19,
+            "sd": 1137.7349204450043
+          },
+          "total_cost": {
+            "mean": 8639.19333333333,
+            "sd": 1025.971942907472
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.665955783209418,
+            "sd": 0.0075096664992235235
+          },
+          "auto_error_rate": {
+            "mean": 0.0045861800529691105,
+            "sd": 0.0007589936103878785
+          },
+          "leaked_dollars": {
+            "mean": 1908.0366666666669,
+            "sd": 83.04872445337934
+          },
+          "total_cost": {
+            "mean": 7997.363333333335,
+            "sd": 439.3977305737169
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.7811066814884117,
+            "sd": 0.005681912135755543
+          },
+          "auto_error_rate": {
+            "mean": 0.007277962603316472,
+            "sd": 0.0007420315317102565
+          },
+          "leaked_dollars": {
+            "mean": 4755.906666666667,
+            "sd": 1423.7510580271166
+          },
+          "total_cost": {
+            "mean": 8835.243333333332,
+            "sd": 1450.3577518782504
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.709781378323085,
+            "sd": 0.023969685838974446
+          },
+          "auto_error_rate": {
+            "mean": 0.00885441516762664,
+            "sd": 0.0031219643815676924
+          },
+          "leaked_dollars": {
+            "mean": 3059.9,
+            "sd": 1479.6524062427636
+          },
+          "total_cost": {
+            "mean": 8334.56,
+            "sd": 1325.4163288944344
+          }
+        },
+        "within_budget_share": 1.0
+      }
+    ],
+    "drift_rate": [
+      {
+        "value": 0.0,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8750908309853784,
+            "sd": 0.007811932985559953
+          },
+          "auto_error_rate": {
+            "mean": 0.0328309256355658,
+            "sd": 0.0022370585790459038
+          },
+          "leaked_dollars": {
+            "mean": 15644.6,
+            "sd": 1255.7428499896
+          },
+          "total_cost": {
+            "mean": 20259.266666666666,
+            "sd": 1303.6046097775716
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8020001216235105,
+            "sd": 0.012768682675128273
+          },
+          "auto_error_rate": {
+            "mean": 0.003504031796485382,
+            "sd": 0.0017287754353008432
+          },
+          "leaked_dollars": {
+            "mean": 2914.6633333333334,
+            "sd": 1337.4873377095328
+          },
+          "total_cost": {
+            "mean": 6517.329999999999,
+            "sd": 1288.8095922982577
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.8525231996299384,
+            "sd": 0.006991393606985664
+          },
+          "auto_error_rate": {
+            "mean": 0.008735984581683445,
+            "sd": 0.0015835237352858737
+          },
+          "leaked_dollars": {
+            "mean": 7600.806666666666,
+            "sd": 791.9047446715628
+          },
+          "total_cost": {
+            "mean": 10376.143333333333,
+            "sd": 765.3227691852193
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.8116796027900448,
+            "sd": 0.0050956217011476615
+          },
+          "auto_error_rate": {
+            "mean": 0.00475556908301463,
+            "sd": 0.001565111195504864
+          },
+          "leaked_dollars": {
+            "mean": 4183.206666666666,
+            "sd": 895.8098425633273
+          },
+          "total_cost": {
+            "mean": 7615.21,
+            "sd": 930.191568495437
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.8107248948272824,
+            "sd": 0.0054592839160249335
+          },
+          "auto_error_rate": {
+            "mean": 0.004760336088169545,
+            "sd": 0.0015625003425695785
+          },
+          "leaked_dollars": {
+            "mean": 4183.206666666666,
+            "sd": 895.8098425633273
+          },
+          "total_cost": {
+            "mean": 7632.543333333334,
+            "sd": 919.3164457537647
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.7257085418198299,
+            "sd": 0.007801880769874288
+          },
+          "auto_error_rate": {
+            "mean": 0.005248167117836693,
+            "sd": 0.0006902202742367004
+          },
+          "leaked_dollars": {
+            "mean": 2181.1233333333334,
+            "sd": 55.16538528219804
+          },
+          "total_cost": {
+            "mean": 7179.786666666667,
+            "sd": 315.14164058932863
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.8437731907166935,
+            "sd": 0.00916772330055934
+          },
+          "auto_error_rate": {
+            "mean": 0.008074345580604969,
+            "sd": 0.001744136792853225
+          },
+          "leaked_dollars": {
+            "mean": 5180.876666666666,
+            "sd": 1698.366641933753
+          },
+          "total_cost": {
+            "mean": 8113.543333333332,
+            "sd": 1732.589914097774
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7260068444084196,
+            "sd": 0.007809205824997874
+          },
+          "auto_error_rate": {
+            "mean": 0.0052461258456551405,
+            "sd": 0.0006913030729797298
+          },
+          "leaked_dollars": {
+            "mean": 2181.1233333333334,
+            "sd": 55.16538528219804
+          },
+          "total_cost": {
+            "mean": 7174.453333333334,
+            "sd": 318.21441455932444
+          }
+        },
+        "within_budget_share": 1.0
+      },
+      {
+        "value": 0.15,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8807452158974144,
+            "sd": 0.008824991876747566
+          },
+          "auto_error_rate": {
+            "mean": 0.04042499244410034,
+            "sd": 0.0019536503614666747
+          },
+          "leaked_dollars": {
+            "mean": 18218.28666666667,
+            "sd": 1653.358554498489
+          },
+          "total_cost": {
+            "mean": 23188.95333333334,
+            "sd": 1860.1599581039618
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8019626858252611,
+            "sd": 0.01222566213042351
+          },
+          "auto_error_rate": {
+            "mean": 0.005357578399267957,
+            "sd": 0.001785311127416646
+          },
+          "leaked_dollars": {
+            "mean": 3535.463333333333,
+            "sd": 1540.6409830435293
+          },
+          "total_cost": {
+            "mean": 7139.459999999999,
+            "sd": 1468.4739696705558
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.8523274281869263,
+            "sd": 0.006436631752444716
+          },
+          "auto_error_rate": {
+            "mean": 0.011056751959222526,
+            "sd": 0.0010954218606705308
+          },
+          "leaked_dollars": {
+            "mean": 8552.993333333334,
+            "sd": 827.9024152841519
+          },
+          "total_cost": {
+            "mean": 11352.326666666666,
+            "sd": 856.6541012762004
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.802447954409748,
+            "sd": 0.017049820789463956
+          },
+          "auto_error_rate": {
+            "mean": 0.0057718450146161384,
+            "sd": 0.0020275634223262565
+          },
+          "leaked_dollars": {
+            "mean": 3972.1966666666667,
+            "sd": 1787.0616966499322
+          },
+          "total_cost": {
+            "mean": 7561.530000000002,
+            "sd": 1718.2845789624023
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.7850416413665724,
+            "sd": 0.0051749005001129845
+          },
+          "auto_error_rate": {
+            "mean": 0.004737628222053063,
+            "sd": 0.0015644485310850398
+          },
+          "leaked_dollars": {
+            "mean": 4403.956666666667,
+            "sd": 1014.2179510013287
+          },
+          "total_cost": {
+            "mean": 8322.623333333333,
+            "sd": 972.2912588999932
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.6995088499287743,
+            "sd": 0.006838193370370884
+          },
+          "auto_error_rate": {
+            "mean": 0.00478209436766644,
+            "sd": 0.0008780726115702214
+          },
+          "leaked_dollars": {
+            "mean": 1891.846666666667,
+            "sd": 159.8657600405205
+          },
+          "total_cost": {
+            "mean": 7369.18,
+            "sd": 475.09149424084563
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.8148884651927494,
+            "sd": 0.008463820257858884
+          },
+          "auto_error_rate": {
+            "mean": 0.007202002592499355,
+            "sd": 0.00116648315598975
+          },
+          "leaked_dollars": {
+            "mean": 4540.53,
+            "sd": 1540.116107019208
+          },
+          "total_cost": {
+            "mean": 8021.2,
+            "sd": 1591.513459038283
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7222980026101888,
+            "sd": 0.013995492431024468
+          },
+          "auto_error_rate": {
+            "mean": 0.0070235264851129355,
+            "sd": 0.0007945347566173053
+          },
+          "leaked_dollars": {
+            "mean": 2776.646666666667,
+            "sd": 518.1552609337604
+          },
+          "total_cost": {
+            "mean": 7831.32,
+            "sd": 670.3899847849756
+          }
+        },
+        "within_budget_share": 1.0
+      },
+      {
+        "value": 0.35,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8012417084346931,
+            "sd": 0.014814217423820997
+          },
+          "auto_error_rate": {
+            "mean": 0.007919501232207032,
+            "sd": 0.002378947083629604
+          },
+          "leaked_dollars": {
+            "mean": 4380.169999999999,
+            "sd": 1887.7632142564912
+          },
+          "total_cost": {
+            "mean": 7997.506666666668,
+            "sd": 1721.0235774774662
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.8496492217672659,
+            "sd": 0.0063651279789583405
+          },
+          "auto_error_rate": {
+            "mean": 0.014513042427499595,
+            "sd": 0.003079806057687188
+          },
+          "leaked_dollars": {
+            "mean": 9611.343333333332,
+            "sd": 2849.4469573117744
+          },
+          "total_cost": {
+            "mean": 12460.013333333334,
+            "sd": 2800.7459697432982
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7934266922434016,
+            "sd": 0.02864216716989621
+          },
+          "auto_error_rate": {
+            "mean": 0.007907266533909137,
+            "sd": 0.003321259592292281
+          },
+          "leaked_dollars": {
+            "mean": 4482.493333333333,
+            "sd": 2575.801449769243
+          },
+          "total_cost": {
+            "mean": 8227.823333333334,
+            "sd": 2303.4941198391057
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.7519149635838819,
+            "sd": 0.0035186734500324978
+          },
+          "auto_error_rate": {
+            "mean": 0.004668963964638082,
+            "sd": 0.0014622334610847761
+          },
+          "leaked_dollars": {
+            "mean": 4229.056666666666,
+            "sd": 1164.01036461594
+          },
+          "total_cost": {
+            "mean": 8753.056666666665,
+            "sd": 1117.0706194924894
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.6659589740131726,
+            "sd": 0.007844070591751686
+          },
+          "auto_error_rate": {
+            "mean": 0.004688953150197003,
+            "sd": 0.0007251367727544281
+          },
+          "leaked_dollars": {
+            "mean": 1893.25,
+            "sd": 119.39041335048631
+          },
+          "total_cost": {
+            "mean": 7982.580000000002,
+            "sd": 437.4271467341731
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.779216226162526,
+            "sd": 0.008432029290442065
+          },
+          "auto_error_rate": {
+            "mean": 0.007070356696847303,
+            "sd": 0.0011001062135867603
+          },
+          "leaked_dollars": {
+            "mean": 4413.673333333333,
+            "sd": 1564.0531182262748
+          },
+          "total_cost": {
+            "mean": 8535.01,
+            "sd": 1625.3296557621782
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7131610292499886,
+            "sd": 0.02381153385616747
+          },
+          "auto_error_rate": {
+            "mean": 0.008801344961221069,
+            "sd": 0.0021130524329978774
+          },
+          "leaked_dollars": {
+            "mean": 3144.22,
+            "sd": 916.0907549473466
+          },
+          "total_cost": {
+            "mean": 8356.216666666667,
+            "sd": 861.018816306202
+          }
+        },
+        "within_budget_share": 1.0
+      },
+      {
+        "value": 0.5,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8953037942192209,
+            "sd": 0.008443197785649488
+          },
+          "auto_error_rate": {
+            "mean": 0.05884350235652996,
+            "sd": 0.0034654483007459424
+          },
+          "leaked_dollars": {
+            "mean": 24465.926666666666,
+            "sd": 2336.9807152035582
+          },
+          "total_cost": {
+            "mean": 30299.926666666666,
+            "sd": 2641.9983844115695
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8011622400842384,
+            "sd": 0.01625508771647455
+          },
+          "auto_error_rate": {
+            "mean": 0.009293947566404946,
+            "sd": 0.0018492383539344562
+          },
+          "leaked_dollars": {
+            "mean": 4935.8533333333335,
+            "sd": 1918.0020084539362
+          },
+          "total_cost": {
+            "mean": 8553.186666666666,
+            "sd": 1727.0060985512855
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.8489385151843409,
+            "sd": 0.008725318635867967
+          },
+          "auto_error_rate": {
+            "mean": 0.0165178393622387,
+            "sd": 0.0038592093334179024
+          },
+          "leaked_dollars": {
+            "mean": 10441.663333333332,
+            "sd": 3797.4460259012685
+          },
+          "total_cost": {
+            "mean": 13312.333333333334,
+            "sd": 3662.577840733674
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.791769657154128,
+            "sd": 0.030321076646333062
+          },
+          "auto_error_rate": {
+            "mean": 0.009206788475018286,
+            "sd": 0.003079788881593358
+          },
+          "leaked_dollars": {
+            "mean": 5072.566666666667,
+            "sd": 2825.3043226762907
+          },
+          "total_cost": {
+            "mean": 8847.233333333335,
+            "sd": 2518.586404261989
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.7284863591215857,
+            "sd": 0.005024444613156342
+          },
+          "auto_error_rate": {
+            "mean": 0.004623626210699048,
+            "sd": 0.0012016729860833948
+          },
+          "leaked_dollars": {
+            "mean": 4160.49,
+            "sd": 1063.3658343204374
+          },
+          "total_cost": {
+            "mean": 9111.156666666668,
+            "sd": 976.8613775420406
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.6419876775216532,
+            "sd": 0.007043116971405368
+          },
+          "auto_error_rate": {
+            "mean": 0.004085952939897503,
+            "sd": 0.00048319275089361884
+          },
+          "leaked_dollars": {
+            "mean": 1599.8366666666668,
+            "sd": 33.6972303510739
+          },
+          "total_cost": {
+            "mean": 8126.5,
+            "sd": 362.5962888668341
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.7535528446931838,
+            "sd": 0.009553593384229753
+          },
+          "auto_error_rate": {
+            "mean": 0.006756174652507998,
+            "sd": 0.0007163040765530823
+          },
+          "leaked_dollars": {
+            "mean": 4120.256666666667,
+            "sd": 1551.5218635047763
+          },
+          "total_cost": {
+            "mean": 8719.59,
+            "sd": 1580.370222321339
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7118863526962712,
+            "sd": 0.026049754875441825
+          },
+          "auto_error_rate": {
+            "mean": 0.010123679101795466,
+            "sd": 0.001946525701937674
+          },
+          "leaked_dollars": {
+            "mean": 3520.0399999999995,
+            "sd": 1046.7945710119059
+          },
+          "total_cost": {
+            "mean": 8753.38,
+            "sd": 947.4246040187053
+          }
+        },
+        "within_budget_share": 1.0
+      }
+    ],
+    "audit_per_month": [
+      {
+        "value": 100,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8012417084346931,
+            "sd": 0.014814217423820997
+          },
+          "auto_error_rate": {
+            "mean": 0.007919501232207032,
+            "sd": 0.002378947083629604
+          },
+          "leaked_dollars": {
+            "mean": 4380.169999999999,
+            "sd": 1887.7632142564912
+          },
+          "total_cost": {
+            "mean": 7997.506666666668,
+            "sd": 1721.0235774774662
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.824095354107158,
+            "sd": 0.003960532689477343
+          },
+          "auto_error_rate": {
+            "mean": 0.01509611751954798,
+            "sd": 0.004359459777172341
+          },
+          "leaked_dollars": {
+            "mean": 10835.686666666666,
+            "sd": 2884.884627577563
+          },
+          "total_cost": {
+            "mean": 14043.686666666666,
+            "sd": 2796.329342983999
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "auto_error_rate": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "leaked_dollars": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "total_cost": {
+            "mean": 18248.0,
+            "sd": 1425.684397052868
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "auto_error_rate": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "leaked_dollars": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "total_cost": {
+            "mean": 18248.0,
+            "sd": 1425.684397052868
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "auto_error_rate": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "leaked_dollars": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "total_cost": {
+            "mean": 18248.0,
+            "sd": 1425.684397052868
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.6809306240878271,
+            "sd": 0.005049007897367586
+          },
+          "auto_error_rate": {
+            "mean": 0.0057624660382717624,
+            "sd": 0.0009720514904617782
+          },
+          "leaked_dollars": {
+            "mean": 2860.8333333333335,
+            "sd": 456.2640970242273
+          },
+          "total_cost": {
+            "mean": 8684.833333333334,
+            "sd": 588.9433009495336
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "auto_error_rate": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "leaked_dollars": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "total_cost": {
+            "mean": 18248.0,
+            "sd": 1425.684397052868
+          }
+        },
+        "within_budget_share": 1.0
+      },
+      {
+        "value": 250,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8012417084346931,
+            "sd": 0.014814217423820997
+          },
+          "auto_error_rate": {
+            "mean": 0.007919501232207032,
+            "sd": 0.002378947083629604
+          },
+          "leaked_dollars": {
+            "mean": 4380.169999999999,
+            "sd": 1887.7632142564912
+          },
+          "total_cost": {
+            "mean": 7997.506666666668,
+            "sd": 1721.0235774774662
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.8246183381876104,
+            "sd": 0.013057125979690548
+          },
+          "auto_error_rate": {
+            "mean": 0.011101355833760167,
+            "sd": 0.0032079118994824555
+          },
+          "leaked_dollars": {
+            "mean": 7225.423333333333,
+            "sd": 2276.9029508157205
+          },
+          "total_cost": {
+            "mean": 10445.423333333334,
+            "sd": 2017.9475135476976
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.5037304605436659,
+            "sd": 0.062275504426734025
+          },
+          "auto_error_rate": {
+            "mean": 0.0020201039966278966,
+            "sd": 0.0005816318568101726
+          },
+          "leaked_dollars": {
+            "mean": 525.41,
+            "sd": 321.8425281096331
+          },
+          "total_cost": {
+            "mean": 9608.076666666666,
+            "sd": 1275.2455395857432
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.5463237894286253,
+            "sd": 0.007055398449813855
+          },
+          "auto_error_rate": {
+            "mean": 0.00260593149658536,
+            "sd": 0.0016080799365735476
+          },
+          "leaked_dollars": {
+            "mean": 1984.7666666666664,
+            "sd": 1078.7674895144612
+          },
+          "total_cost": {
+            "mean": 10256.776666666667,
+            "sd": 908.8134604160153
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.480541389420206,
+            "sd": 0.03389423719820154
+          },
+          "auto_error_rate": {
+            "mean": 0.0034858282147230534,
+            "sd": 0.0018644913260115624
+          },
+          "leaked_dollars": {
+            "mean": 1198.7466666666667,
+            "sd": 876.4394888600884
+          },
+          "total_cost": {
+            "mean": 10664.076666666666,
+            "sd": 1136.170811336628
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.7378311270827235,
+            "sd": 0.025824489740158246
+          },
+          "auto_error_rate": {
+            "mean": 0.006129653862890837,
+            "sd": 0.0008723761880424878
+          },
+          "leaked_dollars": {
+            "mean": 3766.58,
+            "sd": 974.7313305213904
+          },
+          "total_cost": {
+            "mean": 8590.583333333332,
+            "sd": 178.13706136942207
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.4180580050360024,
+            "sd": 0.12970314986933257
+          },
+          "auto_error_rate": {
+            "mean": 0.002864300755822597,
+            "sd": 0.0007773268942916175
+          },
+          "leaked_dollars": {
+            "mean": 644.9633333333334,
+            "sd": 616.7902866723286
+          },
+          "total_cost": {
+            "mean": 11302.296666666667,
+            "sd": 2501.99327291928
+          }
+        },
+        "within_budget_share": 1.0
+      },
+      {
+        "value": 500,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8012417084346931,
+            "sd": 0.014814217423820997
+          },
+          "auto_error_rate": {
+            "mean": 0.007919501232207032,
+            "sd": 0.002378947083629604
+          },
+          "leaked_dollars": {
+            "mean": 4380.169999999999,
+            "sd": 1887.7632142564912
+          },
+          "total_cost": {
+            "mean": 7997.506666666668,
+            "sd": 1721.0235774774662
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.8496492217672659,
+            "sd": 0.0063651279789583405
+          },
+          "auto_error_rate": {
+            "mean": 0.014513042427499595,
+            "sd": 0.003079806057687188
+          },
+          "leaked_dollars": {
+            "mean": 9611.343333333332,
+            "sd": 2849.4469573117744
+          },
+          "total_cost": {
+            "mean": 12460.013333333334,
+            "sd": 2800.7459697432982
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7934266922434016,
+            "sd": 0.02864216716989621
+          },
+          "auto_error_rate": {
+            "mean": 0.007907266533909137,
+            "sd": 0.003321259592292281
+          },
+          "leaked_dollars": {
+            "mean": 4482.493333333333,
+            "sd": 2575.801449769243
+          },
+          "total_cost": {
+            "mean": 8227.823333333334,
+            "sd": 2303.4941198391057
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.7519149635838819,
+            "sd": 0.0035186734500324978
+          },
+          "auto_error_rate": {
+            "mean": 0.004668963964638082,
+            "sd": 0.0014622334610847761
+          },
+          "leaked_dollars": {
+            "mean": 4229.056666666666,
+            "sd": 1164.01036461594
+          },
+          "total_cost": {
+            "mean": 8753.056666666665,
+            "sd": 1117.0706194924894
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.6659589740131726,
+            "sd": 0.007844070591751686
+          },
+          "auto_error_rate": {
+            "mean": 0.004688953150197003,
+            "sd": 0.0007251367727544281
+          },
+          "leaked_dollars": {
+            "mean": 1893.25,
+            "sd": 119.39041335048631
+          },
+          "total_cost": {
+            "mean": 7982.580000000002,
+            "sd": 437.4271467341731
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.779216226162526,
+            "sd": 0.008432029290442065
+          },
+          "auto_error_rate": {
+            "mean": 0.007070356696847303,
+            "sd": 0.0011001062135867603
+          },
+          "leaked_dollars": {
+            "mean": 4413.673333333333,
+            "sd": 1564.0531182262748
+          },
+          "total_cost": {
+            "mean": 8535.01,
+            "sd": 1625.3296557621782
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7131610292499886,
+            "sd": 0.02381153385616747
+          },
+          "auto_error_rate": {
+            "mean": 0.008801344961221069,
+            "sd": 0.0021130524329978774
+          },
+          "leaked_dollars": {
+            "mean": 3144.22,
+            "sd": 916.0907549473466
+          },
+          "total_cost": {
+            "mean": 8356.216666666667,
+            "sd": 861.018816306202
+          }
+        },
+        "within_budget_share": 1.0
+      },
+      {
+        "value": 1000,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8012417084346931,
+            "sd": 0.014814217423820997
+          },
+          "auto_error_rate": {
+            "mean": 0.007919501232207032,
+            "sd": 0.002378947083629604
+          },
+          "leaked_dollars": {
+            "mean": 4380.169999999999,
+            "sd": 1887.7632142564912
+          },
+          "total_cost": {
+            "mean": 7997.506666666668,
+            "sd": 1721.0235774774662
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.8466654687125305,
+            "sd": 0.004961324823272381
+          },
+          "auto_error_rate": {
+            "mean": 0.012639919450700662,
+            "sd": 0.0008898022330812589
+          },
+          "leaked_dollars": {
+            "mean": 7912.860000000001,
+            "sd": 478.7106667915388
+          },
+          "total_cost": {
+            "mean": 10816.193333333335,
+            "sd": 540.6129260694132
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.8046116804526573,
+            "sd": 0.0151545258665991
+          },
+          "auto_error_rate": {
+            "mean": 0.0077284578967932475,
+            "sd": 0.0009761812317537914
+          },
+          "leaked_dollars": {
+            "mean": 4291.176666666667,
+            "sd": 949.8770182151654
+          },
+          "total_cost": {
+            "mean": 7844.513333333333,
+            "sd": 860.1878098609247
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.7549219544991862,
+            "sd": 0.007529494692731627
+          },
+          "auto_error_rate": {
+            "mean": 0.004843537204732178,
+            "sd": 0.0007555654222531191
+          },
+          "leaked_dollars": {
+            "mean": 4192.32,
+            "sd": 311.331661255324
+          },
+          "total_cost": {
+            "mean": 8657.653333333334,
+            "sd": 264.89412344054284
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.6686574980299196,
+            "sd": 0.008113948632764326
+          },
+          "auto_error_rate": {
+            "mean": 0.004973913026951778,
+            "sd": 0.0008366718431580519
+          },
+          "leaked_dollars": {
+            "mean": 2041.0066666666664,
+            "sd": 350.2691756825503
+          },
+          "total_cost": {
+            "mean": 8079.670000000001,
+            "sd": 617.5559658039089
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.7743123695413653,
+            "sd": 0.006748538957831956
+          },
+          "auto_error_rate": {
+            "mean": 0.006395501428286953,
+            "sd": 0.00045296648022820254
+          },
+          "leaked_dollars": {
+            "mean": 3313.3300000000004,
+            "sd": 459.6294041942922
+          },
+          "total_cost": {
+            "mean": 7525.333333333333,
+            "sd": 576.7382141260733
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7250850042624123,
+            "sd": 0.010825594511891136
+          },
+          "auto_error_rate": {
+            "mean": 0.00937387082184085,
+            "sd": 0.000560362594401954
+          },
+          "leaked_dollars": {
+            "mean": 3452.283333333333,
+            "sd": 274.2096762211966
+          },
+          "total_cost": {
+            "mean": 8458.95,
+            "sd": 395.70556819433347
+          }
+        },
+        "within_budget_share": 1.0
+      }
+    ],
+    "approve_budget": [
+      {
+        "value": 0.005,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "auto_error_rate": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "leaked_dollars": {
+            "mean": 0.0,
+            "sd": 0.0
+          },
+          "total_cost": {
+            "mean": 18248.0,
+            "sd": 1425.684397052868
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.8224739621052674,
+            "sd": 0.027269453326006103
+          },
+          "auto_error_rate": {
+            "mean": 0.00939154459666705,
+            "sd": 0.0030482599543284273
+          },
+          "leaked_dollars": {
+            "mean": 5256.756666666667,
+            "sd": 2806.207187011204
+          },
+          "total_cost": {
+            "mean": 8584.086666666668,
+            "sd": 2498.7314496026456
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.2988403544795063,
+            "sd": 0.3703389914643066
+          },
+          "auto_error_rate": {
+            "mean": 0.002544025023697875,
+            "sd": 0.0026988139799157514
+          },
+          "leaked_dollars": {
+            "mean": 1013.07,
+            "sd": 1373.201509939455
+          },
+          "total_cost": {
+            "mean": 13614.403333333334,
+            "sd": 4897.18205095883
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.42894392804513104,
+            "sd": 0.2902508297816922
+          },
+          "auto_error_rate": {
+            "mean": 0.0020829374634714066,
+            "sd": 0.0023215864565747303
+          },
+          "leaked_dollars": {
+            "mean": 1565.676666666667,
+            "sd": 1815.3482700113864
+          },
+          "total_cost": {
+            "mean": 11811.013333333334,
+            "sd": 2980.614341664037
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.37984110320519404,
+            "sd": 0.09422331872602939
+          },
+          "auto_error_rate": {
+            "mean": 0.0021189316168568188,
+            "sd": 0.0019636354309291917
+          },
+          "leaked_dollars": {
+            "mean": 572.7766666666668,
+            "sd": 573.5998589899874
+          },
+          "total_cost": {
+            "mean": 11846.11,
+            "sd": 1261.1900827789589
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.7665916892621268,
+            "sd": 0.018886468658849565
+          },
+          "auto_error_rate": {
+            "mean": 0.005982947960771075,
+            "sd": 0.000318731718984646
+          },
+          "leaked_dollars": {
+            "mean": 3233.4233333333336,
+            "sd": 498.52909386848563
+          },
+          "total_cost": {
+            "mean": 7574.759999999999,
+            "sd": 490.382551484043
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.19510968895607927,
+            "sd": 0.23143158468780325
+          },
+          "auto_error_rate": {
+            "mean": 0.001259644150527476,
+            "sd": 0.0021817676681705274
+          },
+          "leaked_dollars": {
+            "mean": 251.50666666666666,
+            "sd": 435.62232510895643
+          },
+          "total_cost": {
+            "mean": 14810.173333333334,
+            "sd": 3238.990473918275
+          }
+        },
+        "within_budget_share": 1.0
+      },
+      {
+        "value": 0.01,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8012417084346931,
+            "sd": 0.014814217423820997
+          },
+          "auto_error_rate": {
+            "mean": 0.007919501232207032,
+            "sd": 0.002378947083629604
+          },
+          "leaked_dollars": {
+            "mean": 4380.169999999999,
+            "sd": 1887.7632142564912
+          },
+          "total_cost": {
+            "mean": 7997.506666666668,
+            "sd": 1721.0235774774662
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.8496492217672659,
+            "sd": 0.0063651279789583405
+          },
+          "auto_error_rate": {
+            "mean": 0.014513042427499595,
+            "sd": 0.003079806057687188
+          },
+          "leaked_dollars": {
+            "mean": 9611.343333333332,
+            "sd": 2849.4469573117744
+          },
+          "total_cost": {
+            "mean": 12460.013333333334,
+            "sd": 2800.7459697432982
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7934266922434016,
+            "sd": 0.02864216716989621
+          },
+          "auto_error_rate": {
+            "mean": 0.007907266533909137,
+            "sd": 0.003321259592292281
+          },
+          "leaked_dollars": {
+            "mean": 4482.493333333333,
+            "sd": 2575.801449769243
+          },
+          "total_cost": {
+            "mean": 8227.823333333334,
+            "sd": 2303.4941198391057
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.7519149635838819,
+            "sd": 0.0035186734500324978
+          },
+          "auto_error_rate": {
+            "mean": 0.004668963964638082,
+            "sd": 0.0014622334610847761
+          },
+          "leaked_dollars": {
+            "mean": 4229.056666666666,
+            "sd": 1164.01036461594
+          },
+          "total_cost": {
+            "mean": 8753.056666666665,
+            "sd": 1117.0706194924894
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.6659589740131726,
+            "sd": 0.007844070591751686
+          },
+          "auto_error_rate": {
+            "mean": 0.004688953150197003,
+            "sd": 0.0007251367727544281
+          },
+          "leaked_dollars": {
+            "mean": 1893.25,
+            "sd": 119.39041335048631
+          },
+          "total_cost": {
+            "mean": 7982.580000000002,
+            "sd": 437.4271467341731
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.779216226162526,
+            "sd": 0.008432029290442065
+          },
+          "auto_error_rate": {
+            "mean": 0.007070356696847303,
+            "sd": 0.0011001062135867603
+          },
+          "leaked_dollars": {
+            "mean": 4413.673333333333,
+            "sd": 1564.0531182262748
+          },
+          "total_cost": {
+            "mean": 8535.01,
+            "sd": 1625.3296557621782
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7131610292499886,
+            "sd": 0.02381153385616747
+          },
+          "auto_error_rate": {
+            "mean": 0.008801344961221069,
+            "sd": 0.0021130524329978774
+          },
+          "leaked_dollars": {
+            "mean": 3144.22,
+            "sd": 916.0907549473466
+          },
+          "total_cost": {
+            "mean": 8356.216666666667,
+            "sd": 861.018816306202
+          }
+        },
+        "within_budget_share": 1.0
+      },
+      {
+        "value": 0.02,
+        "trust_engine_everywhere": {
+          "automation_rate": {
+            "mean": 0.8895796198656695,
+            "sd": 0.008034322894819843
+          },
+          "auto_error_rate": {
+            "mean": 0.05155606147358318,
+            "sd": 0.002724438163520614
+          },
+          "leaked_dollars": {
+            "mean": 21888.436666666665,
+            "sd": 2164.4444612263283
+          },
+          "total_cost": {
+            "mean": 27367.77,
+            "sd": 2532.4867566090047
+          }
+        },
+        "thresholds_from_reviewer_history": {
+          "automation_rate": {
+            "mean": 0.8271936651962064,
+            "sd": 0.005789404937710408
+          },
+          "auto_error_rate": {
+            "mean": 0.016460931642016938,
+            "sd": 0.002239923596615711
+          },
+          "leaked_dollars": {
+            "mean": 11846.279999999999,
+            "sd": 1256.3684887802622
+          },
+          "total_cost": {
+            "mean": 14994.283333333335,
+            "sd": 1375.4542675906507
+          }
+        },
+        "point_estimate_thresholds": {
+          "automation_rate": {
+            "mean": 0.85565210828116,
+            "sd": 0.006382071192456903
+          },
+          "auto_error_rate": {
+            "mean": 0.017519046097608806,
+            "sd": 0.001909610581327109
+          },
+          "leaked_dollars": {
+            "mean": 12515.320000000002,
+            "sd": 1636.4025492830308
+          },
+          "total_cost": {
+            "mean": 15253.319999999998,
+            "sd": 1682.2193029744958
+          }
+        },
+        "earned_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.8262166993323752,
+            "sd": 0.004767623055086146
+          },
+          "auto_error_rate": {
+            "mean": 0.015478930055865828,
+            "sd": 0.00306413086132916
+          },
+          "leaked_dollars": {
+            "mean": 11058.570000000002,
+            "sd": 1903.713902113445
+          },
+          "total_cost": {
+            "mean": 14225.23666666667,
+            "sd": 1909.1059254094137
+          }
+        },
+        "earned_without_value_tiers": {
+          "automation_rate": {
+            "mean": 0.7605677273444402,
+            "sd": 0.007069003966289456
+          },
+          "auto_error_rate": {
+            "mean": 0.0076419216710259035,
+            "sd": 0.0008847775037834754
+          },
+          "leaked_dollars": {
+            "mean": 7281.53,
+            "sd": 456.2668650033665
+          },
+          "total_cost": {
+            "mean": 11645.529999999999,
+            "sd": 595.4501007641201
+          }
+        },
+        "earned_autonomy": {
+          "automation_rate": {
+            "mean": 0.6782406271206094,
+            "sd": 0.016360324755729808
+          },
+          "auto_error_rate": {
+            "mean": 0.005639225817418191,
+            "sd": 0.001246890645179063
+          },
+          "leaked_dollars": {
+            "mean": 2650.13,
+            "sd": 760.458553571462
+          },
+          "total_cost": {
+            "mean": 8506.13,
+            "sd": 927.8526277917197
+          }
+        },
+        "ablation_without_wilson": {
+          "automation_rate": {
+            "mean": 0.7844459188086614,
+            "sd": 0.002908370066336585
+          },
+          "auto_error_rate": {
+            "mean": 0.007822296061372412,
+            "sd": 0.0005296653928657943
+          },
+          "leaked_dollars": {
+            "mean": 6188.333333333333,
+            "sd": 1224.9114245664182
+          },
+          "total_cost": {
+            "mean": 10218.996666666666,
+            "sd": 1032.3734321132702
+          }
+        },
+        "ablation_without_novelty_guard": {
+          "automation_rate": {
+            "mean": 0.7442527840491117,
+            "sd": 0.017106150610001234
+          },
+          "auto_error_rate": {
+            "mean": 0.015408996737788748,
+            "sd": 0.0021831330345574956
+          },
+          "leaked_dollars": {
+            "mean": 6845.900000000001,
+            "sd": 1680.5297545417043
+          },
+          "total_cost": {
+            "mean": 11496.566666666666,
+            "sd": 1714.9212778531069
+          }
+        },
+        "within_budget_share": 1.0
+      }
+    ]
+  },
+  "seconds": 2865.5
+}

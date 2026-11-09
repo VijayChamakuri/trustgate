@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: fct_card_transactions
+    description: Governed ledger with agent decisions. Schema is contract-enforced.
+    config:
+      contract: {enforced: true}
+    columns:
+      - {name: txn_id, data_type: varchar, constraints: [{type: not_null}], data_tests: [unique]}
+      - {name: posted_date, data_type: date}
+      - {name: posted_month, data_type: date}
+      - {name: employee_id, data_type: varchar}
+      - {name: dept_id, data_type: varchar}
+      - {name: merchant_key, data_type: varchar, constraints: [{type: not_null}]}
+      - {name: merchant_id, data_type: varchar}
+      - {name: merchant_name, data_type: varchar}
+      - {name: resolution_action, data_type: varchar}
+      - {name: descriptor_raw, data_type: varchar}
+      - {name: mcc, data_type: varchar}
+      - {name: amount, data_type: "decimal(12,2)"}
+      - name: gl_code
+        data_type: varchar
+        data_tests:
+          - not_null
+          - relationships: {arguments: {to: ref('stg_gl_accounts'), field: gl_code}}
+      - {name: gl_name, data_type: varchar}
+      - {name: gl_confidence, data_type: double}
+      - name: gl_route
+        data_type: varchar
+        data_tests:
+          - accepted_values: {arguments: {values: ['auto', 'human']}}
+      - name: decision
+        data_type: varchar
+        data_tests:
+          - not_null
+          - accepted_values: {arguments: {values: ['APPROVE', 'REJECT', 'NEEDS_REVIEW']}}
+      - {name: decision_confidence, data_type: double}
+      - {name: cited_sections, data_type: varchar}
+      - {name: rationale, data_type: varchar}
+      - name: decision_route
+        data_type: varchar
+        data_tests:
+          - accepted_values: {arguments: {values: ['auto', 'human']}}
+      - {name: extractor, data_type: varchar}
+  - name: mart_spend_monthly
+    description: Spend by month, department, GL account and merchant. The one definition of "spend".
+  - name: mart_saas_subscriptions
+    description: Recurring software spend with price-creep, orphaned-owner and duplicate-tool flags.
+  - name: mart_review_queue
+    description: Transactions routed to a human, ranked by expected risk.

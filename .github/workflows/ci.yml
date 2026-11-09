@@ -1,0 +1,43 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - run: uv sync --frozen --all-groups
+      - name: Lint and format
+        run: uv run ruff check . && uv run ruff format --check .
+      - name: Types
+        run: uv run mypy src
+      - name: Unit tests (includes README-matches-results check)
+        run: uv run pytest -q --cov=earned_autonomy --cov-report=term
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - run: uv sync --frozen --all-groups
+      - name: Real warehouse (download, checksum, dbt build + tests)
+        run: uv run ea real --skip-benchmark
+      - name: Synthetic benchmark end to end
+        run: uv run ea synthetic
+      - name: Guardrail - earned autonomy stays inside its budget
+        run: |
+          uv run python - <<'PY'
+          import json
+          m = json.load(open("results/metrics.json"))
+          e = m["autonomy"]["earned_autonomy"]
+          assert e["auto_error_ci"][1] <= m["budgets"]["approve"] * 1.25, e
+          assert m["merchant_resolution"]["protected_pair_confusions"] == 0
+          print("ok", e["automation_rate"], e["auto_error_rate"])
+          PY

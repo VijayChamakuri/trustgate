@@ -1,0 +1,646 @@
+{
+  "data": {
+    "transactions": 14964,
+    "live_transactions": 4828,
+    "audited_per_month": 500,
+    "extractor": "rules"
+  },
+  "budgets": {
+    "approve": 0.01,
+    "reject": 0.03,
+    "gl": 0.01
+  },
+  "costs": {
+    "review_minutes": 4.0,
+    "reviewer_hourly": 60.0,
+    "wrongful_reject": 30.0,
+    "per_review": 4.0
+  },
+  "merchant_resolution": {
+    "descriptors": 8406,
+    "match_rate": 0.8784201760647157,
+    "match_precision": 1.0,
+    "wrong_merge_rate": 0.0,
+    "registry_recall": 0.9668718083016892,
+    "new_vendor_recall": 0.8218465539661899,
+    "new_vendor_wrongly_matched": 0,
+    "escalation_rate": 0.016773733047822984,
+    "guardrail_blocks": 136,
+    "protected_pair_confusions": 0,
+    "wrong_merge_examples": []
+  },
+  "policy_engine": {
+    "live_accuracy": 0.899751449875725,
+    "confusion": {
+      "APPROVE": {
+        "APPROVE": 3898,
+        "NEEDS_REVIEW": 78,
+        "REJECT": 20
+      },
+      "NEEDS_REVIEW": {
+        "APPROVE": 222,
+        "NEEDS_REVIEW": 305,
+        "REJECT": 13
+      },
+      "REJECT": {
+        "APPROVE": 105,
+        "NEEDS_REVIEW": 46,
+        "REJECT": 141
+      }
+    },
+    "section_recall": {
+      "2.1": {
+        "support": 238,
+        "recall": 0.5672268907563025,
+        "precision": 0.4856115107913669
+      },
+      "2.2": {
+        "support": 67,
+        "recall": 0.8059701492537313,
+        "precision": 0.2634146341463415
+      },
+      "3.1": {
+        "support": 24,
+        "recall": 0.625,
+        "precision": 1.0
+      },
+      "3.2": {
+        "support": 34,
+        "recall": 0.7647058823529411,
+        "precision": 0.6842105263157895
+      },
+      "4.1": {
+        "support": 12,
+        "recall": 1.0,
+        "precision": 1.0
+      },
+      "5.1": {
+        "support": 26,
+        "recall": 1.0,
+        "precision": 1.0
+      },
+      "5.2": {
+        "support": 37,
+        "recall": 0.4594594594594595,
+        "precision": 1.0
+      },
+      "6.1": {
+        "support": 36,
+        "recall": 1.0,
+        "precision": 0.4675324675324675
+      },
+      "6.2": {
+        "support": 50,
+        "recall": 1.0,
+        "precision": 0.6493506493506493
+      },
+      "7.1": {
+        "support": 44,
+        "recall": 1.0,
+        "precision": 1.0
+      },
+      "7.2": {
+        "support": 17,
+        "recall": 1.0,
+        "precision": 0.85
+      },
+      "8.1": {
+        "support": 27,
+        "recall": 1.0,
+        "precision": 0.17532467532467533
+      },
+      "9.1": {
+        "support": 17,
+        "recall": 1.0,
+        "precision": 1.0
+      }
+    }
+  },
+  "verifier": {
+    "live_auc": 0.9823704777559623,
+    "live_brier": 0.022504665957111394,
+    "shadow_auc": 0.9941586097620229
+  },
+  "extractor_quality": {
+    "alcohol_on_meals": {
+      "precision": 1.0,
+      "recall": 0.8319088319088319,
+      "support": 351
+    },
+    "premium_cabin": {
+      "precision": 1.0,
+      "recall": 0.625,
+      "support": 24
+    },
+    "personal_memo": {
+      "precision": 1.0,
+      "recall": 0.3953488372093023,
+      "support": 43
+    },
+    "meal_type_accuracy": 0.7186034392912976,
+    "attendee_count_parsed": 0.6540342298288508,
+    "nightly_rate_parsed": 0.7441860465116279
+  },
+  "autonomy": {
+    "human_reviews_everything": {
+      "automation_rate": 0.0,
+      "auto_errors": 0,
+      "auto_error_rate": 0.0,
+      "auto_error_ci": [
+        0.0,
+        1.0
+      ],
+      "leaked_dollars": 0.0,
+      "wrong_auto_rejects": 0,
+      "human_queue": 4828,
+      "total_cost": 19312.0
+    },
+    "trust_engine_everywhere": {
+      "automation_rate": 0.8881524440762221,
+      "auto_errors": 249,
+      "auto_error_rate": 0.058069029850746266,
+      "auto_error_ci": [
+        0.05145635954803173,
+        0.06547283933013748
+      ],
+      "leaked_dollars": 21759.58,
+      "wrong_auto_rejects": 151,
+      "human_queue": 540,
+      "total_cost": 28449.58
+    },
+    "point_estimate_thresholds": {
+      "automation_rate": 0.8448632974316487,
+      "auto_errors": 58,
+      "auto_error_rate": 0.014219171365530768,
+      "auto_error_ci": [
+        0.011015963619935155,
+        0.01833653440496985
+      ],
+      "leaked_dollars": 10917.75,
+      "wrong_auto_rejects": 1,
+      "human_queue": 749,
+      "total_cost": 13943.75
+    },
+    "thresholds_from_reviewer_history": {
+      "automation_rate": 0.8177299088649544,
+      "auto_errors": 56,
+      "auto_error_rate": 0.014184397163120567,
+      "auto_error_ci": [
+        0.010939651643867239,
+        0.01837366901149506
+      ],
+      "leaked_dollars": 11956.849999999999,
+      "wrong_auto_rejects": 0,
+      "human_queue": 880,
+      "total_cost": 15476.849999999999
+    },
+    "earned_without_novelty_guard": {
+      "automation_rate": 0.7943247721623861,
+      "auto_errors": 33,
+      "auto_error_rate": 0.008604954367666232,
+      "auto_error_ci": [
+        0.006133789201699304,
+        0.012059615808812204
+      ],
+      "leaked_dollars": 5512.389999999999,
+      "wrong_auto_rejects": 0,
+      "human_queue": 993,
+      "total_cost": 9484.390000000001
+    },
+    "earned_without_value_tiers": {
+      "automation_rate": 0.7506213753106876,
+      "auto_errors": 18,
+      "auto_error_rate": 0.004966887417218543,
+      "auto_error_ci": [
+        0.0031441315134316393,
+        0.007838045878216333
+      ],
+      "leaked_dollars": 6516.28,
+      "wrong_auto_rejects": 0,
+      "human_queue": 1204,
+      "total_cost": 11332.279999999999
+    },
+    "earned_autonomy": {
+      "automation_rate": 0.658036454018227,
+      "auto_errors": 13,
+      "auto_error_rate": 0.004091910607491344,
+      "auto_error_ci": [
+        0.002392919026212872,
+        0.0069887490203820925
+      ],
+      "leaked_dollars": 1205.49,
+      "wrong_auto_rejects": 0,
+      "human_queue": 1651,
+      "total_cost": 7809.490000000001
+    },
+    "ablation_without_wilson": {
+      "automation_rate": 0.776304888152444,
+      "auto_errors": 22,
+      "auto_error_rate": 0.005869797225186766,
+      "auto_error_ci": [
+        0.003879565118874428,
+        0.008871932705553982
+      ],
+      "leaked_dollars": 5056.5,
+      "wrong_auto_rejects": 1,
+      "human_queue": 1080,
+      "total_cost": 9406.5
+    },
+    "ablation_without_novelty_guard": {
+      "automation_rate": 0.7040182270091135,
+      "auto_errors": 30,
+      "auto_error_rate": 0.0088261253309797,
+      "auto_error_ci": [
+        0.006189441662292159,
+        0.012571819514249235
+      ],
+      "leaked_dollars": 2877.07,
+      "wrong_auto_rejects": 0,
+      "human_queue": 1429,
+      "total_cost": 8593.06
+    },
+    "ablation_without_value_tiers": {
+      "automation_rate": 0.7506213753106876,
+      "auto_errors": 18,
+      "auto_error_rate": 0.004966887417218543,
+      "auto_error_ci": [
+        0.0031441315134316393,
+        0.007838045878216333
+      ],
+      "leaked_dollars": 6516.28,
+      "wrong_auto_rejects": 0,
+      "human_queue": 1204,
+      "total_cost": 11332.279999999999
+    },
+    "novel_share_live": 0.09154929577464789,
+    "earned_by_month": [
+      {
+        "month_index": 6,
+        "phase": "shadow",
+        "audited_so_far": 0,
+        "tau_approve": NaN,
+        "tau_approve_high": null,
+        "tau_reject": null,
+        "novel_held": 1,
+        "n": 1320,
+        "auto": 0,
+        "automation_rate": 0.0,
+        "auto_errors": 0,
+        "auto_error_rate": 0.0,
+        "auto_error_ci": [
+          0.0,
+          1.0
+        ],
+        "wrong_auto_approvals": 0,
+        "wrong_auto_rejects": 0,
+        "leaked_dollars": 0.0,
+        "human_queue": 1320,
+        "total_cost": 5280.0
+      },
+      {
+        "month_index": 7,
+        "phase": "shadow",
+        "audited_so_far": 499,
+        "tau_approve": NaN,
+        "tau_approve_high": null,
+        "tau_reject": null,
+        "novel_held": 2,
+        "n": 1134,
+        "auto": 0,
+        "automation_rate": 0.0,
+        "auto_errors": 0,
+        "auto_error_rate": 0.0,
+        "auto_error_ci": [
+          0.0,
+          1.0
+        ],
+        "wrong_auto_approvals": 0,
+        "wrong_auto_rejects": 0,
+        "leaked_dollars": 0.0,
+        "human_queue": 1134,
+        "total_cost": 4536.0
+      },
+      {
+        "month_index": 8,
+        "phase": "live",
+        "audited_so_far": 998,
+        "tau_approve": 0.64,
+        "tau_approve_high": null,
+        "tau_reject": null,
+        "novel_held": 100,
+        "n": 1213,
+        "auto": 797,
+        "automation_rate": 0.6570486397361912,
+        "auto_errors": 3,
+        "auto_error_rate": 0.0037641154328732747,
+        "auto_error_ci": [
+          0.001280923815679993,
+          0.01100814808068503
+        ],
+        "wrong_auto_approvals": 3,
+        "wrong_auto_rejects": 0,
+        "leaked_dollars": 488.09,
+        "human_queue": 416,
+        "total_cost": 2152.09
+      },
+      {
+        "month_index": 9,
+        "phase": "live",
+        "audited_so_far": 1456,
+        "tau_approve": 0.51,
+        "tau_approve_high": null,
+        "tau_reject": null,
+        "novel_held": 105,
+        "n": 1203,
+        "auto": 782,
+        "automation_rate": 0.6500415627597672,
+        "auto_errors": 4,
+        "auto_error_rate": 0.005115089514066497,
+        "auto_error_ci": [
+          0.001990870554870335,
+          0.013077815042837903
+        ],
+        "wrong_auto_approvals": 4,
+        "wrong_auto_rejects": 0,
+        "leaked_dollars": 272.19,
+        "human_queue": 421,
+        "total_cost": 1956.19
+      },
+      {
+        "month_index": 10,
+        "phase": "live",
+        "audited_so_far": 1919,
+        "tau_approve": 0.51,
+        "tau_approve_high": null,
+        "tau_reject": null,
+        "novel_held": 127,
+        "n": 1214,
+        "auto": 804,
+        "automation_rate": 0.6622734761120264,
+        "auto_errors": 3,
+        "auto_error_rate": 0.0037313432835820895,
+        "auto_error_ci": [
+          0.0012697645105749448,
+          0.01091282177861838
+        ],
+        "wrong_auto_approvals": 3,
+        "wrong_auto_rejects": 0,
+        "leaked_dollars": 235.39,
+        "human_queue": 410,
+        "total_cost": 1875.39
+      },
+      {
+        "month_index": 11,
+        "phase": "live",
+        "audited_so_far": 2372,
+        "tau_approve": 0.51,
+        "tau_approve_high": null,
+        "tau_reject": null,
+        "novel_held": 110,
+        "n": 1198,
+        "auto": 794,
+        "automation_rate": 0.662771285475793,
+        "auto_errors": 3,
+        "auto_error_rate": 0.003778337531486146,
+        "auto_error_ci": [
+          0.0012857666469751425,
+          0.011049513940048647
+        ],
+        "wrong_auto_approvals": 3,
+        "wrong_auto_rejects": 0,
+        "leaked_dollars": 209.82,
+        "human_queue": 404,
+        "total_cost": 1825.82
+      }
+    ]
+  },
+  "gl_coding": {
+    "live_accuracy_model": 0.9763877381938691,
+    "live_accuracy_merchant_lookup": 0.8146230323115161,
+    "shadow_accuracy_model": 0.9979625101874491,
+    "by_month": [
+      {
+        "month_index": 8,
+        "tau": 0.5,
+        "n": 1213,
+        "auto": 1109,
+        "coverage": 0.9142621599340478,
+        "auto_errors": 3,
+        "auto_error_rate": 0.002705139765554554,
+        "overall_accuracy": 0.9769167353668591
+      },
+      {
+        "month_index": 9,
+        "tau": 0.5,
+        "n": 1203,
+        "auto": 1097,
+        "coverage": 0.9118869492934331,
+        "auto_errors": 2,
+        "auto_error_rate": 0.0018231540565177757,
+        "overall_accuracy": 0.9750623441396509
+      },
+      {
+        "month_index": 10,
+        "tau": 0.5,
+        "n": 1214,
+        "auto": 1086,
+        "coverage": 0.8945634266886326,
+        "auto_errors": 1,
+        "auto_error_rate": 0.0009208103130755065,
+        "overall_accuracy": 0.9777594728171335
+      },
+      {
+        "month_index": 11,
+        "tau": 0.5,
+        "n": 1198,
+        "auto": 1086,
+        "coverage": 0.9065108514190318,
+        "auto_errors": 3,
+        "auto_error_rate": 0.0027624309392265192,
+        "overall_accuracy": 0.9757929883138564
+      }
+    ],
+    "auto_post_coverage": 0.9067937033968517,
+    "auto_post_error_rate": 0.002055733211512106,
+    "unguarded_auto_post_coverage": 0.9850869925434963,
+    "unguarded_auto_post_error_rate": 0.018713204373423043
+  },
+  "failure_analysis": {
+    "engine_misses": [
+      {
+        "section": "2.1",
+        "count": 61,
+        "example_memo": "wayne foods buying committee dinner, 3",
+        "example_receipt": "Burger | Sparkling water | Garden salad",
+        "example_descriptor": "CLV*BLACK SHEEP COFFEE DENVER",
+        "median_confidence": 0.5321428571428571
+      },
+      {
+        "section": "5.2",
+        "count": 13,
+        "example_memo": "meant to use my own card",
+        "example_receipt": null,
+        "example_descriptor": "Amazon.com*6H2AWAJ AMZN.C",
+        "median_confidence": 0.9347657762291908
+      },
+      {
+        "section": "3.1",
+        "count": 9,
+        "example_memo": "flight to chicago",
+        "example_receipt": "E-ticket 6FPWZ2 | SFO-ORD RT | Cabin: Mint",
+        "example_descriptor": "AMERICAN AIR30196",
+        "median_confidence": 0.7569743951139299
+      },
+      {
+        "section": "3.2",
+        "count": 8,
+        "example_memo": "lodging - seattle trip",
+        "example_receipt": "Accommodation 1n avg 397 | Taxes & fees",
+        "example_descriptor": "HYATT HOTELS",
+        "median_confidence": 0.9273744396186427
+      },
+      {
+        "section": "2.2",
+        "count": 7,
+        "example_memo": "meal while traveling",
+        "example_receipt": "Margherita pizza | Ribeye 12oz | Paloma | Sparkling water",
+        "example_descriptor": "PY *NONNAS KITCHEN LOS ANGELES",
+        "median_confidence": 0.9906532408879012
+      }
+    ],
+    "wrong_auto_actions": [
+      {
+        "txn_id": "tx_006236",
+        "descriptor_raw": "HYATT HOTELS",
+        "amount": 456.66,
+        "memo": "lodging - seattle trip",
+        "receipt_text": "Accommodation 1n avg 397 | Taxes & fees",
+        "decision": "APPROVE",
+        "confidence": 0.8526670358065708,
+        "gold_decision": "NEEDS_REVIEW",
+        "gold_reasons": "3.2"
+      },
+      {
+        "txn_id": "tx_003797",
+        "descriptor_raw": "AIRBNB 1BSKQL5V",
+        "amount": 444.53,
+        "memo": "hotel boston",
+        "receipt_text": "Accommodation 1n avg 387 | Taxes & fees",
+        "decision": "APPROVE",
+        "confidence": 0.9614422179128063,
+        "gold_decision": "NEEDS_REVIEW",
+        "gold_reasons": "3.2"
+      },
+      {
+        "txn_id": "tx_009458",
+        "descriptor_raw": "TST* BLUEBIRD CAFE CHICAG",
+        "amount": 362.52,
+        "memo": "drinks + dinner globex 4pax",
+        "receipt_text": "Garden salad | Risotto | Bread service | Burger | Sparkling water | Iced tea",
+        "decision": "APPROVE",
+        "confidence": 0.5321428571428571,
+        "gold_decision": "NEEDS_REVIEW",
+        "gold_reasons": "2.1"
+      },
+      {
+        "txn_id": "tx_011126",
+        "descriptor_raw": "CLV*RED LANTERN NEW YORK",
+        "amount": 348.0,
+        "memo": "drinks + dinner massive dynamic 4pax",
+        "receipt_text": "Cheesecake | Bibimbap | Ramen | Bibimbap | Tiramisu | Iced tea",
+        "decision": "APPROVE",
+        "confidence": 0.5175088973196859,
+        "gold_decision": "NEEDS_REVIEW",
+        "gold_reasons": "2.1"
+      },
+      {
+        "txn_id": "tx_008621",
+        "descriptor_raw": "CLV*SAFFRON KITCHEN NEW Y",
+        "amount": 212.36,
+        "memo": "massive dynamic dinner",
+        "receipt_text": "Bread service | Tacos (3) | Margherita pizza | Cheesecake | Club sandwich",
+        "decision": "APPROVE",
+        "confidence": 0.8004406291435591,
+        "gold_decision": "NEEDS_REVIEW",
+        "gold_reasons": "2.1"
+      },
+      {
+        "txn_id": "tx_009208",
+        "descriptor_raw": "PY *CAFE MIRABELLE SAN FR",
+        "amount": 74.6,
+        "memo": "team lunch (5)",
+        "receipt_text": "Old Fashioned | Paloma | Caesar salad | Paloma | Club sandwich | Garden salad",
+        "decision": "APPROVE",
+        "confidence": 0.9906532408879012,
+        "gold_decision": "REJECT",
+        "gold_reasons": "2.2"
+      },
+      {
+        "txn_id": "tx_013306",
+        "descriptor_raw": "UBER *TRIP",
+        "amount": 71.03,
+        "memo": "wrong card, sorry",
+        "receipt_text": null,
+        "decision": "APPROVE",
+        "confidence": 0.954338387073813,
+        "gold_decision": "REJECT",
+        "gold_reasons": "5.2"
+      },
+      {
+        "txn_id": "tx_003774",
+        "descriptor_raw": "PY *NONNAS KITCHEN LOS ANGELES",
+        "amount": 37.49,
+        "memo": "meal while traveling",
+        "receipt_text": "Margherita pizza | Ribeye 12oz | Paloma | Sparkling water",
+        "decision": "APPROVE",
+        "confidence": 0.9979126465400977,
+        "gold_decision": "REJECT",
+        "gold_reasons": "2.2"
+      },
+      {
+        "txn_id": "tx_006351",
+        "descriptor_raw": "POKE BOWL CO",
+        "amount": 32.88,
+        "memo": "meal while traveling",
+        "receipt_text": "Old Fashioned | Bread service | Risotto | Lemonade | Bibimbap | Sparkling water | Tacos (3) | Old Fashioned",
+        "decision": "APPROVE",
+        "confidence": 0.9754288552939304,
+        "gold_decision": "REJECT",
+        "gold_reasons": "2.2"
+      },
+      {
+        "txn_id": "tx_001726",
+        "descriptor_raw": "PY *BRICK LANE CURRY MIAMI",
+        "amount": 21.25,
+        "memo": "dinner",
+        "receipt_text": "Tacos (3) | Negroni | Dumplings",
+        "decision": "APPROVE",
+        "confidence": 0.9921155450908222,
+        "gold_decision": "REJECT",
+        "gold_reasons": "2.2"
+      },
+      {
+        "txn_id": "tx_013909",
+        "descriptor_raw": "UBER *TRIP UNXJ6ZU1",
+        "amount": 20.38,
+        "memo": "accidentally used corp card",
+        "receipt_text": "Order",
+        "decision": "APPROVE",
+        "confidence": 0.6566946778711484,
+        "gold_decision": "REJECT",
+        "gold_reasons": "5.2"
+      },
+      {
+        "txn_id": "tx_004105",
+        "descriptor_raw": "SQ *SMOKE & BARREL BBQ SAN FRANCISCO",
+        "amount": 18.55,
+        "memo": "breakfast",
+        "receipt_text": "Old Fashioned | Dumplings | Pad thai",
+        "decision": "APPROVE",
+        "confidence": 0.9951260401849605,
+        "gold_decision": "REJECT",
+        "gold_reasons": "2.2"
+      }
+    ]
+  }
+}

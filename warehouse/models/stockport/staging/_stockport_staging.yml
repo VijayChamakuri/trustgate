@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_stockport__card_transactions
+    description: Typed and cleaned card lines across all three publisher layouts.
+    columns:
+      - name: card_line_id
+        description: "Stable key: source file + row number as published."
+        data_tests: [unique, not_null]
+      - name: merchant_key
+        data_tests: [not_null]
+      - name: amount
+        data_tests:
+          - not_null
+      - name: purchase_date
+        data_tests:
+          - not_null
+      - name: is_unmapped_label
+        description: Every raw purpose string must be covered by the reviewed mapping seed.
+        data_tests:
+          - accepted_values: {arguments: {values: [false]}}
+      - name: is_settled_before_purchase
+        description: >
+          Publisher data-quality issue: some 2024 files carry settlement dates earlier than the
+          purchase. Warned, not failed, and counted in the data card.
+        data_tests:
+          - accepted_values:
+              arguments: {values: [false]}
+              config: {severity: warn}

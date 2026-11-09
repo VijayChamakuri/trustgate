@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: int_stockport__labelled_lines
+    description: Supervised GL-coding population (real booked accounts, 2017 to mid-2022).
+    columns:
+      - name: card_line_id
+        data_tests: [unique, not_null]
+      - name: gl_account
+        data_tests:
+          - not_null
+          - relationships: {arguments: {to: ref('stockport_purpose_map'), field: gl_account}}

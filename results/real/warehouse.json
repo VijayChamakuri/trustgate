@@ -1,0 +1,250 @@
+{
+  "summary": {
+    "Source files downloaded (SHA-256 manifest)": "111 (110 unique; 4.5 MB)",
+    "Statement months covered": "2017-01 to 2026-10",
+    "Card lines in the warehouse": "33,377 (\u00a34,217,508 net of refunds)",
+    "Lines with a booked GL account": "15,355",
+    "Placeholder labels excluded from scoring": "58",
+    "Refund lines": "1,160",
+    "Distinct raw merchant strings \u2192 normalised merchant keys": "7,288 \u2192 3,431",
+    "Publisher layouts reconciled": "v1_net_10col (2017-01 to 2022-06, 14,737 lines), v2_net_8col (2020-02 to 2020-06, 676 lines), v3_gross_6col (2022-07 to 2026-10, 17,964 lines)",
+    "Settlement-before-purchase dates (dbt warning)": "1,960 lines",
+    "Possible duplicate charges (same merchant + amount within 3 days)": "871 (\u00a3173,972)"
+  },
+  "schema_versions": [
+    {
+      "version": "v1_net_10col",
+      "from": "2017-01-01",
+      "to": "2022-06-01",
+      "lines": 14737
+    },
+    {
+      "version": "v2_net_8col",
+      "from": "2020-02-01",
+      "to": "2020-06-01",
+      "lines": 676
+    },
+    {
+      "version": "v3_gross_6col",
+      "from": "2022-07-01",
+      "to": "2026-10-01",
+      "lines": 17964
+    }
+  ],
+  "vendor_concentration": [
+    {
+      "year": 2017,
+      "merchants": 660,
+      "spend": 303203.52,
+      "top10_share": 0.4467134814266008,
+      "hhi": 427.03500710781606
+    },
+    {
+      "year": 2018,
+      "merchants": 644,
+      "spend": 362355.02,
+      "top10_share": 0.45675815392318836,
+      "hhi": 448.7063021112187
+    },
+    {
+      "year": 2019,
+      "merchants": 577,
+      "spend": 328983.17,
+      "top10_share": 0.4184514362847195,
+      "hhi": 295.62957271576045
+    },
+    {
+      "year": 2020,
+      "merchants": 474,
+      "spend": 392554.96,
+      "top10_share": 0.4683221936617487,
+      "hhi": 623.9535422649905
+    },
+    {
+      "year": 2021,
+      "merchants": 394,
+      "spend": 191256.37,
+      "top10_share": 0.3897840892828825,
+      "hhi": 229.40484235304942
+    },
+    {
+      "year": 2022,
+      "merchants": 480,
+      "spend": 310447.82,
+      "top10_share": 0.32627586175351464,
+      "hhi": 167.72465188136627
+    },
+    {
+      "year": 2023,
+      "merchants": 567,
+      "spend": 448222.68,
+      "top10_share": 0.37781448274772705,
+      "hhi": 210.44539090728873
+    },
+    {
+      "year": 2024,
+      "merchants": 615,
+      "spend": 570524.68,
+      "top10_share": 0.47224966674535446,
+      "hhi": 306.41884990758024
+    },
+    {
+      "year": 2025,
+      "merchants": 638,
+      "spend": 617114.63,
+      "top10_share": 0.4386835716404909,
+      "hhi": 317.5912584018532
+    },
+    {
+      "year": 2026,
+      "merchants": 577,
+      "spend": 781832.17,
+      "top10_share": 0.6346377893352738,
+      "hhi": 1260.3671732301916
+    }
+  ],
+  "recurring": [
+    {
+      "merchant": "GOOGLE",
+      "months": 90,
+      "first": "2018-01-01",
+      "last": "2026-10-01",
+      "first_ticket": 275.0,
+      "latest_ticket": 500.0,
+      "price_change_pct": 0.8182
+    },
+    {
+      "merchant": "NETFLIX COM",
+      "months": 69,
+      "first": "2017-11-01",
+      "last": "2026-01-01",
+      "first_ticket": 8.33,
+      "latest_ticket": 18.99,
+      "price_change_pct": 1.2797
+    },
+    {
+      "merchant": "DISNEY PLUS",
+      "months": 60,
+      "first": "2020-04-01",
+      "last": "2025-11-01",
+      "first_ticket": 5.99,
+      "latest_ticket": 12.99,
+      "price_change_pct": 1.1686
+    },
+    {
+      "merchant": "FASTHOSTS",
+      "months": 51,
+      "first": "2022-04-01",
+      "last": "2026-10-01",
+      "first_ticket": 23.99,
+      "latest_ticket": 21.69,
+      "price_change_pct": -0.0959
+    },
+    {
+      "merchant": "CANVA",
+      "months": 39,
+      "first": "2019-11-01",
+      "last": "2026-09-01",
+      "first_ticket": 95.76,
+      "latest_ticket": 81.49,
+      "price_change_pct": -0.149
+    },
+    {
+      "merchant": "GITHUB INC",
+      "months": 39,
+      "first": "2023-04-01",
+      "last": "2026-10-01",
+      "first_ticket": 82.59,
+      "latest_ticket": 74.89,
+      "price_change_pct": -0.0932
+    },
+    {
+      "merchant": "WETRANSFER",
+      "months": 37,
+      "first": "2023-04-01",
+      "last": "2026-10-01",
+      "first_ticket": 11.0,
+      "latest_ticket": 21.0,
+      "price_change_pct": 0.9091
+    },
+    {
+      "merchant": "TVLICENSING CO UK",
+      "months": 36,
+      "first": "2017-02-01",
+      "last": "2026-10-01",
+      "first_ticket": 145.5,
+      "latest_ticket": 180.0,
+      "price_change_pct": 0.2371
+    },
+    {
+      "merchant": "GITHUB",
+      "months": 35,
+      "first": "2019-10-01",
+      "last": "2023-03-01",
+      "first_ticket": 164.72,
+      "latest_ticket": 85.55,
+      "price_change_pct": -0.4806
+    },
+    {
+      "merchant": "BREAD AND BUTTIES",
+      "months": 33,
+      "first": "2021-02-01",
+      "last": "2026-10-01",
+      "first_ticket": 44.8,
+      "latest_ticket": 87.62,
+      "price_change_pct": 0.9558
+    },
+    {
+      "merchant": "STOCKPORT STN SST",
+      "months": 32,
+      "first": "2017-01-01",
+      "last": "2019-12-01",
+      "first_ticket": 3.3,
+      "latest_ticket": 6.3,
+      "price_change_pct": 0.9091
+    },
+    {
+      "merchant": "MUSICVINE SUBSCRIPTION",
+      "months": 31,
+      "first": "2024-01-01",
+      "last": "2026-10-01",
+      "first_ticket": 22.49,
+      "latest_ticket": 22.49,
+      "price_change_pct": 0.0
+    }
+  ],
+  "top_categories": [
+    {
+      "category": "LODGING-HOTELS,MOTELS,RESORTS-NOT CLASSIFIED",
+      "spend": 522608.95
+    },
+    {
+      "category": "HUMAN RESOURCES TRAVEL & SUBSISTENCE",
+      "spend": 271310.96
+    },
+    {
+      "category": "SOCIAL COMMUNITY CARE SUPPLIES & SERVICES",
+      "spend": 254085.79
+    },
+    {
+      "category": "TRAVEL AGENCIES AND TOUR OPERATORS",
+      "spend": 226207.98
+    },
+    {
+      "category": "INFORMATION COMMUNICATION TECHNOLOGY",
+      "spend": 191172.25
+    },
+    {
+      "category": "PASSENGER RAILWAYS",
+      "spend": 183032.32
+    },
+    {
+      "category": "ADVERTISING SERVICES",
+      "spend": 172022.59
+    },
+    {
+      "category": "GROCERY STORES, SUPERMARKETS",
+      "spend": 150900.25
+    }
+  ]
+}

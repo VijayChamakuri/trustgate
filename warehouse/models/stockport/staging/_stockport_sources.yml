@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: stockport
+    description: >
+      Stockport Metropolitan Borough Council purchase-card transactions, Jan 2017 onwards,
+      published monthly under the Open Government Licence v3.0. Loaded untyped by
+      `ea real load` (every value is the string as published); all typing and cleaning
+      happens in staging so it is reviewable and tested.
+    schema: raw_stockport
+    tables:
+      - name: card_transactions
+        description: One row per published card line, unioned across three file layouts.
+        columns:
+          - name: schema_version
+            data_tests:
+              - accepted_values: {arguments: {values: ['v1_net_10col', 'v2_net_8col', 'v3_gross_6col']}}
+      - name: source_files
+        description: One row per downloaded file with SHA-256 and parsed row count (from data/stockport/manifest.json).
+        columns:
+          - name: source_file
+            data_tests: [unique, not_null]

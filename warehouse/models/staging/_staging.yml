@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_card_transactions
+    description: Card transactions with a single shared definition of the cleaned merchant descriptor.
+    columns:
+      - name: txn_id
+        data_tests: [unique, not_null]
+      - name: employee_id
+        data_tests:
+          - not_null
+          - relationships: {arguments: {to: ref('stg_employees'), field: employee_id}}
+      - name: amount
+        data_tests: [not_null]
+  - name: stg_receipts
+    columns:
+      - name: txn_id
+        data_tests:
+          - unique
+          - relationships: {arguments: {to: ref('stg_card_transactions'), field: txn_id}}
+  - name: stg_employees
+    columns:
+      - name: employee_id
+        data_tests: [unique, not_null]
+  - name: stg_merchant_registry
+    columns:
+      - name: merchant_id
+        data_tests: [unique, not_null]
+  - name: stg_gl_accounts
+    columns:
+      - name: gl_code
+        data_tests: [unique, not_null]
+  - name: stg_historical_reviews
+    columns:
+      - name: review_decision
+        data_tests:
+          - accepted_values: {arguments: {values: ['APPROVE', 'REJECT', 'NEEDS_REVIEW']}}

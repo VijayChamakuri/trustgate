@@ -1,0 +1,5361 @@
+{
+  "config": {
+    "first_month": "2020-01-01",
+    "shadow_months": 6,
+    "audits_per_month": 40,
+    "budgets": [
+      0.02,
+      0.05,
+      0.1
+    ],
+    "high_value": 250.0,
+    "retrain_every_months": 3,
+    "seed": 0
+  },
+  "settings": {
+    "card_feed": {
+      "live_months": 20,
+      "live_lines": 3826,
+      "model_accuracy_live": 0.6664924202822792,
+      "top3_live": 0.8640878201777313,
+      "novel_share_live": 0.1638787245164663,
+      "accuracy_by_confidence": [
+        {
+          "min_conf": 0.5,
+          "coverage": 0.8306325143753267,
+          "error": 0.26211453744493396
+        },
+        {
+          "min_conf": 0.7,
+          "coverage": 0.5967067433350758,
+          "error": 0.19404292597459483
+        },
+        {
+          "min_conf": 0.8,
+          "coverage": 0.42629377940407737,
+          "error": 0.14469650521152666
+        },
+        {
+          "min_conf": 0.9,
+          "coverage": 0.25509670674333507,
+          "error": 0.12397540983606559
+        },
+        {
+          "min_conf": 0.95,
+          "coverage": 0.13303711447987454,
+          "error": 0.05304518664047153
+        },
+        {
+          "min_conf": 0.97,
+          "coverage": 0.07684265551489806,
+          "error": 0.023809523809523836
+        }
+      ],
+      "budgets": {
+        "0.02": {
+          "auto_all": {
+            "automation_rate": 1.0,
+            "auto_error_rate": 0.3335075797177209,
+            "auto_error_ci": [
+              0.31874171317580907,
+              0.3486074534320213
+            ],
+            "auto": 3826,
+            "auto_errors": 1276,
+            "n": 3826,
+            "misposted_gbp": 242401.97999999998,
+            "months_over_budget": 20,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 106,
+                "errors": 43,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 132,
+                "errors": 49,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 199,
+                "errors": 77,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 219,
+                "errors": 77,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 165,
+                "errors": 45,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 161,
+                "errors": 41,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 150,
+                "errors": 50,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 139,
+                "errors": 40,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 172,
+                "errors": 61,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 154,
+                "errors": 44,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 195,
+                "errors": 63,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 212,
+                "errors": 86,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 169,
+                "errors": 49,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 155,
+                "errors": 48,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 273,
+                "errors": 110,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 291,
+                "errors": 92,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 234,
+                "errors": 77,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 174,
+                "errors": 59,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 235,
+                "errors": 71,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 291,
+                "errors": 94,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              }
+            ]
+          },
+          "point_estimate": {
+            "automation_rate": 0.04155776267642446,
+            "auto_error_rate": 0.08176100628930817,
+            "auto_error_ci": [
+              0.04840183689637578,
+              0.1348535474771504
+            ],
+            "auto": 159,
+            "auto_errors": 13,
+            "n": 3826,
+            "misposted_gbp": 463.35,
+            "months_over_budget": 6,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 24,
+                "errors": 3,
+                "tau_low": 0.96,
+                "tau_high": 0.96
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 3,
+                "errors": 1,
+                "tau_low": 0.96,
+                "tau_high": 0.96
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 19,
+                "errors": 1,
+                "tau_low": 0.96,
+                "tau_high": 0.96
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 16,
+                "errors": 2,
+                "tau_low": 0.96,
+                "tau_high": 0.96
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 29,
+                "errors": 0,
+                "tau_low": 0.96,
+                "tau_high": 0.96
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 31,
+                "errors": 2,
+                "tau_low": 0.96,
+                "tau_high": 0.96
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 37,
+                "errors": 4,
+                "tau_low": 0.965,
+                "tau_high": 0.965
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              }
+            ]
+          },
+          "wilson": {
+            "automation_rate": 0.0,
+            "auto_error_rate": 0.0,
+            "auto_error_ci": [
+              0.0,
+              1.0
+            ],
+            "auto": 0,
+            "auto_errors": 0,
+            "n": 3826,
+            "misposted_gbp": 0.0,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              }
+            ]
+          },
+          "wilson+novelty": {
+            "automation_rate": 0.0,
+            "auto_error_rate": 0.0,
+            "auto_error_ci": [
+              0.0,
+              1.0
+            ],
+            "auto": 0,
+            "auto_errors": 0,
+            "n": 3826,
+            "misposted_gbp": 0.0,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              }
+            ]
+          },
+          "wilson+novelty+tiers": {
+            "automation_rate": 0.0,
+            "auto_error_rate": 0.0,
+            "auto_error_ci": [
+              0.0,
+              1.0
+            ],
+            "auto": 0,
+            "auto_errors": 0,
+            "n": 3826,
+            "misposted_gbp": 0.0,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              }
+            ]
+          }
+        },
+        "0.05": {
+          "auto_all": {
+            "automation_rate": 1.0,
+            "auto_error_rate": 0.3335075797177209,
+            "auto_error_ci": [
+              0.31874171317580907,
+              0.3486074534320213
+            ],
+            "auto": 3826,
+            "auto_errors": 1276,
+            "n": 3826,
+            "misposted_gbp": 242401.97999999998,
+            "months_over_budget": 20,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 106,
+                "errors": 43,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 132,
+                "errors": 49,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 199,
+                "errors": 77,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 219,
+                "errors": 77,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 165,
+                "errors": 45,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 161,
+                "errors": 41,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 150,
+                "errors": 50,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 139,
+                "errors": 40,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 172,
+                "errors": 61,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 154,
+                "errors": 44,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 195,
+                "errors": 63,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 212,
+                "errors": 86,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 169,
+                "errors": 49,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 155,
+                "errors": 48,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 273,
+                "errors": 110,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 291,
+                "errors": 92,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 234,
+                "errors": 77,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 174,
+                "errors": 59,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 235,
+                "errors": 71,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 291,
+                "errors": 94,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              }
+            ]
+          },
+          "point_estimate": {
+            "automation_rate": 0.11029796131730267,
+            "auto_error_rate": 0.06872037914691943,
+            "auto_error_ci": [
+              0.04827023480987648,
+              0.0969518383741431
+            ],
+            "auto": 422,
+            "auto_errors": 29,
+            "n": 3826,
+            "misposted_gbp": 972.73,
+            "months_over_budget": 8,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 16,
+                "errors": 0,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 14,
+                "errors": 0,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 21,
+                "errors": 2,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 26,
+                "errors": 0,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 44,
+                "errors": 5,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 4,
+                "errors": 1,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 33,
+                "errors": 2,
+                "tau_low": 0.94,
+                "tau_high": 0.94
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 23,
+                "errors": 2,
+                "tau_low": 0.94,
+                "tau_high": 0.94
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 40,
+                "errors": 1,
+                "tau_low": 0.94,
+                "tau_high": 0.94
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 53,
+                "errors": 6,
+                "tau_low": 0.94,
+                "tau_high": 0.94
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 40,
+                "errors": 4,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 25,
+                "errors": 0,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 46,
+                "errors": 2,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 37,
+                "errors": 4,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              }
+            ]
+          },
+          "wilson": {
+            "automation_rate": 0.0,
+            "auto_error_rate": 0.0,
+            "auto_error_ci": [
+              0.0,
+              1.0
+            ],
+            "auto": 0,
+            "auto_errors": 0,
+            "n": 3826,
+            "misposted_gbp": 0.0,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              }
+            ]
+          },
+          "wilson+novelty": {
+            "automation_rate": 0.0,
+            "auto_error_rate": 0.0,
+            "auto_error_ci": [
+              0.0,
+              1.0
+            ],
+            "auto": 0,
+            "auto_errors": 0,
+            "n": 3826,
+            "misposted_gbp": 0.0,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              }
+            ]
+          },
+          "wilson+novelty+tiers": {
+            "automation_rate": 0.0,
+            "auto_error_rate": 0.0,
+            "auto_error_ci": [
+              0.0,
+              1.0
+            ],
+            "auto": 0,
+            "auto_errors": 0,
+            "n": 3826,
+            "misposted_gbp": 0.0,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": null,
+                "tau_high": null
+              }
+            ]
+          }
+        },
+        "0.1": {
+          "auto_all": {
+            "automation_rate": 1.0,
+            "auto_error_rate": 0.3335075797177209,
+            "auto_error_ci": [
+              0.31874171317580907,
+              0.3486074534320213
+            ],
+            "auto": 3826,
+            "auto_errors": 1276,
+            "n": 3826,
+            "misposted_gbp": 242401.97999999998,
+            "months_over_budget": 20,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 106,
+                "errors": 43,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 132,
+                "errors": 49,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 199,
+                "errors": 77,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 219,
+                "errors": 77,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 165,
+                "errors": 45,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 161,
+                "errors": 41,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 150,
+                "errors": 50,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 139,
+                "errors": 40,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 172,
+                "errors": 61,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 154,
+                "errors": 44,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 195,
+                "errors": 63,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 212,
+                "errors": 86,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 169,
+                "errors": 49,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 155,
+                "errors": 48,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 273,
+                "errors": 110,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 291,
+                "errors": 92,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 234,
+                "errors": 77,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 174,
+                "errors": 59,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 235,
+                "errors": 71,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 291,
+                "errors": 94,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              }
+            ]
+          },
+          "point_estimate": {
+            "automation_rate": 0.21223209618400418,
+            "auto_error_rate": 0.11945812807881774,
+            "auto_error_ci": [
+              0.09892255709480077,
+              0.1435774576139368
+            ],
+            "auto": 812,
+            "auto_errors": 97,
+            "n": 3826,
+            "misposted_gbp": 7615.129999999999,
+            "months_over_budget": 8,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 25,
+                "errors": 2,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 40,
+                "errors": 2,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 40,
+                "errors": 1,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 47,
+                "errors": 6,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 23,
+                "errors": 1,
+                "tau_low": 0.94,
+                "tau_high": 0.94
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 30,
+                "errors": 2,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 40,
+                "errors": 4,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 39,
+                "errors": 1,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 61,
+                "errors": 6,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 15,
+                "errors": 6,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 42,
+                "errors": 3,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 32,
+                "errors": 4,
+                "tau_low": 0.91,
+                "tau_high": 0.91
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 51,
+                "errors": 1,
+                "tau_low": 0.91,
+                "tau_high": 0.91
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 90,
+                "errors": 12,
+                "tau_low": 0.9,
+                "tau_high": 0.9
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 77,
+                "errors": 19,
+                "tau_low": 0.91,
+                "tau_high": 0.91
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 43,
+                "errors": 9,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 71,
+                "errors": 12,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 46,
+                "errors": 6,
+                "tau_low": 0.94,
+                "tau_high": 0.94
+              }
+            ]
+          },
+          "wilson": {
+            "automation_rate": 0.08050182958703607,
+            "auto_error_rate": 0.07792207792207792,
+            "auto_error_ci": [
+              0.05291963005395223,
+              0.11332374478763402
+            ],
+            "auto": 308,
+            "auto_errors": 24,
+            "n": 3826,
+            "misposted_gbp": 828.2299999999999,
+            "months_over_budget": 3,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 44,
+                "errors": 5,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 4,
+                "errors": 1,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 27,
+                "errors": 2,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 22,
+                "errors": 2,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 40,
+                "errors": 1,
+                "tau_low": 0.94,
+                "tau_high": 0.94
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 53,
+                "errors": 6,
+                "tau_low": 0.94,
+                "tau_high": 0.94
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 40,
+                "errors": 4,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 46,
+                "errors": 2,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 32,
+                "errors": 1,
+                "tau_low": 0.965,
+                "tau_high": 0.965
+              }
+            ]
+          },
+          "wilson+novelty": {
+            "automation_rate": 0.1152639832723471,
+            "auto_error_rate": 0.07482993197278912,
+            "auto_error_ci": [
+              0.05377621326975171,
+              0.1032270885797156
+            ],
+            "auto": 441,
+            "auto_errors": 33,
+            "n": 3826,
+            "misposted_gbp": 1448.37,
+            "months_over_budget": 4,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 14,
+                "errors": 0,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 21,
+                "errors": 2,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 26,
+                "errors": 0,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 43,
+                "errors": 4,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 4,
+                "errors": 1,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 33,
+                "errors": 2,
+                "tau_low": 0.94,
+                "tau_high": 0.94
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 28,
+                "errors": 2,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 44,
+                "errors": 1,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 75,
+                "errors": 10,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 55,
+                "errors": 6,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 20,
+                "errors": 0,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 44,
+                "errors": 1,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 34,
+                "errors": 4,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              }
+            ]
+          },
+          "wilson+novelty+tiers": {
+            "automation_rate": 0.06220595922634605,
+            "auto_error_rate": 0.08823529411764706,
+            "auto_error_ci": [
+              0.05843451714263121,
+              0.13111765254198882
+            ],
+            "auto": 238,
+            "auto_errors": 21,
+            "n": 3826,
+            "misposted_gbp": 481.85,
+            "months_over_budget": 5,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 39,
+                "errors": 4,
+                "tau_low": 0.95,
+                "tau_high": null
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 4,
+                "errors": 1,
+                "tau_low": 0.95,
+                "tau_high": null
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 24,
+                "errors": 2,
+                "tau_low": 0.95,
+                "tau_high": null
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 18,
+                "errors": 2,
+                "tau_low": 0.95,
+                "tau_high": null
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 30,
+                "errors": 1,
+                "tau_low": 0.95,
+                "tau_high": null
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 50,
+                "errors": 6,
+                "tau_low": 0.94,
+                "tau_high": null
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 33,
+                "errors": 4,
+                "tau_low": 0.95,
+                "tau_high": null
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 40,
+                "errors": 1,
+                "tau_low": 0.95,
+                "tau_high": null
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              }
+            ]
+          }
+        }
+      }
+    },
+    "upstream": {
+      "live_months": 20,
+      "live_lines": 3826,
+      "model_accuracy_live": 0.9581808677469943,
+      "top3_live": 0.9939884997386305,
+      "novel_share_live": 0.1638787245164663,
+      "accuracy_by_confidence": [
+        {
+          "min_conf": 0.5,
+          "coverage": 0.9892838473601673,
+          "error": 0.03408190224570673
+        },
+        {
+          "min_conf": 0.7,
+          "coverage": 0.9560899111343439,
+          "error": 0.021596500820120323
+        },
+        {
+          "min_conf": 0.8,
+          "coverage": 0.9367485624673288,
+          "error": 0.015345982142857095
+        },
+        {
+          "min_conf": 0.9,
+          "coverage": 0.8991113434396236,
+          "error": 0.009302325581395321
+        },
+        {
+          "min_conf": 0.95,
+          "coverage": 0.8609513852587559,
+          "error": 0.005464480874316946
+        },
+        {
+          "min_conf": 0.97,
+          "coverage": 0.8319393622582332,
+          "error": 0.00534087338988376
+        }
+      ],
+      "budgets": {
+        "0.02": {
+          "auto_all": {
+            "automation_rate": 1.0,
+            "auto_error_rate": 0.04181913225300575,
+            "auto_error_ci": [
+              0.03592226349057877,
+              0.04863517616958889
+            ],
+            "auto": 3826,
+            "auto_errors": 160,
+            "n": 3826,
+            "misposted_gbp": 38047.31,
+            "months_over_budget": 18,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 106,
+                "errors": 8,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 132,
+                "errors": 11,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 199,
+                "errors": 11,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 219,
+                "errors": 7,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 165,
+                "errors": 9,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 161,
+                "errors": 5,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 150,
+                "errors": 14,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 139,
+                "errors": 1,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 172,
+                "errors": 9,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 154,
+                "errors": 3,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 195,
+                "errors": 5,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 212,
+                "errors": 10,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 169,
+                "errors": 6,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 155,
+                "errors": 6,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 273,
+                "errors": 8,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 291,
+                "errors": 10,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 234,
+                "errors": 7,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 174,
+                "errors": 6,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 235,
+                "errors": 12,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 291,
+                "errors": 12,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              }
+            ]
+          },
+          "point_estimate": {
+            "automation_rate": 0.6278097229482488,
+            "auto_error_rate": 0.004995836802664446,
+            "auto_error_ci": [
+              0.0028601340626158342,
+              0.008712365140989256
+            ],
+            "auto": 2402,
+            "auto_errors": 12,
+            "n": 3826,
+            "misposted_gbp": 2342.42,
+            "months_over_budget": 1,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 105,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 112,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 88,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": 0.995
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 91,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": 0.995
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 122,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": 0.995
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 108,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": 0.995
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 156,
+                "errors": 0,
+                "tau_low": 0.9925,
+                "tau_high": 0.9925
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 164,
+                "errors": 0,
+                "tau_low": 0.985,
+                "tau_high": 0.985
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 140,
+                "errors": 0,
+                "tau_low": 0.985,
+                "tau_high": 0.985
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 127,
+                "errors": 1,
+                "tau_low": 0.9825,
+                "tau_high": 0.9825
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 217,
+                "errors": 1,
+                "tau_low": 0.9825,
+                "tau_high": 0.9825
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 237,
+                "errors": 2,
+                "tau_low": 0.9825,
+                "tau_high": 0.9825
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 159,
+                "errors": 0,
+                "tau_low": 0.9825,
+                "tau_high": 0.9825
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 148,
+                "errors": 4,
+                "tau_low": 0.98,
+                "tau_high": 0.98
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 200,
+                "errors": 4,
+                "tau_low": 0.9775,
+                "tau_high": 0.9775
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 228,
+                "errors": 0,
+                "tau_low": 0.98,
+                "tau_high": 0.98
+              }
+            ]
+          },
+          "wilson": {
+            "automation_rate": 0.14898065865133298,
+            "auto_error_rate": 0.0017543859649122807,
+            "auto_error_ci": [
+              0.000309751391349658,
+              0.00987006129563574
+            ],
+            "auto": 570,
+            "auto_errors": 1,
+            "n": 3826,
+            "misposted_gbp": 14.8,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 125,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 114,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 144,
+                "errors": 1,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 187,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              }
+            ]
+          },
+          "wilson+novelty": {
+            "automation_rate": 0.2158912702561422,
+            "auto_error_rate": 0.0012106537530266344,
+            "auto_error_ci": [
+              0.00021373659300065332,
+              0.006825679121998449
+            ],
+            "auto": 826,
+            "auto_errors": 1,
+            "n": 3826,
+            "misposted_gbp": 14.8,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 131,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 170,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 116,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 97,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 146,
+                "errors": 1,
+                "tau_low": 0.995,
+                "tau_high": 0.995
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 166,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              }
+            ]
+          },
+          "wilson+novelty+tiers": {
+            "automation_rate": 0.4127025614218505,
+            "auto_error_rate": 0.001266624445851805,
+            "auto_error_ci": [
+              0.00034741558570946596,
+              0.004606712483706955
+            ],
+            "auto": 1579,
+            "auto_errors": 2,
+            "n": 3826,
+            "misposted_gbp": 149.83,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 69,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": null
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 92,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": null
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 84,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": null
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 130,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": null
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 126,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": null
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 97,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": null
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 67,
+                "errors": 0,
+                "tau_low": 0.9925,
+                "tau_high": null
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 145,
+                "errors": 0,
+                "tau_low": 0.9925,
+                "tau_high": null
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 192,
+                "errors": 0,
+                "tau_low": 0.99,
+                "tau_high": null
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 120,
+                "errors": 0,
+                "tau_low": 0.99,
+                "tau_high": null
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 111,
+                "errors": 1,
+                "tau_low": 0.9825,
+                "tau_high": null
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 170,
+                "errors": 1,
+                "tau_low": 0.9825,
+                "tau_high": null
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 176,
+                "errors": 0,
+                "tau_low": 0.9825,
+                "tau_high": null
+              }
+            ]
+          }
+        },
+        "0.05": {
+          "auto_all": {
+            "automation_rate": 1.0,
+            "auto_error_rate": 0.04181913225300575,
+            "auto_error_ci": [
+              0.03592226349057877,
+              0.04863517616958889
+            ],
+            "auto": 3826,
+            "auto_errors": 160,
+            "n": 3826,
+            "misposted_gbp": 38047.31,
+            "months_over_budget": 7,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 106,
+                "errors": 8,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 132,
+                "errors": 11,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 199,
+                "errors": 11,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 219,
+                "errors": 7,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 165,
+                "errors": 9,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 161,
+                "errors": 5,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 150,
+                "errors": 14,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 139,
+                "errors": 1,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 172,
+                "errors": 9,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 154,
+                "errors": 3,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 195,
+                "errors": 5,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 212,
+                "errors": 10,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 169,
+                "errors": 6,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 155,
+                "errors": 6,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 273,
+                "errors": 8,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 291,
+                "errors": 10,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 234,
+                "errors": 7,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 174,
+                "errors": 6,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 235,
+                "errors": 12,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 291,
+                "errors": 12,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              }
+            ]
+          },
+          "point_estimate": {
+            "automation_rate": 0.8737584945112389,
+            "auto_error_rate": 0.012862698175291655,
+            "auto_error_ci": [
+              0.009563492024884511,
+              0.0172802044320975
+            ],
+            "auto": 3343,
+            "auto_errors": 43,
+            "n": 3826,
+            "misposted_gbp": 7134.13,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 62,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": 0.995
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 75,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": 0.995
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 148,
+                "errors": 0,
+                "tau_low": 0.99,
+                "tau_high": 0.99
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 166,
+                "errors": 0,
+                "tau_low": 0.9825,
+                "tau_high": 0.9825
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 143,
+                "errors": 2,
+                "tau_low": 0.9775,
+                "tau_high": 0.9775
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 137,
+                "errors": 0,
+                "tau_low": 0.9775,
+                "tau_high": 0.9775
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 115,
+                "errors": 1,
+                "tau_low": 0.97,
+                "tau_high": 0.97
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 119,
+                "errors": 0,
+                "tau_low": 0.97,
+                "tau_high": 0.97
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 146,
+                "errors": 0,
+                "tau_low": 0.97,
+                "tau_high": 0.97
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 130,
+                "errors": 0,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 176,
+                "errors": 0,
+                "tau_low": 0.93,
+                "tau_high": 0.93
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 191,
+                "errors": 0,
+                "tau_low": 0.91,
+                "tau_high": 0.91
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 158,
+                "errors": 1,
+                "tau_low": 0.88,
+                "tau_high": 0.88
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 148,
+                "errors": 3,
+                "tau_low": 0.81,
+                "tau_high": 0.81
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 259,
+                "errors": 4,
+                "tau_low": 0.8,
+                "tau_high": 0.8
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 280,
+                "errors": 5,
+                "tau_low": 0.77,
+                "tau_high": 0.77
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 224,
+                "errors": 2,
+                "tau_low": 0.77,
+                "tau_high": 0.77
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 165,
+                "errors": 5,
+                "tau_low": 0.73,
+                "tau_high": 0.73
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 230,
+                "errors": 10,
+                "tau_low": 0.72,
+                "tau_high": 0.72
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 271,
+                "errors": 10,
+                "tau_low": 0.73,
+                "tau_high": 0.73
+              }
+            ]
+          },
+          "wilson": {
+            "automation_rate": 0.6461055933089388,
+            "auto_error_rate": 0.006067961165048544,
+            "auto_error_ci": [
+              0.003680715009613051,
+              0.009988010808710705
+            ],
+            "auto": 2472,
+            "auto_errors": 15,
+            "n": 3826,
+            "misposted_gbp": 2388.32,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 112,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 88,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": 0.995
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 96,
+                "errors": 0,
+                "tau_low": 0.9925,
+                "tau_high": 0.9925
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 144,
+                "errors": 0,
+                "tau_low": 0.9825,
+                "tau_high": 0.9825
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 123,
+                "errors": 0,
+                "tau_low": 0.9825,
+                "tau_high": 0.9825
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 173,
+                "errors": 0,
+                "tau_low": 0.9775,
+                "tau_high": 0.9775
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 171,
+                "errors": 0,
+                "tau_low": 0.9775,
+                "tau_high": 0.9775
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 147,
+                "errors": 0,
+                "tau_low": 0.97,
+                "tau_high": 0.97
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 132,
+                "errors": 1,
+                "tau_low": 0.97,
+                "tau_high": 0.97
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 227,
+                "errors": 1,
+                "tau_low": 0.97,
+                "tau_high": 0.97
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 243,
+                "errors": 2,
+                "tau_low": 0.97,
+                "tau_high": 0.97
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 197,
+                "errors": 0,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 157,
+                "errors": 4,
+                "tau_low": 0.93,
+                "tau_high": 0.93
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 216,
+                "errors": 6,
+                "tau_low": 0.91,
+                "tau_high": 0.91
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 246,
+                "errors": 1,
+                "tau_low": 0.91,
+                "tau_high": 0.91
+              }
+            ]
+          },
+          "wilson+novelty": {
+            "automation_rate": 0.5875588081547308,
+            "auto_error_rate": 0.004448398576512456,
+            "auto_error_ci": [
+              0.0024180689718853524,
+              0.008169531861139492
+            ],
+            "auto": 2248,
+            "auto_errors": 10,
+            "n": 3826,
+            "misposted_gbp": 2010.5199999999998,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 98,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 105,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 71,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": 0.995
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 82,
+                "errors": 0,
+                "tau_low": 0.9925,
+                "tau_high": 0.9925
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 117,
+                "errors": 0,
+                "tau_low": 0.99,
+                "tau_high": 0.99
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 113,
+                "errors": 0,
+                "tau_low": 0.9825,
+                "tau_high": 0.9825
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 156,
+                "errors": 0,
+                "tau_low": 0.9825,
+                "tau_high": 0.9825
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 164,
+                "errors": 0,
+                "tau_low": 0.9775,
+                "tau_high": 0.9775
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 121,
+                "errors": 0,
+                "tau_low": 0.9775,
+                "tau_high": 0.9775
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 103,
+                "errors": 0,
+                "tau_low": 0.9725,
+                "tau_high": 0.9725
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 172,
+                "errors": 0,
+                "tau_low": 0.9575,
+                "tau_high": 0.9575
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 227,
+                "errors": 0,
+                "tau_low": 0.93,
+                "tau_high": 0.93
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 168,
+                "errors": 0,
+                "tau_low": 0.91,
+                "tau_high": 0.91
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 136,
+                "errors": 5,
+                "tau_low": 0.81,
+                "tau_high": 0.81
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 200,
+                "errors": 3,
+                "tau_low": 0.81,
+                "tau_high": 0.81
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 215,
+                "errors": 2,
+                "tau_low": 0.81,
+                "tau_high": 0.81
+              }
+            ]
+          },
+          "wilson+novelty+tiers": {
+            "automation_rate": 0.6455828541557763,
+            "auto_error_rate": 0.0072874493927125505,
+            "auto_error_ci": [
+              0.00461462020536137,
+              0.011490533819051511
+            ],
+            "auto": 2470,
+            "auto_errors": 18,
+            "n": 3826,
+            "misposted_gbp": 937.54,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": null
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 49,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": null
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 89,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": null
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 114,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": null
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 104,
+                "errors": 0,
+                "tau_low": 0.9925,
+                "tau_high": null
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 115,
+                "errors": 0,
+                "tau_low": 0.9825,
+                "tau_high": null
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 84,
+                "errors": 1,
+                "tau_low": 0.9825,
+                "tau_high": null
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 89,
+                "errors": 0,
+                "tau_low": 0.9775,
+                "tau_high": null
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 120,
+                "errors": 0,
+                "tau_low": 0.9775,
+                "tau_high": null
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 112,
+                "errors": 0,
+                "tau_low": 0.9725,
+                "tau_high": null
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 151,
+                "errors": 0,
+                "tau_low": 0.9575,
+                "tau_high": null
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 161,
+                "errors": 0,
+                "tau_low": 0.95,
+                "tau_high": null
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 116,
+                "errors": 1,
+                "tau_low": 0.93,
+                "tau_high": null
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 100,
+                "errors": 2,
+                "tau_low": 0.8,
+                "tau_high": null
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 179,
+                "errors": 1,
+                "tau_low": 0.77,
+                "tau_high": null
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 224,
+                "errors": 3,
+                "tau_low": 0.77,
+                "tau_high": null
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 148,
+                "errors": 0,
+                "tau_low": 0.72,
+                "tau_high": null
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 125,
+                "errors": 2,
+                "tau_low": 0.7,
+                "tau_high": null
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 188,
+                "errors": 4,
+                "tau_low": 0.65,
+                "tau_high": null
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 202,
+                "errors": 4,
+                "tau_low": 0.65,
+                "tau_high": null
+              }
+            ]
+          }
+        },
+        "0.1": {
+          "auto_all": {
+            "automation_rate": 1.0,
+            "auto_error_rate": 0.04181913225300575,
+            "auto_error_ci": [
+              0.03592226349057877,
+              0.04863517616958889
+            ],
+            "auto": 3826,
+            "auto_errors": 160,
+            "n": 3826,
+            "misposted_gbp": 38047.31,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 106,
+                "errors": 8,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 132,
+                "errors": 11,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 199,
+                "errors": 11,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 219,
+                "errors": 7,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 165,
+                "errors": 9,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 161,
+                "errors": 5,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 150,
+                "errors": 14,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 139,
+                "errors": 1,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 172,
+                "errors": 9,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 154,
+                "errors": 3,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 195,
+                "errors": 5,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 212,
+                "errors": 10,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 169,
+                "errors": 6,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 155,
+                "errors": 6,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 273,
+                "errors": 8,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 291,
+                "errors": 10,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 234,
+                "errors": 7,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 174,
+                "errors": 6,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 235,
+                "errors": 12,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 291,
+                "errors": 12,
+                "tau_low": 0.0,
+                "tau_high": 0.0
+              }
+            ]
+          },
+          "point_estimate": {
+            "automation_rate": 0.9649764767381077,
+            "auto_error_rate": 0.02600216684723727,
+            "auto_error_ci": [
+              0.021340479675707683,
+              0.03164923719960428
+            ],
+            "auto": 3692,
+            "auto_errors": 96,
+            "n": 3826,
+            "misposted_gbp": 19629.020000000004,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 80,
+                "errors": 0,
+                "tau_low": 0.9775,
+                "tau_high": 0.9775
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 98,
+                "errors": 0,
+                "tau_low": 0.97,
+                "tau_high": 0.97
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 180,
+                "errors": 0,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 208,
+                "errors": 0,
+                "tau_low": 0.81,
+                "tau_high": 0.81
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 157,
+                "errors": 5,
+                "tau_low": 0.73,
+                "tau_high": 0.73
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 157,
+                "errors": 3,
+                "tau_low": 0.72,
+                "tau_high": 0.72
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 147,
+                "errors": 12,
+                "tau_low": 0.69,
+                "tau_high": 0.69
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 137,
+                "errors": 0,
+                "tau_low": 0.69,
+                "tau_high": 0.69
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 169,
+                "errors": 7,
+                "tau_low": 0.63,
+                "tau_high": 0.63
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 151,
+                "errors": 1,
+                "tau_low": 0.61,
+                "tau_high": 0.61
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 193,
+                "errors": 4,
+                "tau_low": 0.53,
+                "tau_high": 0.53
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 209,
+                "errors": 8,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 166,
+                "errors": 4,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 152,
+                "errors": 4,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 272,
+                "errors": 7,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 288,
+                "errors": 7,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 231,
+                "errors": 4,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 172,
+                "errors": 6,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 235,
+                "errors": 12,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 290,
+                "errors": 12,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              }
+            ]
+          },
+          "wilson": {
+            "automation_rate": 0.8975431259801359,
+            "auto_error_rate": 0.0192195690157251,
+            "auto_error_ci": [
+              0.01513591934554626,
+              0.024377710369097947
+            ],
+            "auto": 3434,
+            "auto_errors": 66,
+            "n": 3826,
+            "misposted_gbp": 12140.25,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 0,
+                "errors": 0,
+                "tau_low": NaN,
+                "tau_high": NaN
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 75,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": 0.995
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 155,
+                "errors": 0,
+                "tau_low": 0.9825,
+                "tau_high": 0.9825
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 178,
+                "errors": 0,
+                "tau_low": 0.97,
+                "tau_high": 0.97
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 145,
+                "errors": 2,
+                "tau_low": 0.97,
+                "tau_high": 0.97
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 144,
+                "errors": 2,
+                "tau_low": 0.93,
+                "tau_high": 0.93
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 126,
+                "errors": 6,
+                "tau_low": 0.91,
+                "tau_high": 0.91
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 131,
+                "errors": 0,
+                "tau_low": 0.88,
+                "tau_high": 0.88
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 163,
+                "errors": 3,
+                "tau_low": 0.8,
+                "tau_high": 0.8
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 146,
+                "errors": 1,
+                "tau_low": 0.77,
+                "tau_high": 0.77
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 185,
+                "errors": 1,
+                "tau_low": 0.72,
+                "tau_high": 0.72
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 199,
+                "errors": 2,
+                "tau_low": 0.68,
+                "tau_high": 0.68
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 163,
+                "errors": 2,
+                "tau_low": 0.65,
+                "tau_high": 0.65
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 150,
+                "errors": 3,
+                "tau_low": 0.63,
+                "tau_high": 0.63
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 261,
+                "errors": 4,
+                "tau_low": 0.61,
+                "tau_high": 0.61
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 286,
+                "errors": 6,
+                "tau_low": 0.59,
+                "tau_high": 0.59
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 230,
+                "errors": 4,
+                "tau_low": 0.52,
+                "tau_high": 0.52
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 172,
+                "errors": 6,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 235,
+                "errors": 12,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 290,
+                "errors": 12,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              }
+            ]
+          },
+          "wilson+novelty": {
+            "automation_rate": 0.7770517511761631,
+            "auto_error_rate": 0.01849983181971073,
+            "auto_error_ci": [
+              0.014240797050441022,
+              0.024001613966658442
+            ],
+            "auto": 2973,
+            "auto_errors": 55,
+            "n": 3826,
+            "misposted_gbp": 10865.679999999998,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 41,
+                "errors": 0,
+                "tau_low": 0.9975,
+                "tau_high": 0.9975
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 59,
+                "errors": 0,
+                "tau_low": 0.995,
+                "tau_high": 0.995
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 122,
+                "errors": 0,
+                "tau_low": 0.9825,
+                "tau_high": 0.9825
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 146,
+                "errors": 0,
+                "tau_low": 0.9775,
+                "tau_high": 0.9775
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 136,
+                "errors": 2,
+                "tau_low": 0.95,
+                "tau_high": 0.95
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 131,
+                "errors": 2,
+                "tau_low": 0.92,
+                "tau_high": 0.92
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 112,
+                "errors": 5,
+                "tau_low": 0.81,
+                "tau_high": 0.81
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 111,
+                "errors": 0,
+                "tau_low": 0.8,
+                "tau_high": 0.8
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 142,
+                "errors": 3,
+                "tau_low": 0.77,
+                "tau_high": 0.77
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 138,
+                "errors": 1,
+                "tau_low": 0.69,
+                "tau_high": 0.69
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 172,
+                "errors": 3,
+                "tau_low": 0.63,
+                "tau_high": 0.63
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 194,
+                "errors": 5,
+                "tau_low": 0.62,
+                "tau_high": 0.62
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 135,
+                "errors": 2,
+                "tau_low": 0.6,
+                "tau_high": 0.6
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 119,
+                "errors": 2,
+                "tau_low": 0.57,
+                "tau_high": 0.57
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 199,
+                "errors": 3,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 250,
+                "errors": 5,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 187,
+                "errors": 2,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 140,
+                "errors": 6,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 209,
+                "errors": 6,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 230,
+                "errors": 8,
+                "tau_low": 0.5,
+                "tau_high": 0.5
+              }
+            ]
+          },
+          "wilson+novelty+tiers": {
+            "automation_rate": 0.7198118139048615,
+            "auto_error_rate": 0.01597676107480029,
+            "auto_error_ci": [
+              0.011922967055136522,
+              0.021379018091508592
+            ],
+            "auto": 2754,
+            "auto_errors": 44,
+            "n": 3826,
+            "misposted_gbp": 3270.1,
+            "months_over_budget": 0,
+            "by_month": [
+              {
+                "month": "2020-07-01",
+                "n": 106,
+                "auto": 49,
+                "errors": 0,
+                "tau_low": 0.9925,
+                "tau_high": null
+              },
+              {
+                "month": "2020-08-01",
+                "n": 132,
+                "auto": 67,
+                "errors": 0,
+                "tau_low": 0.9825,
+                "tau_high": null
+              },
+              {
+                "month": "2020-09-01",
+                "n": 199,
+                "auto": 122,
+                "errors": 0,
+                "tau_low": 0.9775,
+                "tau_high": null
+              },
+              {
+                "month": "2020-10-01",
+                "n": 219,
+                "auto": 156,
+                "errors": 0,
+                "tau_low": 0.93,
+                "tau_high": null
+              },
+              {
+                "month": "2020-11-01",
+                "n": 165,
+                "auto": 123,
+                "errors": 2,
+                "tau_low": 0.77,
+                "tau_high": null
+              },
+              {
+                "month": "2020-12-01",
+                "n": 161,
+                "auto": 126,
+                "errors": 2,
+                "tau_low": 0.77,
+                "tau_high": null
+              },
+              {
+                "month": "2021-01-01",
+                "n": 150,
+                "auto": 101,
+                "errors": 2,
+                "tau_low": 0.72,
+                "tau_high": null
+              },
+              {
+                "month": "2021-02-01",
+                "n": 139,
+                "auto": 102,
+                "errors": 0,
+                "tau_low": 0.65,
+                "tau_high": null
+              },
+              {
+                "month": "2021-03-01",
+                "n": 172,
+                "auto": 131,
+                "errors": 4,
+                "tau_low": 0.61,
+                "tau_high": null
+              },
+              {
+                "month": "2021-04-01",
+                "n": 154,
+                "auto": 135,
+                "errors": 1,
+                "tau_low": 0.6,
+                "tau_high": null
+              },
+              {
+                "month": "2021-05-01",
+                "n": 195,
+                "auto": 163,
+                "errors": 2,
+                "tau_low": 0.5,
+                "tau_high": null
+              },
+              {
+                "month": "2021-06-01",
+                "n": 212,
+                "auto": 177,
+                "errors": 6,
+                "tau_low": 0.5,
+                "tau_high": null
+              },
+              {
+                "month": "2021-07-01",
+                "n": 169,
+                "auto": 119,
+                "errors": 3,
+                "tau_low": 0.5,
+                "tau_high": null
+              },
+              {
+                "month": "2021-08-01",
+                "n": 155,
+                "auto": 101,
+                "errors": 2,
+                "tau_low": 0.5,
+                "tau_high": null
+              },
+              {
+                "month": "2021-09-01",
+                "n": 273,
+                "auto": 182,
+                "errors": 2,
+                "tau_low": 0.5,
+                "tau_high": null
+              },
+              {
+                "month": "2021-11-01",
+                "n": 291,
+                "auto": 227,
+                "errors": 5,
+                "tau_low": 0.5,
+                "tau_high": null
+              },
+              {
+                "month": "2022-02-01",
+                "n": 234,
+                "auto": 152,
+                "errors": 2,
+                "tau_low": 0.5,
+                "tau_high": null
+              },
+              {
+                "month": "2022-04-01",
+                "n": 174,
+                "auto": 127,
+                "errors": 2,
+                "tau_low": 0.5,
+                "tau_high": null
+              },
+              {
+                "month": "2022-05-01",
+                "n": 235,
+                "auto": 188,
+                "errors": 4,
+                "tau_low": 0.5,
+                "tau_high": null
+              },
+              {
+                "month": "2022-06-01",
+                "n": 291,
+                "auto": 206,
+                "errors": 5,
+                "tau_low": 0.5,
+                "tau_high": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

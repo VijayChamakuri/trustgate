@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: int_txn_enriched
+    description: >
+      Agent-ready transaction features. One row per transaction; integrity signals are
+      defined here once and reused by the policy agent, the review queue and the marts.
+    columns:
+      - name: txn_id
+        data_tests: [unique, not_null]
+      - name: merchant_key
+        data_tests: [not_null]
+      - name: resolution_action
+        data_tests:
+          - accepted_values: {arguments: {values: ['MATCH', 'NEW', 'ESCALATE']}}

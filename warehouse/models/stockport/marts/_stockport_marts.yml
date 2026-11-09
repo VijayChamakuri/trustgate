@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: fct_stockport_card_spend
+    description: Governed fact table of real council card spend, 2017 to present. Contract-enforced.
+    config:
+      contract: {enforced: true}
+    columns:
+      - {name: card_line_id, data_type: varchar, constraints: [{type: not_null}], data_tests: [unique]}
+      - {name: statement_month, data_type: date, constraints: [{type: not_null}]}
+      - {name: purchase_date, data_type: date}
+      - {name: settlement_date, data_type: date}
+      - {name: merchant_key, data_type: varchar, constraints: [{type: not_null}]}
+      - {name: merchant_raw, data_type: varchar}
+      - {name: merchant_category, data_type: varchar}
+      - {name: department, data_type: varchar}
+      - {name: service_category, data_type: varchar}
+      - {name: gl_account, data_type: varchar}
+      - {name: amount, data_type: "decimal(12,2)", constraints: [{type: not_null}]}
+      - {name: amount_basis, data_type: varchar, data_tests: [{accepted_values: {arguments: {values: ['net', 'gross']}}}]}
+      - {name: is_refund, data_type: boolean}
+      - {name: schema_version, data_type: varchar}
+  - name: dim_stockport_merchant
+    columns:
+      - name: merchant_key
+        data_tests: [unique, not_null]
+  - name: mart_stockport_spend_monthly
+    description: Spend by statement month and merchant category.
+  - name: mart_stockport_vendor_concentration
+    description: Top-10 merchant share and Herfindahl-Hirschman index of card spend per year.
+  - name: mart_stockport_recurring_charges
+    description: Merchants billed in at least 6 months with a stable ticket, with price change.
+  - name: mart_stockport_duplicate_candidates
+    description: Same merchant and amount within 3 days.
+
+  - name: metricflow_time_spine
+    description: Daily calendar for the semantic layer.
+    time_spine:
+      standard_granularity_column: date_day
+    columns:
+      - name: date_day
+        granularity: day
+
+semantic_models:
+  - name: card_spend
+    description: Real council card spend for governed metric queries.
+    model: ref('fct_stockport_card_spend')
+    defaults:
+      agg_time_dimension: statement_month
+    entities:
+      - {name: card_line, type: primary, expr: card_line_id}
+      - {name: merchant, type: foreign, expr: merchant_key}
+    dimensions:
+      - {name: statement_month, type: time, type_params: {time_granularity: month}}
+      - {name: merchant_category, type: categorical}
+      - {name: gl_account, type: categorical}
+      - {name: department, type: categorical}
+    measures:
+      - {name: spend, agg: sum, expr: amount}
+      - {name: card_lines, agg: count, expr: card_line_id}
+      - {name: merchants, agg: count_distinct, expr: merchant_key}
+
+metrics:
+  - name: card_spend
+    label: Card spend (GBP)
+    type: simple
+    type_params: {measure: spend}
+  - name: card_lines
+    label: Card lines
+    type: simple
+    type_params: {measure: card_lines}
+  - name: average_ticket
+    label: Average ticket (GBP)
+    type: ratio
+    type_params: {numerator: card_spend, denominator: card_lines}
+

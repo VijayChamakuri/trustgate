@@ -1,0 +1,62 @@
+{
+  "rules": {
+    "signals": {
+      "alcohol_on_meals": {
+        "precision": 1.0,
+        "recall": 0.8319088319088319,
+        "support": 351
+      },
+      "premium_cabin": {
+        "precision": 1.0,
+        "recall": 0.625,
+        "support": 24
+      },
+      "personal_memo": {
+        "precision": 1.0,
+        "recall": 0.3953488372093023,
+        "support": 43
+      },
+      "meal_type_accuracy": 0.7186034392912976,
+      "attendee_count_parsed": 0.6540342298288508,
+      "nightly_rate_parsed": 0.7441860465116279
+    },
+    "engine_accuracy": 0.899751449875725,
+    "verifier_auc": 0.9823704777559623,
+    "earned_autonomy": {
+      "automation_rate": 0.658036454018227,
+      "auto_error_rate": 0.004091910607491344,
+      "leaked_dollars": 1205.49,
+      "total_cost": 7809.490000000001
+    }
+  },
+  "rules+embed": {
+    "signals": {
+      "alcohol_on_meals": {
+        "precision": 0.45252225519287836,
+        "recall": 0.8689458689458689,
+        "support": 351
+      },
+      "premium_cabin": {
+        "precision": 0.25,
+        "recall": 0.6666666666666666,
+        "support": 24
+      },
+      "personal_memo": {
+        "precision": 1.0,
+        "recall": 0.8604651162790697,
+        "support": 43
+      },
+      "meal_type_accuracy": 0.7186034392912976,
+      "attendee_count_parsed": 0.6540342298288508,
+      "nightly_rate_parsed": 0.7441860465116279
+    },
+    "engine_accuracy": 0.8200082850041425,
+    "verifier_auc": 0.9881905178249669,
+    "earned_autonomy": {
+      "automation_rate": 0.5975559237779619,
+      "auto_error_rate": 0.0027729636048526864,
+      "leaked_dollars": 725.94,
+      "total_cost": 8497.94
+    }
+  }
+}
