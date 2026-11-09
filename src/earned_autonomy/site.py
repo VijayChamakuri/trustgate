@@ -243,14 +243,17 @@ const css=getComputedStyle(document.documentElement);const fg=css.getPropertyVal
 const L=(t,ex={{}})=>Object.assign({{title:{{text:t,font:{{size:14}}}},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{{color:fg,size:12}},margin:{{l:56,r:16,t:40,b:48}},xaxis:{{gridcolor:line}},yaxis:{{gridcolor:line,tickformat:'.0%'}},legend:{{orientation:'h',y:-0.2}}}},ex);
 const cfg={{displayModeBar:false,responsive:true}};
 const py=D.real.per_year;const models=[...new Set(py.map(r=>r.model))];
-Plotly.newPlot('peryear',models.map(m=>({{x:py.filter(r=>r.model===m).map(r=>r.year),y:py.filter(r=>r.model===m).map(r=>r.accuracy),name:m,mode:'lines+markers'}})),L('Accuracy by test year (card-feed)'),cfg);
+const MN={{majority:'Majority class',merchant_lookup:'Merchant lookup',tfidf_logreg:'TF-IDF + LR',embed_knn:'Embeddings kNN',embed_logreg:'Embeddings + LR','tfidf+embed_logreg':'TF-IDF + embeddings + LR'}};
+Plotly.newPlot('peryear',models.map(m=>({{x:py.filter(r=>r.model===m).map(r=>r.year),y:py.filter(r=>r.model===m).map(r=>r.accuracy),name:MN[m]||m,mode:'lines+markers'}})),L('Accuracy by test year (card-feed)',{{xaxis:{{dtick:1,tickformat:'d',gridcolor:line}}}}),cfg);
 const ro=D.real.rollout_up;
-Plotly.newPlot('rollout',Object.keys(ro).map(p=>({{x:ro[p].map(r=>r.month),y:ro[p].map(r=>r.auto/r.n),name:p,mode:'lines'}})),L('Upstream: share auto-posted per month'),cfg);
+const PL={{auto_all:'Auto-post everything',point_estimate:'Point estimate',wilson:'Wilson bound','wilson+novelty':'+ novelty guard','wilson+novelty+tiers':'+ value tiers (earned)'}};
+Plotly.newPlot('rollout',Object.keys(ro).map(p=>({{x:ro[p].map(r=>r.month),y:ro[p].map(r=>r.auto/r.n),name:PL[p]||p,mode:'lines'}})),L('Upstream: share auto-posted per month'),cfg);
 const cf=D.real.conf;
-Plotly.newPlot('conf',Object.keys(cf).map(k=>({{x:cf[k].map(r=>r.min_conf),y:cf[k].map(r=>r.error),name:k,mode:'lines+markers'}})),L('Error rate above a confidence threshold',{{xaxis:{{title:'min confidence',gridcolor:line}}}}),cfg);
+Plotly.newPlot('conf',Object.keys(cf).map(k=>({{x:cf[k].map(r=>r.min_conf),y:cf[k].map(r=>r.error),name:k==='card_feed'?'Card feed':'Upstream',mode:'lines+markers'}})),L('Error rate above a confidence threshold',{{xaxis:{{title:'min confidence',gridcolor:line}}}}),cfg);
 const S=D.syn.sens||{{}};const names={{leniency:'Reviewer leniency',drift_rate:'Memo drift rate',audit_per_month:'Audits per month',approve_budget:'Error budget'}};
 for(const p of Object.keys(S)){{const div=document.createElement('div');div.className='chart';document.getElementById('sens').appendChild(div);
 const pols=['trust_engine_everywhere','point_estimate_thresholds','earned_autonomy'];
-Plotly.newPlot(div,pols.map(pol=>({{x:S[p].map(r=>r.value),y:S[p].map(r=>r[pol].auto_error_rate.mean),name:pol,mode:'lines+markers'}})),L('Auto-action error vs '+names[p],{{xaxis:{{type:'category',gridcolor:line}}}}),cfg);}}
+const SN={{trust_engine_everywhere:'Trust engine everywhere',point_estimate_thresholds:'Point estimate',earned_autonomy:'Earned autonomy'}};
+Plotly.newPlot(div,pols.map(pol=>({{x:S[p].map(r=>r.value),y:S[p].map(r=>r[pol].auto_error_rate.mean),name:SN[pol],mode:'lines+markers'}})),L('Auto-action error vs '+names[p],{{xaxis:{{type:'category',gridcolor:line}}}}),cfg);}}
 </script></body></html>
 """
