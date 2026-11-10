@@ -13,6 +13,36 @@
 
 ![Same autonomy gate, two outcomes on real council bookings](results/real/hero.png)
 
+## In plain English
+
+Finance teams want AI agents to do routine work: code each card transaction to the right account, approve or flag expense reports. The hard question is **when it's safe to let the agent act without a person checking it**.
+
+This project answers that with evidence instead of a gut-feel confidence setting:
+
+- **How it decides:** the agent only gets to act alone on a kind of transaction once a random sample of its past work, checked by a person, shows its error rate is safely under a limit. That proof is re-checked every month, so autonomy can be lost as well as earned.
+- **Real data:** tested on **{{real_lines}} real council credit-card transactions** that finance staff had coded by hand.
+  - The agent ran month by month over the final {{live_months}} months ({{live_lines}} transactions).
+  - Where the data was good enough (the council had also tagged each purchase with a category), it handled **{{up_auto}}** of transactions on its own at a **{{up_err}}** error rate. It went over its 2% limit in **{{up_over}} of {{live_months}}** months.
+  - Where the data wasn't good enough (only what the card itself shows), it **refused to act alone**. Letting it act anyway would have mis-booked **{{cf_misposted}}**.
+- **Simulated expense reports:** checked across many simulated companies, it stayed inside its error limit every time ({{syn_within_budget}}). The common shortcut of trusting the average error rate did not.
+- **The data layer:** built in dbt (a standard tool for tested, documented SQL data models), so the same clean definitions feed both the agent and the dashboards.
+
+## Terms used below
+
+| Term | Meaning |
+|---|---|
+| **GL account / GL coding** | The accounting category a transaction is booked to (e.g. "Travel", "Office supplies"). Choosing it is called coding. |
+| **Autonomy / auto-post** | The agent acts without a person reviewing that item. Everything else goes to a human review queue. |
+| **Error budget** | The highest error rate the business accepts for actions taken without review (2% for GL coding here). |
+| **Audit** | A random sample of the agent's decisions that a person checks. This is the only evidence used to grant autonomy. |
+| **Wilson upper bound** | A cautious estimate of the true error rate: "with 95% confidence, errors are at most X%". With few audits it stays high, so autonomy waits for evidence. |
+| **Point estimate** | The plain average error rate from the audits. It looks fine on small samples and is the shortcut this project argues against. |
+| **Novelty guard** | Anything the agent has never seen before (a new merchant, unfamiliar wording) always goes to a person. |
+| **Value tiers** | Large transactions have to earn their own autonomy separately from small ones. |
+| **Card-feed vs upstream setting** | Card-feed: only what a card platform sees (merchant name, team, amount). Upstream: also a category the council's staff had already assigned, which makes the job much easier. |
+| **Leakage** | Money approved by the agent that policy says should have been stopped or reviewed. |
+| **Seeds / sensitivity** | Re-running the simulation with different random worlds and different assumptions, to check the conclusion doesn't depend on luck or one guess. |
+
 ## Key results
 
 **On real labels** (Stockport MBC purchase cards; {{live_months}} live months; {{live_lines}} lines; 2% error budget):
@@ -34,7 +64,7 @@
 - Earned autonomy stays inside its error budget in **{{syn_within_budget}} seeds** and in **{{sens_earned_ok}}/{{sens_total}}** sensitivity settings.
 - Point-estimate thresholds break the budget in {{point_over}} seeds and stay inside it in only {{sens_point_ok}}/{{sens_total}} settings.
 - Thresholds learned from reviewer history break it in {{hist_over}} seeds.
-- With too little evidence it correctly holds back: {{aud_low_n}} audits a month unlock {{aud_low}}, while {{aud_mid_n}} unlock {{aud_mid}}.
+- With too little evidence it correctly holds back: with {{aud_low_n}} audits a month it grants no autonomy ({{aud_low}}), while {{aud_mid_n}} audits a month earn {{aud_mid}}.
 
 > Everything above is regenerated from [`results/`](results) by `make reproduce`; the README itself is rendered from those files and CI fails if they drift apart.
 
@@ -61,10 +91,10 @@ make reproduce   # real track + 10 seeds + 48 sensitivity worlds + perception ba
 
 | Step | What it does | Time (Apple M2, 8 GB, CPU only) |
 |---|---|---|
-| `make real` | 111 monthly files → warehouse → rolling GL benchmark → monthly rollout at 3 budgets × 2 settings | ~35 min |
-| `make experiments` | 10 seeds, 16 sensitivity settings × 3 seeds, 2 perception backends | ~35 min |
+| `make real` | 111 monthly files → warehouse → rolling GL benchmark → monthly rollout at 3 budgets × 2 settings | {{real_bench_min}} min for the benchmark, plus the rollout |
+| `make experiments` | 10 seeds, 16 sensitivity settings × 3 seeds, 2 perception backends | ~{{exp_min}} min |
 | `make synthetic` | default world, report and charts | ~40 s |
-| `make site` | static results dashboard and dbt docs | ~20 s |
+| `make site` | static results dashboard and dbt docs | under a minute |
 
 No paid APIs. The only model download is the free `BAAI/bge-small-en-v1.5` embedding model (ONNX, CPU, via fastembed). Raw data files are verified against [`data/stockport/manifest.json`](docs/DATA_CARD.md) checksums.
 
@@ -141,7 +171,7 @@ The merchant resolver matched {{res_desc}} descriptors at {{res_prec}} MATCH pre
 
 {{warehouse_table}}
 
-Top-10 merchant share of card spend went from {{top10_first}} in {{conc_first_year}} to {{top10_last}} in {{conc_last_year}} (`mart_stockport_vendor_concentration`). Full lineage and column docs are on the [dbt docs site](https://vijaychamakuri.github.io/earned-autonomy/dbt/).
+Card spend has become more concentrated: the top 10 merchants took {{top10_first}} of spend in {{conc_first_year}} and {{top10_last}} in {{conc_last_year}} (through the latest published month; see `mart_stockport_vendor_concentration`). Full lineage and column docs are on the [dbt docs site](https://vijaychamakuri.github.io/earned-autonomy/dbt/).
 
 ## Limitations
 

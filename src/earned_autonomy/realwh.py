@@ -44,8 +44,8 @@ def summarise() -> dict:
         "summary": {
             "Source files downloaded (SHA-256 manifest)": f"{files[0]} ({files[1]} unique; {files[2] / 1e6:.1f} MB)",
             "Statement months covered": f"{files[3]} to {files[4]}",
-            "Card lines in the warehouse": f"{lines[0]:,} (£{float(lines[1]):,.0f} net of refunds)",
-            "Lines with a booked GL account": f"{lines[3]:,}",
+            "Card lines in the warehouse": f"{lines[0]:,} (£{float(lines[1]):,.0f} after refunds; amounts are net of VAT to 2022-06 and gross after, as published)",
+            "Lines with a booked GL account (incl. refunds; scoring excludes them)": f"{lines[3]:,}",
             "Placeholder labels excluded from scoring": f"{lines[4]:,}",
             "Refund lines": f"{lines[2]:,}",
             "Distinct raw merchant strings → normalised merchant keys": f"{lines[7]:,} → {lines[6]:,}",

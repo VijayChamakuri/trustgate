@@ -202,6 +202,8 @@ def values() -> dict[str, str]:
         "res_conf": str(mr["protected_pair_confusions"]),
         "verifier_auc": f"{met['verifier']['live_auc']:.3f}",
     }
+    v["real_bench_min"] = f"{bench['seconds'] / 60:.0f}"
+    v["exp_min"] = f"{exp['seconds'] / 60:.0f}"
     v["warehouse_table"] = "\n".join(
         ["| Check | Result |", "|---|---|"] + [f"| {k} | {val} |" for k, val in wh["summary"].items()]
     )

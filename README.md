@@ -13,6 +13,36 @@
 
 ![Same autonomy gate, two outcomes on real council bookings](results/real/hero.png)
 
+## In plain English
+
+Finance teams want AI agents to do routine work: code each card transaction to the right account, approve or flag expense reports. The hard question is **when it's safe to let the agent act without a person checking it**.
+
+This project answers that with evidence instead of a gut-feel confidence setting:
+
+- **How it decides:** the agent only gets to act alone on a kind of transaction once a random sample of its past work, checked by a person, shows its error rate is safely under a limit. That proof is re-checked every month, so autonomy can be lost as well as earned.
+- **Real data:** tested on **14,851 real council credit-card transactions** that finance staff had coded by hand.
+  - The agent ran month by month over the final 20 months (3,826 transactions).
+  - Where the data was good enough (the council had also tagged each purchase with a category), it handled **41.3%** of transactions on its own at a **0.13%** error rate. It went over its 2% limit in **0 of 20** months.
+  - Where the data wasn't good enough (only what the card itself shows), it **refused to act alone**. Letting it act anyway would have mis-booked **£242,402**.
+- **Simulated expense reports:** checked across many simulated companies, it stayed inside its error limit every time (10/10). The common shortcut of trusting the average error rate did not.
+- **The data layer:** built in dbt (a standard tool for tested, documented SQL data models), so the same clean definitions feed both the agent and the dashboards.
+
+## Terms used below
+
+| Term | Meaning |
+|---|---|
+| **GL account / GL coding** | The accounting category a transaction is booked to (e.g. "Travel", "Office supplies"). Choosing it is called coding. |
+| **Autonomy / auto-post** | The agent acts without a person reviewing that item. Everything else goes to a human review queue. |
+| **Error budget** | The highest error rate the business accepts for actions taken without review (2% for GL coding here). |
+| **Audit** | A random sample of the agent's decisions that a person checks. This is the only evidence used to grant autonomy. |
+| **Wilson upper bound** | A cautious estimate of the true error rate: "with 95% confidence, errors are at most X%". With few audits it stays high, so autonomy waits for evidence. |
+| **Point estimate** | The plain average error rate from the audits. It looks fine on small samples and is the shortcut this project argues against. |
+| **Novelty guard** | Anything the agent has never seen before (a new merchant, unfamiliar wording) always goes to a person. |
+| **Value tiers** | Large transactions have to earn their own autonomy separately from small ones. |
+| **Card-feed vs upstream setting** | Card-feed: only what a card platform sees (merchant name, team, amount). Upstream: also a category the council's staff had already assigned, which makes the job much easier. |
+| **Leakage** | Money approved by the agent that policy says should have been stopped or reviewed. |
+| **Seeds / sensitivity** | Re-running the simulation with different random worlds and different assumptions, to check the conclusion doesn't depend on luck or one guess. |
+
 ## Key results
 
 **On real labels** (Stockport MBC purchase cards; 20 live months; 3,826 lines; 2% error budget):
@@ -34,7 +64,7 @@
 - Earned autonomy stays inside its error budget in **10/10 seeds** and in **16/16** sensitivity settings.
 - Point-estimate thresholds break the budget in 10/10 seeds and stay inside it in only 2/16 settings.
 - Thresholds learned from reviewer history break it in 6/10 seeds.
-- With too little evidence it correctly holds back: 100 audits a month unlock 0.0%, while 250 unlock 48.1%.
+- With too little evidence it correctly holds back: with 100 audits a month it grants no autonomy (0.0%), while 250 audits a month earn 48.1%.
 
 > Everything above is regenerated from [`results/`](results) by `make reproduce`; the README itself is rendered from those files and CI fails if they drift apart.
 
@@ -61,10 +91,10 @@ make reproduce   # real track + 10 seeds + 48 sensitivity worlds + perception ba
 
 | Step | What it does | Time (Apple M2, 8 GB, CPU only) |
 |---|---|---|
-| `make real` | 111 monthly files → warehouse → rolling GL benchmark → monthly rollout at 3 budgets × 2 settings | ~35 min |
-| `make experiments` | 10 seeds, 16 sensitivity settings × 3 seeds, 2 perception backends | ~35 min |
+| `make real` | 111 monthly files → warehouse → rolling GL benchmark → monthly rollout at 3 budgets × 2 settings | 19 min for the benchmark, plus the rollout |
+| `make experiments` | 10 seeds, 16 sensitivity settings × 3 seeds, 2 perception backends | ~48 min |
 | `make synthetic` | default world, report and charts | ~40 s |
-| `make site` | static results dashboard and dbt docs | ~20 s |
+| `make site` | static results dashboard and dbt docs | under a minute |
 
 No paid APIs. The only model download is the free `BAAI/bge-small-en-v1.5` embedding model (ONNX, CPU, via fastembed). Raw data files are verified against [`data/stockport/manifest.json`](docs/DATA_CARD.md) checksums.
 
@@ -176,8 +206,8 @@ The merchant resolver matched 8,406 descriptors at 100.00% MATCH precision and 9
 |---|---|
 | Source files downloaded (SHA-256 manifest) | 111 (110 unique; 4.5 MB) |
 | Statement months covered | 2017-01 to 2026-10 |
-| Card lines in the warehouse | 33,377 (£4,217,508 net of refunds) |
-| Lines with a booked GL account | 15,355 |
+| Card lines in the warehouse | 33,377 (£4,217,508 after refunds; amounts are net of VAT to 2022-06 and gross after, as published) |
+| Lines with a booked GL account (incl. refunds; scoring excludes them) | 15,355 |
 | Placeholder labels excluded from scoring | 58 |
 | Refund lines | 1,160 |
 | Distinct raw merchant strings → normalised merchant keys | 7,288 → 3,431 |
@@ -185,7 +215,7 @@ The merchant resolver matched 8,406 descriptors at 100.00% MATCH precision and 9
 | Settlement-before-purchase dates (dbt warning) | 1,960 lines |
 | Possible duplicate charges (same merchant + amount within 3 days) | 871 (£173,972) |
 
-Top-10 merchant share of card spend went from 44.7% in 2017 to 63.5% in 2026 (`mart_stockport_vendor_concentration`). Full lineage and column docs are on the [dbt docs site](https://vijaychamakuri.github.io/earned-autonomy/dbt/).
+Card spend has become more concentrated: the top 10 merchants took 44.7% of spend in 2017 and 63.5% in 2026 (through the latest published month; see `mart_stockport_vendor_concentration`). Full lineage and column docs are on the [dbt docs site](https://vijaychamakuri.github.io/earned-autonomy/dbt/).
 
 ## Limitations
 

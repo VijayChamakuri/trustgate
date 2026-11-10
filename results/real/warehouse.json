@@ -2,8 +2,8 @@
   "summary": {
     "Source files downloaded (SHA-256 manifest)": "111 (110 unique; 4.5 MB)",
     "Statement months covered": "2017-01 to 2026-10",
-    "Card lines in the warehouse": "33,377 (\u00a34,217,508 net of refunds)",
-    "Lines with a booked GL account": "15,355",
+    "Card lines in the warehouse": "33,377 (\u00a34,217,508 after refunds; amounts are net of VAT to 2022-06 and gross after, as published)",
+    "Lines with a booked GL account (incl. refunds; scoring excludes them)": "15,355",
     "Placeholder labels excluded from scoring": "58",
     "Refund lines": "1,160",
     "Distinct raw merchant strings \u2192 normalised merchant keys": "7,288 \u2192 3,431",
