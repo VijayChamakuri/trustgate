@@ -32,12 +32,12 @@ def summarise() -> dict:
     )
     recurring = q(
         "select merchant_key, months_billed, first_month, last_month, first_ticket, latest_ticket, price_change_pct "
-        "from stockport_marts.mart_stockport_recurring_charges order by months_billed desc limit 12"
+        "from stockport_marts.mart_stockport_recurring_charges order by months_billed desc, merchant_key limit 12"
     )
     dups = q("select count(*), sum(amount) from stockport_marts.mart_stockport_duplicate_candidates")[0]
     top = q(
         "select merchant_category, sum(spend) s from stockport_marts.mart_stockport_spend_monthly "
-        "group by 1 order by 2 desc limit 8"
+        "group by 1 order by 2 desc, 1 limit 8"
     )
     con.close()
     out = {

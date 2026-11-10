@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false  # queue deploys; a cancelled run marks the commit red
 
 jobs:
   deploy:
