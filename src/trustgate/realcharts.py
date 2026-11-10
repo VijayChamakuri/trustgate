@@ -4,13 +4,11 @@ from __future__ import annotations
 
 import json
 
-import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
 
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
-
-from .paths import RESULTS  # noqa: E402
+from . import chartstyle as cs
+from .paths import RESULTS
 
 POL = [
     ("auto_all", "Auto-post\neverything"),
@@ -19,24 +17,17 @@ POL = [
     ("wilson+novelty", "+ novelty\nguard"),
     ("wilson+novelty+tiers", "+ value tiers\n(earned)"),
 ]
-BLUE, GREY, RED = "#2457c5", "#9aa3ad", "#b4372f"
-
-
-def _style() -> None:
-    plt.rcParams.update(
-        {"font.size": 10, "axes.spines.top": False, "axes.spines.right": False, "axes.titleweight": "bold", "axes.titlesize": 11}
-    )
 
 
 def hero(auto: dict, budget: str = "0.02") -> None:
     """Same gate, two outcomes: automation granted and realised error, card-feed vs upstream."""
-    _style()
-    fig, axes = plt.subplots(1, 2, figsize=(11, 4.2), sharey=False)
+    cs.apply()
+    fig, axes = plt.subplots(1, 2, figsize=(10.5, 4), sharey=True)
     for ax, (setting, title) in zip(
         axes,
         [
-            ("card_feed", "Card-feed signals only (model ≈ {acc} accurate)"),
-            ("upstream", "With upstream procurement category (model ≈ {acc})"),
+            ("card_feed", "Card-feed fields only (model {acc} accurate)"),
+            ("upstream", "With the upstream procurement category (model {acc})"),
         ],
         strict=True,
     ):
@@ -46,64 +37,77 @@ def hero(auto: dict, budget: str = "0.02") -> None:
         autos = [b[p]["automation_rate"] * 100 for p, _ in POL]
         errs = [b[p]["auto_error_rate"] * 100 for p, _ in POL]
         over = [b[p]["months_over_budget"] for p, _ in POL]
-        bars = ax.bar(x, autos, color=[RED if o > 0 else BLUE for o in over], width=0.62)
+        bars = ax.bar(x, autos, color=[cs.FLAG if o > 0 else cs.BLUE for o in over], width=0.56)
         for xi, bar, e, o in zip(x, bars, errs, over, strict=True):
-            label = "no autonomy\ngranted" if bar.get_height() == 0 else f"{e:.1f}% err\n{o}/{s['live_months']} mo over"
-            ax.text(xi, bar.get_height() + 2, label, ha="center", va="bottom", fontsize=8, color="#333")
-        ax.set_xticks(x, [lab for _, lab in POL], fontsize=8)
+            label = "none granted" if bar.get_height() == 0 else f"{e:.1f}% wrong\nover in {o} of {s['live_months']}"
+            ax.text(xi, bar.get_height() + 2, label, ha="center", va="bottom", fontsize=7.5, color=cs.INK2)
+        ax.set_xticks(x, [lab for _, lab in POL])
+        ax.tick_params(axis="x", length=0)
         ax.set_ylim(0, 118)
-        ax.set_ylabel("% of real card lines auto-posted")
+        ax.set_yticks(range(0, 101, 25))
         ax.set_title(title.format(acc=f"{s['model_accuracy_live']:.0%}"))
-    fig.suptitle(
-        f"Same autonomy gate, real council bookings, {float(budget):.0%} error budget, {auto['settings']['upstream']['live_months']} live months"
-        "  ·  red = broke the budget in at least one month",
-        fontsize=10,
-        color="#444",
+    axes[0].set_ylabel("Live lines auto-posted (%)")
+    fig.text(
+        0.0,
+        -0.02,
+        f"{float(budget):.0%} error budget, {auto['settings']['upstream']['live_months']} live months. "
+        "Red bars broke the budget in at least one month.",
+        fontsize=8.5,
+        color=cs.MUTED,
     )
     fig.tight_layout()
-    fig.savefig(RESULTS / "real" / "hero.png", dpi=170)
+    fig.savefig(RESULTS / "real" / "hero.png")
     plt.close(fig)
 
 
 def per_year(bench: dict) -> None:
-    _style()
-    fig, ax = plt.subplots(figsize=(7, 3.8))
+    cs.apply()
+    fig, ax = plt.subplots(figsize=(6.6, 3.8))
     rows = [r for r in bench["benchmark"]["per_year"] if r["setting"] == "card_feed"]
-    for m, lab, c in [
-        ("merchant_lookup", "merchant lookup", GREY),
-        ("tfidf_logreg", "TF-IDF + LR", "#7aa2ff"),
-        ("embed_knn", "embeddings kNN", "#56c28d"),
-        ("tfidf+embed_logreg", "TF-IDF + embeddings + LR", BLUE),
-    ]:
+    series = [
+        ("tfidf+embed_logreg", "TF-IDF + embeddings + LR", cs.BLUE),
+        ("tfidf_logreg", "TF-IDF + LR", cs.ORANGE),
+        ("embed_knn", "Embeddings kNN", cs.PURPLE),
+        ("merchant_lookup", "Merchant lookup", cs.NEUTRAL),
+    ]
+    ends = []
+    for m, lab, c in series:
         rr = [r for r in rows if r["model"] == m]
-        ax.plot([r["year"] for r in rr], [r["accuracy"] * 100 for r in rr], marker="o", label=lab, color=c)
+        ys = [r["accuracy"] * 100 for r in rr]
+        ax.plot([r["year"] for r in rr], ys, marker="o", color=c, lw=2.2 if c == cs.BLUE else 1.6)
+        ends.append([ys[-1], lab, rr[-1]["year"]])
+    ends.sort(reverse=True)
+    for i in range(1, len(ends)):  # keep end labels at least 1.4 points apart
+        ends[i][0] = min(ends[i][0], ends[i - 1][0] - 1.4)
+    for y, lab, year in ends:
+        ax.annotate(lab, (year, y), xytext=(8, 0), textcoords="offset points", va="center", fontsize=8, color=cs.INK2)
     nm = [r for r in rows if r["model"] == "tfidf+embed_logreg"]
-    ax2 = ax.twinx()
-    ax2.bar([r["year"] for r in nm], [(1 - r["seen_merchant_share"]) * 100 for r in nm], alpha=0.12, color="#555", width=0.5)
-    ax2.set_ylabel("% lines from never-seen merchants", color="#777")
-    ax2.spines["top"].set_visible(False)
-    ax.set_ylabel("accuracy (%)")
-    ax.set_title("Rolling yearly GL-coding accuracy (train on all earlier years)")
-    ax.legend(frameon=False, fontsize=8, loc="lower left")
+    ax.set_xticks([r["year"] for r in nm], [f"{r['year']}\n{(1 - r['seen_merchant_share']):.0%} new" for r in nm])
+    ax.tick_params(axis="x", length=0)
+    ax.set_xlim(nm[0]["year"] - 0.3, nm[-1]["year"] + 1.6)
+    ax.spines["bottom"].set_bounds(nm[0]["year"] - 0.3, nm[-1]["year"] + 0.3)
+    ax.set_ylabel("Accuracy (%)")
+    ax.set_title("Accuracy by test year, card-feed fields")
     fig.tight_layout()
-    fig.savefig(RESULTS / "real" / "accuracy_by_year.png", dpi=170)
+    fig.savefig(RESULTS / "real" / "accuracy_by_year.png")
     plt.close(fig)
 
 
 def confidence(auto: dict) -> None:
-    _style()
-    fig, ax = plt.subplots(figsize=(5.4, 3.8))
-    for setting, lab, c in [("card_feed", "card feed", RED), ("upstream", "upstream", BLUE)]:
+    cs.apply()
+    fig, ax = plt.subplots(figsize=(5.6, 3.8))
+    for setting, lab, c in [("card_feed", "Card feed", cs.ORANGE), ("upstream", "Upstream", cs.BLUE)]:
         rows = auto["settings"][setting]["accuracy_by_confidence"]
-        ax.plot([r["min_conf"] for r in rows], [r["error"] * 100 for r in rows], marker="o", label=lab, color=c)
-    ax.axhline(2, ls="--", color="#777", lw=1)
-    ax.text(0.5, 2.6, "2% budget", fontsize=8, color="#555")
-    ax.set_xlabel("minimum model confidence")
-    ax.set_ylabel("error rate above threshold (%)")
+        xs, ys = [r["min_conf"] for r in rows], [r["error"] * 100 for r in rows]
+        ax.plot(xs, ys, marker="o", color=c)
+        ax.annotate(lab, (xs[0], ys[0]), xytext=(0, 8), textcoords="offset points", fontsize=8.5, color=cs.INK2)
+    ax.axhline(2, ls="--", color=cs.INK2, lw=0.9)
+    ax.annotate("2% budget", (0.62, 2), xytext=(0, -4), textcoords="offset points", va="top", fontsize=8, color=cs.INK2)
+    ax.set_xlabel("Minimum model confidence")
+    ax.set_ylabel("Error rate above that confidence (%)")
     ax.set_title("Does confidence separate right from wrong?")
-    ax.legend(frameon=False)
     fig.tight_layout()
-    fig.savefig(RESULTS / "real" / "error_vs_confidence.png", dpi=170)
+    fig.savefig(RESULTS / "real" / "error_vs_confidence.png")
     plt.close(fig)
 
 

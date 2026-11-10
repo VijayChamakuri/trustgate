@@ -18,7 +18,7 @@ from .paths import DB_PATH, RESULTS, ROOT, WAREHOUSE
 
 SITE = ROOT / "site"
 REPO_URL = "https://github.com/VijayChamakuri/trustgate"
-FIGURES = ("real/hero.png", "real/accuracy_by_year.png", "real/error_vs_confidence.png", "rollout_by_month.png")
+FIGURES = ("real/hero.png", "real/accuracy_by_year.png", "real/error_vs_confidence.png")
 
 
 def _inline(s: str) -> str:
@@ -145,8 +145,8 @@ error broke it in {{point_over}} seeds.</li>
 platform sees: the merchant string, the cardholder's department and service, and the amount.</p>
 <div class="tbl wide"><p class=cap><b>Table 1.</b> Ledger-account accuracy from card-feed fields, {{gl_eval_lines}} test lines.</p>{{gl_table}}</div>
 <figure class=narrow><img src="accuracy_by_year.png" alt="Accuracy by test year for four models, 2018 to 2022; the combined model is highest in every year.">
-<figcaption><b>Figure 1.</b> Accuracy by test year. Grey bars, on the right-hand scale, are the share of lines from merchants the
-model had never seen.</figcaption></figure>
+<figcaption><b>Figure 1.</b> Accuracy by test year. Under each year is the share of lines from merchants the model had
+never seen.</figcaption></figure>
 
 <h2>The gate on real data, month by month</h2>
 <p>The agent then ran live for the final {{live_months}} months ({{live_lines}} lines). Each month it was refit on earlier data,
@@ -164,8 +164,6 @@ very high; with the upstream category it falls under budget much sooner.</figcap
 <p>Expense-policy decisions (approve, reject or send for review, citing the policy section) have no public labels, so this part
 uses a documented generator with planted ground truth. Every assumption in it is varied in Table 5.</p>
 <div class="tbl wide"><p class=cap><b>Table 3.</b> Live months, mean ± standard deviation across seeds, 1% error budget.</p>{{synthetic_table}}</div>
-<figure class=wide><img src="rollout_by_month.png" alt="One simulated run: share of transactions auto-actioned and realised error per month for four policies.">
-<figcaption><b>Figure 4.</b> One simulated run. Only the full earned-autonomy policy stays under the dashed 1% budget in every live month.</figcaption></figure>
 <div class="tbl wide"><p class=cap><b>Table 4.</b> Dropping one safeguard at a time.</p>{{ablation_table}}</div>
 <div class="tbl wide"><p class=cap><b>Table 5.</b> Does the conclusion survive changing the generator's assumptions?</p>{{sensitivity_table}}</div>
 
