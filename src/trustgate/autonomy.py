@@ -186,7 +186,7 @@ def gl_rollout(
     min_n: int = 50,
     novelty_guard: bool = True,
 ) -> tuple[pd.DataFrame, pd.Series]:
-    """Same earned-autonomy rule for auto-posting GL codes."""
+    """Same trustgate rule for auto-posting GL codes."""
     rows, routes = [], pd.Series("human", index=df.index)
     for m in live_months:
         past = df[(df.month_index < m) & (df.month_index >= shadow_months[0]) & audit_mask]

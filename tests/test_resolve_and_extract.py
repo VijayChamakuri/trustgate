@@ -2,9 +2,9 @@ import json
 
 import pandas as pd
 
-from earned_autonomy.catalog import MERCHANTS
-from earned_autonomy.extract import LLMExtractor
-from earned_autonomy.resolve import MerchantResolver
+from trustgate.catalog import MERCHANTS
+from trustgate.extract import LLMExtractor
+from trustgate.resolve import MerchantResolver
 
 
 def registry():

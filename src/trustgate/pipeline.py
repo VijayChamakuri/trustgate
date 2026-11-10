@@ -21,7 +21,7 @@ TRAIN_MONTHS = range(0, 6)
 
 
 def dbt(select: str) -> None:
-    env = {**os.environ, "DBT_PROFILES_DIR": str(WAREHOUSE), "EA_DB_PATH": str(DB_PATH)}
+    env = {**os.environ, "DBT_PROFILES_DIR": str(WAREHOUSE), "TRUSTGATE_DB_PATH": str(DB_PATH)}
     cmd = ["dbt", "build", "--select", select, "--indirect-selection", "cautious", "--quiet", "--project-dir", str(WAREHOUSE)]
     res = subprocess.run(cmd, env=env, capture_output=True, text=True)
     if res.returncode != 0:

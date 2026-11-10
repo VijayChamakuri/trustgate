@@ -2,8 +2,8 @@
 
 import pytest
 
-from earned_autonomy.paths import RESULTS, ROOT
-from earned_autonomy.readme import render
+from trustgate.paths import RESULTS, ROOT
+from trustgate.readme import render
 
 NEEDED = [
     "real/gl_benchmark.json",
@@ -17,4 +17,4 @@ NEEDED = [
 
 @pytest.mark.skipif(not all((RESULTS / n).exists() for n in NEEDED), reason="results not generated")
 def test_readme_matches_results():
-    assert (ROOT / "README.md").read_text() == render(), "README.md is stale: run `uv run ea readme`"
+    assert (ROOT / "README.md").read_text() == render(), "README.md is stale: run `uv run trustgate readme`"

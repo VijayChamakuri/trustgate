@@ -2,7 +2,7 @@ from pathlib import Path
 
 import openpyxl
 
-from earned_autonomy.sources.stockport import parse_file, period_from_url
+from trustgate.sources.stockport import parse_file, period_from_url
 
 FIX = Path(__file__).parent / "fixtures"
 

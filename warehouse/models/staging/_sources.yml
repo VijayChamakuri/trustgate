@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: raw
-    description: What a spend platform actually receives. Loaded by `ea load`.
+    description: What a spend platform actually receives. Loaded by `trustgate synthetic`.
     schema: raw
     tables:
       - name: card_transactions

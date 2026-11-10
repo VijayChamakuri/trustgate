@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from earned_autonomy.autonomy import choose_threshold, route, wilson_interval
+from trustgate.autonomy import choose_threshold, route, wilson_interval
 
 
 def test_wilson_interval_known_values():

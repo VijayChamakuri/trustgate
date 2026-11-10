@@ -1,7 +1,7 @@
-name: earned_autonomy
+name: trustgate
 version: "1.0.0"
 config-version: 2
-profile: earned_autonomy
+profile: trustgate
 
 model-paths: ["models"]
 seed-paths: ["seeds"]
@@ -11,7 +11,7 @@ target-path: "target"
 clean-targets: ["target", "dbt_packages"]
 
 models:
-  earned_autonomy:
+  trustgate:
     staging:
       +materialized: view
       +schema: staging
@@ -37,6 +37,6 @@ models:
         +schema: stockport_marts
 
 seeds:
-  earned_autonomy:
+  trustgate:
     +schema: seeds
     +tags: ["stockport"]

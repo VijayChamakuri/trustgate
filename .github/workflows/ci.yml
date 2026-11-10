@@ -18,7 +18,7 @@ jobs:
       - name: Types
         run: uv run mypy src
       - name: Unit tests (includes README-matches-results check)
-        run: uv run pytest -q --cov=earned_autonomy --cov-report=term
+        run: uv run pytest -q --cov=trustgate --cov-report=term
   smoke:
     runs-on: ubuntu-latest
     steps:
@@ -28,9 +28,9 @@ jobs:
           python-version: "3.12"
       - run: uv sync --frozen --all-groups
       - name: Real warehouse (download, checksum, dbt build + tests)
-        run: uv run ea real --skip-benchmark
+        run: uv run trustgate real --skip-benchmark
       - name: Synthetic benchmark end to end
-        run: uv run ea synthetic
+        run: uv run trustgate synthetic
       - name: Guardrail - earned autonomy stays inside its budget
         run: |
           uv run python - <<'PY'

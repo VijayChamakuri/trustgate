@@ -1,7 +1,7 @@
-earned_autonomy:
+trustgate:
   target: dev
   outputs:
     dev:
       type: duckdb
-      path: "{{ env_var('EA_DB_PATH', '../data/warehouse.duckdb') }}"
+      path: "{{ env_var('TRUSTGATE_DB_PATH', '../data/warehouse.duckdb') }}"
       threads: 4

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from earned_autonomy.realgl import Lookup, ece, label_ceiling
+from trustgate.realgl import Lookup, ece, label_ceiling
 
 
 def toy():

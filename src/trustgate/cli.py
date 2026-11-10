@@ -1,11 +1,11 @@
-"""`ea` command line.
+"""`trustgate` command line.
 
-ea real            real data: download -> load -> dbt -> GL benchmark -> autonomy rollout
-ea synthetic       policy-agent benchmark, default world (seed 7), report + charts
-ea experiments     10 seeds + sensitivity sweeps + perception backends (~40 min)
-ea site            build site/ (results dashboard + dbt docs)
-ea readme          render README.md from results (CI checks it is up to date)
-ea reproduce       everything above, in order
+trustgate real            real data: download -> load -> dbt -> GL benchmark -> autonomy rollout
+trustgate synthetic       policy-agent benchmark, default world (seed 7), report + charts
+trustgate experiments     10 seeds + sensitivity sweeps + perception backends (~50 min)
+trustgate site            build site/ (results dashboard + dbt docs)
+trustgate readme          render README.md from results (CI checks it is up to date)
+trustgate reproduce       everything above, in order
 """
 
 from __future__ import annotations
@@ -36,7 +36,7 @@ def cmd_real(args: argparse.Namespace) -> None:
     _step("dbt build (staging, marts, tests, seeds)", pipeline.dbt, "tag:stockport")
     _step("warehouse summary", summarise)
     if not args.skip_benchmark:
-        _step("GL benchmark + earned-autonomy rollout", run_all)
+        _step("GL benchmark + trustgate rollout", run_all)
 
 
 def cmd_synthetic(args: argparse.Namespace) -> None:
@@ -102,7 +102,7 @@ def cmd_queue(args: argparse.Namespace) -> None:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(prog="ea", description="Earned autonomy for finance agents")
+    p = argparse.ArgumentParser(prog="earned_autonomy", description="Earned autonomy for finance agents")
     sub = p.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("real", help="real-data track")
     r.add_argument("--skip-benchmark", action="store_true", help="warehouse only (fast)")

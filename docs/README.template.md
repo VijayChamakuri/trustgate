@@ -1,11 +1,13 @@
-<!-- Generated from docs/README.template.md by `ea readme`. Edit the template, not this file. -->
-# earned-autonomy
+<!-- Generated from docs/README.template.md by `trustgate readme`. Edit the template, not this file. -->
+# TrustGate
 
-**When should a finance agent act without a human?** An autonomy gate for finance agents that unlocks an action only when the *upper 95% bound* of its audited error rate fits the budget. It's evaluated on **{{real_lines}} real corporate-card lines that council finance staff actually booked**, and on a policy-agent benchmark with planted ground truth.
+**AI agents earn autonomy only when the evidence says they can.**
 
-[![CI](https://github.com/VijayChamakuri/earned-autonomy/actions/workflows/ci.yml/badge.svg)](https://github.com/VijayChamakuri/earned-autonomy/actions/workflows/ci.yml)
-[![Results site](https://img.shields.io/badge/results-live%20site-2457c5)](https://vijaychamakuri.github.io/earned-autonomy/)
-[![dbt docs](https://img.shields.io/badge/dbt-lineage%20docs-ff694b)](https://vijaychamakuri.github.io/earned-autonomy/dbt/)
+When should an AI agent act without a human? TrustGate is an autonomy gate that unlocks an action only when the *upper 95% bound* of its audited error rate fits the budget. It's evaluated on **{{real_lines}} real corporate-card lines that council finance staff actually booked**, and on a policy-agent benchmark with planted ground truth.
+
+[![CI](https://github.com/VijayChamakuri/trustgate/actions/workflows/ci.yml/badge.svg)](https://github.com/VijayChamakuri/trustgate/actions/workflows/ci.yml)
+[![Results site](https://img.shields.io/badge/results-live%20site-2457c5)](https://vijaychamakuri.github.io/trustgate/)
+[![dbt docs](https://img.shields.io/badge/dbt-lineage%20docs-ff694b)](https://vijaychamakuri.github.io/trustgate/dbt/)
 ![Python 3.12](https://img.shields.io/badge/python-3.12-3776ab)
 [![Ruff](https://img.shields.io/badge/lint-ruff-261230)](https://github.com/astral-sh/ruff)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
@@ -77,7 +79,7 @@ This project answers that with evidence instead of a gut-feel confidence setting
 ## Quickstart
 
 ```bash
-git clone https://github.com/VijayChamakuri/earned-autonomy && cd earned-autonomy
+git clone https://github.com/VijayChamakuri/trustgate && cd trustgate
 uv sync
 make real        # download real data (SHA-256 verified) -> dbt -> GL benchmark -> autonomy rollout
 make synthetic   # policy-agent benchmark, default world, ~40 s
@@ -122,12 +124,12 @@ flowchart LR
 
 | Module | Responsibility |
 |---|---|
-| [`sources/stockport.py`](src/earned_autonomy/sources/stockport.py) | CKAN download, checksum manifest, three-layout parser (incl. an `.xlsx` published as `.csv`) |
+| [`sources/stockport.py`](src/trustgate/sources/stockport.py) | CKAN download, checksum manifest, three-layout parser (incl. an `.xlsx` published as `.csv`) |
 | [`warehouse/models/stockport/`](warehouse/models/stockport) | staging, labelled population, contract-enforced fact, merchant dim, concentration/recurring/duplicate marts, semantic layer |
-| [`realgl.py`](src/earned_autonomy/realgl.py) | rolling temporal GL benchmark, label ceiling, monthly earned-autonomy rollout |
-| [`autonomy.py`](src/earned_autonomy/autonomy.py) | Wilson interval, threshold selection, routing, rollout simulation |
-| [`policy.py`](src/earned_autonomy/policy.py) · [`extract.py`](src/earned_autonomy/extract.py) | cited policy engine, verifier; rules / embedding / Claude extractors |
-| [`experiments.py`](src/earned_autonomy/experiments.py) | seeds, sensitivity sweeps, ablations, perception backends |
+| [`realgl.py`](src/trustgate/realgl.py) | rolling temporal GL benchmark, label ceiling, monthly trustgate rollout |
+| [`autonomy.py`](src/trustgate/autonomy.py) | Wilson interval, threshold selection, routing, rollout simulation |
+| [`policy.py`](src/trustgate/policy.py) · [`extract.py`](src/trustgate/extract.py) | cited policy engine, verifier; rules / embedding / Claude extractors |
+| [`experiments.py`](src/trustgate/experiments.py) | seeds, sensitivity sweeps, ablations, perception backends |
 
 ## Results in depth
 
@@ -171,7 +173,7 @@ The merchant resolver matched {{res_desc}} descriptors at {{res_prec}} MATCH pre
 
 {{warehouse_table}}
 
-Card spend has become more concentrated: the top 10 merchants took {{top10_first}} of spend in {{conc_first_year}} and {{top10_last}} in {{conc_last_year}} (through the latest published month; see `mart_stockport_vendor_concentration`). Full lineage and column docs are on the [dbt docs site](https://vijaychamakuri.github.io/earned-autonomy/dbt/).
+Card spend has become more concentrated: the top 10 merchants took {{top10_first}} of spend in {{conc_first_year}} and {{top10_last}} in {{conc_last_year}} (through the latest published month; see `mart_stockport_vendor_concentration`). Full lineage and column docs are on the [dbt docs site](https://vijaychamakuri.github.io/trustgate/dbt/).
 
 ## Limitations
 
@@ -190,7 +192,7 @@ Card spend has become more concentrated: the top 10 merchants took {{top10_first
 ## Project structure
 
 ```
-src/earned_autonomy/   sources/ (real data), realgl, autonomy, policy, extract, resolve, experiments, site, readme
+src/trustgate/   sources/ (real data), realgl, autonomy, policy, extract, resolve, experiments, site, readme
 warehouse/             dbt project: synthetic + stockport models, seeds, macros, tests, semantic layer
 policy/                expense policy with stable section IDs (cited by the agent)
 results/               every number in this README (JSON + charts)

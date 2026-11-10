@@ -1,7 +1,7 @@
 # Methodology
 
 This document describes how every number in the README is produced. Numbers themselves live in
-[`results/`](../results) and are rendered into the README by `ea readme`; this page explains the
+[`results/`](../results) and are rendered into the README by `trustgate readme`; this page explains the
 procedures, the controls against leakage, and the statistics.
 
 ## 1. Question
@@ -30,7 +30,7 @@ outcomes from earlier months:
 ## 3. Real-data track (Stockport MBC purchase cards)
 
 **Source.** Stockport Metropolitan Borough Council publishes monthly corporate purchase-card transactions under the Open Government Licence v3.0 (data.gov.uk dataset `purchase-card-transactions`).
-- `ea real` downloads every file listed by the CKAN API.
+- `trustgate real` downloads every file listed by the CKAN API.
 - It records URL, SHA-256, bytes and parsed row count in `data/stockport/manifest.json`.
 - dbt test `assert_stockport_rows_reconcile_to_manifest` fails if any file's row count differs once in the warehouse.
 
@@ -69,7 +69,7 @@ All layouts are unioned in the parser, typed and tested in dbt staging, and tagg
 
 ## 4. Synthetic policy-agent track
 
-Expense-policy decisions have no public labels, so this track uses a generator ([`generate.py`](../src/earned_autonomy/generate.py)) that plants ground truth: what was really on the receipt, who attended, the cabin class, whether the purchase was personal.
+Expense-policy decisions have no public labels, so this track uses a generator ([`generate.py`](../src/trustgate/generate.py)) that plants ground truth: what was really on the receipt, who attended, the cabin class, whether the purchase was personal.
 
 The agent sees only what a platform would see: card descriptors, MCCs, memos and receipt text.
 

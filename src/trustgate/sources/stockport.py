@@ -34,7 +34,7 @@ OUT = DATA / "stockport"
 MONTHS = {
     m: i for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], start=1)
 }
-UA = {"User-Agent": "earned-autonomy research (open data; github.com/VijayChamakuri/earned-autonomy)"}
+UA = {"User-Agent": "trustgate research (open data; github.com/VijayChamakuri/trustgate)"}
 
 
 def _get(url: str, tries: int = 4) -> bytes:

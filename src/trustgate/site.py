@@ -17,7 +17,7 @@ from .paths import DB_PATH, RESULTS, ROOT, WAREHOUSE
 
 SITE = ROOT / "site"
 PLOTLY = "https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"
-REPO_URL = "https://github.com/VijayChamakuri/earned-autonomy"
+REPO_URL = "https://github.com/VijayChamakuri/trustgate"
 
 
 def _load(name: str) -> dict:
@@ -159,12 +159,12 @@ def build(with_dbt_docs: bool = True) -> Path:
             ["dbt", "docs", "generate", "--static", "--project-dir", str(WAREHOUSE), "--profiles-dir", str(WAREHOUSE)],
             check=True,
             capture_output=True,
-            env={**os.environ, "EA_DB_PATH": str(DB_PATH)},
+            env={**os.environ, "TRUSTGATE_DB_PATH": str(DB_PATH)},
         )
         (SITE / "dbt").mkdir(exist_ok=True)
         docs = (WAREHOUSE / "target" / "static_index.html").read_text()
         # dbt embeds absolute local paths in its manifest; publish repo-relative ones only.
-        docs = docs.replace(str(ROOT).replace("\\", "/"), "earned-autonomy").replace(str(Path.home()), "~")
+        docs = docs.replace(str(ROOT).replace("\\", "/"), "trustgate").replace(str(Path.home()), "~")
         (SITE / "dbt" / "index.html").write_text(docs)
     (SITE / ".nojekyll").write_text("")
     return SITE / "index.html"
@@ -172,8 +172,8 @@ def build(with_dbt_docs: bool = True) -> Path:
 
 TEMPLATE = """<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Earned Autonomy</title>
-<meta name="description" content="When should a finance agent act without a human? Evaluated on real council card data.">
+<title>TrustGate</title>
+<meta name="description" content="TrustGate: AI agents earn autonomy only when the evidence says they can. Evaluated on real council card data.">
 <script src="{plotly}"></script>
 <style>
 :root{{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#6b6a65;--line:#e6e3dc;--card:#fff;--accent:#2457c5;--good:#1f7a4d;--bad:#b4372f}}
@@ -196,7 +196,7 @@ th:first-child,td:first-child{{text-align:left}}th{{font-weight:600;color:var(--
 nav a{{margin-right:16px}}code{{font-size:13px;background:var(--card);border:1px solid var(--line);padding:1px 5px;border-radius:6px}}
 footer{{margin-top:64px;color:var(--muted);font-size:14px}}
 </style></head><body><main>
-<nav><a href="{repo}">GitHub</a><a href="dbt/">Warehouse lineage (dbt docs)</a><a href="{repo}/blob/main/docs/METHODOLOGY.md">Methodology</a></nav>
+<nav><b>TrustGate</b> · <a href="{repo}">GitHub</a><a href="dbt/">Warehouse lineage (dbt docs)</a><a href="{repo}/blob/main/docs/METHODOLOGY.md">Methodology</a></nav>
 <h1>When should a finance agent act without a human?</h1>
 <p class="lede">An autonomy gate for finance agents, evaluated on {lines} real corporate-card lines that council staff
 actually booked (Stockport MBC, 2017–2022), plus a policy-agent benchmark with planted ground truth. The agent only
@@ -253,7 +253,7 @@ Plotly.newPlot('conf',Object.keys(cf).map(k=>({{x:cf[k].map(r=>r.min_conf),y:cf[
 const S=D.syn.sens||{{}};const names={{leniency:'Reviewer leniency',drift_rate:'Memo drift rate',audit_per_month:'Audits per month',approve_budget:'Error budget'}};
 for(const p of Object.keys(S)){{const div=document.createElement('div');div.className='chart';document.getElementById('sens').appendChild(div);
 const pols=['trust_engine_everywhere','point_estimate_thresholds','earned_autonomy'];
-const SN={{trust_engine_everywhere:'Trust engine everywhere',point_estimate_thresholds:'Point estimate',earned_autonomy:'Earned autonomy'}};
+const SN={{trust_engine_everywhere:'Trust engine everywhere',point_estimate_thresholds:'Point estimate',trustgate:'Earned autonomy'}};
 Plotly.newPlot(div,pols.map(pol=>({{x:S[p].map(r=>r.value),y:S[p].map(r=>r[pol].auto_error_rate.mean),name:SN[pol],mode:'lines+markers'}})),L('Auto-action error vs '+names[p],{{xaxis:{{type:'category',gridcolor:line}}}}),cfg);}}
 </script></body></html>
 """

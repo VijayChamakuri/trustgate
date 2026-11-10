@@ -141,15 +141,6 @@
       "price_change_pct": -0.0959
     },
     {
-      "merchant": "CANVA",
-      "months": 39,
-      "first": "2019-11-01",
-      "last": "2026-09-01",
-      "first_ticket": 95.76,
-      "latest_ticket": 81.49,
-      "price_change_pct": -0.149
-    },
-    {
       "merchant": "GITHUB INC",
       "months": 39,
       "first": "2023-04-01",
@@ -157,6 +148,15 @@
       "first_ticket": 82.59,
       "latest_ticket": 74.89,
       "price_change_pct": -0.0932
+    },
+    {
+      "merchant": "CANVA",
+      "months": 39,
+      "first": "2019-11-01",
+      "last": "2026-09-01",
+      "first_ticket": 95.76,
+      "latest_ticket": 81.49,
+      "price_change_pct": -0.149
     },
     {
       "merchant": "WETRANSFER",

@@ -396,7 +396,7 @@ def autonomy_rollout(df: pd.DataFrame, emb: Embedder, cfg: RealRollout | None = 
 
 def run_all(log=print) -> dict:
     """Full real-data run: rolling benchmark -> results/real/gl_benchmark.json,
-    earned-autonomy rollout -> results/real/autonomy.json."""
+    trustgate rollout -> results/real/autonomy.json."""
     t0 = time.time()
     df = load_lines()
     emb = Embedder()

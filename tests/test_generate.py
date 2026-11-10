@@ -2,7 +2,7 @@ import hashlib
 
 import pandas as pd
 
-from earned_autonomy.generate import generate
+from trustgate.generate import generate
 
 
 def _digest(df: pd.DataFrame) -> str:

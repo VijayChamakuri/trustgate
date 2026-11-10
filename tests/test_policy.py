@@ -1,5 +1,5 @@
-from earned_autonomy.extract import RuleExtractor, Signals
-from earned_autonomy.policy import decide
+from trustgate.extract import RuleExtractor, Signals
+from trustgate.policy import decide
 
 BASE = dict(
     amount=40.0,

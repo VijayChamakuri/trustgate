@@ -1,7 +1,7 @@
 [project]
-name = "earned-autonomy"
+name = "trustgate"
 version = "0.1.0"
-description = "Evidence-gated autonomy for finance agents, evaluated on real council card bookings and a policy-agent benchmark."
+description = "TrustGate: evidence-gated autonomy for AI agents, evaluated on real council card bookings and a policy-agent benchmark."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [project.scripts]
-ea = "earned_autonomy.cli:main"
+trustgate = "trustgate.cli:main"
 
 [project.optional-dependencies]
 llm = [
