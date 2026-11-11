@@ -82,7 +82,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.62 Charter,"B
 .page{max-width:700px;margin:0 auto;padding:20px 20px 96px}
 .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;padding-bottom:12px;margin-bottom:56px;border-bottom:1px solid var(--rule);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:var(--muted)}
 .top a{color:var(--ink2);text-decoration:none}.top a:hover{color:var(--link);text-decoration:underline}
-.top nav{display:flex;gap:18px}.top nav span{color:var(--ink);font-weight:600}
+.top nav{display:flex;flex-wrap:wrap;gap:4px 18px}.top nav span{color:var(--ink);font-weight:600}
 h1{font-size:clamp(28px,5.4vw,38px);line-height:1.18;letter-spacing:-.01em;margin:0 0 14px}
 .meta{font-style:italic;color:var(--muted);font-size:16px;margin:0 0 40px}
 h2{font-size:24px;line-height:1.3;margin:60px 0 12px}
@@ -109,7 +109,7 @@ TEMPLATE = """<!doctype html>
 <meta name="description" content="When should a finance agent act without a person checking? An autonomy gate tested on 14,851 real council card bookings.">
 <style>{{css}}</style></head><body><div class=page>
 <header class=top><a href="https://github.com/VijayChamakuri">Vijay Chamakuri</a>
-<nav><span>TrustGate</span><a href="https://vijaychamakuri.github.io/commitcompass/">CommitCompass</a><a href="https://vijaychamakuri.github.io/judgegate/">JudgeGate</a></nav></header>
+<nav><span>TrustGate</span><a href="https://vijaychamakuri.github.io/commitcompass/">CommitCompass</a><a href="https://vijaychamakuri.github.io/judgegate/">JudgeGate</a><a href="https://vijaychamakuri.github.io/sift/">Sift</a></nav></header>
 <main>
 <h1>When should a finance agent act without a person checking?</h1>
 <p class=meta>Vijay Chamakuri, November 2026. Code, data and full method on <a href="{{repo}}">GitHub</a>.</p>
