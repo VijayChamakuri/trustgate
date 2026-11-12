@@ -146,6 +146,8 @@ def values() -> dict[str, str]:
         "cf_point_over": str(s_cf["budgets"]["0.02"]["point_estimate"]["months_over_budget"]),
         "cf_model_acc": pct(s_cf["model_accuracy_live"]),
         "up_model_acc": pct(s_up["model_accuracy_live"]),
+        "cf_live_round": f"{s_cf['model_accuracy_live']:.0%}",
+        "up_live_round": f"{s_up['model_accuracy_live']:.0%}",
         "cf_top3": pct(s_cf["top3_live"]),
         "cf_err_at_50": _conf_err(s_cf, 0.5),
         "cf_err_at_95": _conf_err(s_cf, 0.95),
@@ -244,6 +246,8 @@ def values() -> dict[str, str]:
     }
     v["bench_seconds"] = f"{bench['seconds']:,.0f}"
     v["exp_seconds"] = f"{exp['seconds']:,.1f}"
+    v["bench_min"] = f"{bench['seconds'] / 60:.0f}"
+    v["exp_min"] = f"{exp['seconds'] / 60:.0f}"
     v["rules_personal"] = pct(ext["rules"]["signals"]["personal_memo"]["recall"])
     v["embed_personal"] = pct(ext["rules+embed"]["signals"]["personal_memo"]["recall"])
     v["warehouse_table"] = "\n".join(

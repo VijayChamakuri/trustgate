@@ -36,7 +36,7 @@ Live months are the last 20 labelled months, 3,826 lines, after a shadow period.
 
 A dash means the policy booked zero lines. The result file stores an error rate of 0 for that row, because `outcome` divides by `max(n, 1)`, and a Wilson interval of 0–100%, because `wilson_interval(0, 0)` returns that. It is not a measured error rate.
 
-With the staff category, earned autonomy booked 1,579 lines, 2 of them wrong (0.13%, 95% upper bound 0.46%), and mis-booked £149.83. It went over the budget in 0 of 20 months. The card-feed model was 66.6% accurate on these live lines; with the category it was 95.8%. The figure titles round those two numbers to the nearest percent.
+With the staff category, earned autonomy booked 1,579 lines, 2 of them wrong (0.13%, 95% upper bound 0.46%), and mis-booked £149.83. It went over the budget in 0 of 20 months. The card-feed model was 66.6% accurate on these live lines; with the category it was 95.8%. The rollout chart rounds those two live-month accuracies to 67% and 96%. They are not the rolling yearly scores in the table above.
 
 Booking every card-feed line would have mis-booked £242,402 (33.4% error) and gone over the budget in all 20 months. The booked account is in the card-feed model's top 3 on 86.4% of live lines.
 

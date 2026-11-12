@@ -5,11 +5,15 @@
 [![Python 3.12](https://img.shields.io/badge/python-3.12-3776ab)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-Council staff book each purchase-card line to a ledger account, and someone has to decide when a model may do that, or approve an expense, with no person checking. I built a gate that allows the action only when the upper bound on its audited error rate fits a budget, and I tested it on Stockport Council's published cards and on a synthetic expense-policy agent. On the last 20 months of council lines (3,826), it booked 41.3% of them alone when a staff category was available, at 0.13% error, and booked none from the card feed alone.
+Someone has to decide when a model may book a purchase-card line, or approve an expense, with no person checking.
+
+I built a gate that allows it only when the upper bound on audited error fits a budget, tested on Stockport Council's published cards and a synthetic expense agent.
+
+On the last 20 months it booked 41.3% of lines alone, at 0.13% error, when a staff category was available, and none from the card feed alone.
 
 ![Share of lines booked with no review. Left, card feed only. Right, with the staff category. Red bars went over the 2% budget.](results/real/hero.png)
 
-*Share of live lines booked with no review, at a 2% error budget. Red bars went over that budget in at least one month. Panel titles on the figure round accuracy to the nearest percent.*
+*Share of live lines booked with no review, at a 2% error budget. Red bars went over that budget in at least one month. The titles on the panels are this model's accuracy on these same live months, 66.6% on the card feed and 95.8% with the staff category, drawn rounded as 67% and 96%. The rolling yearly test is a different score. It is in [docs/METHODOLOGY.md](docs/METHODOLOGY.md).*
 
 | What the model can see | Booked with no review | Error on those lines | Months over the 2% budget |
 |---|---:|---:|---:|
@@ -18,9 +22,9 @@ Council staff book each purchase-card line to a ledger account, and someone has 
 
 *Earned autonomy on the last 20 labelled months: Wilson upper bound, a novelty guard, and a separate threshold for larger amounts. A dash means no lines were booked, so there is no error rate.*
 
-Booked with no review means the gate posted the general ledger (GL) account and no person checked that line. An audit is a random sample whose true booking a person reveals; this rollout uses 40 lines a month, and the gate for a month may use only earlier months. The Wilson upper bound is the top of a 95% Wilson score interval on the error rate in that sample. It stays high when the sample is small, so the action stays with a person. The card feed is the merchant string, the cardholder's department and service, and the amount. The staff category is the council's procurement category, assigned alongside the booked account.
+Booked with no review means the gate posted the general ledger (GL) account and no person checked that line. The Wilson upper bound is a cautious reading of the audited error rate: with a small sample it stays high, so the action stays with a person.
 
-The gate books a large share of lines when that category is present and books nothing when it is not. The usual shortcut, a threshold set from the average audited error, booked 4.2% of the card-feed lines at 8.2% error and went over the budget in 6 of 20 months. Intervals and the other policies are in [docs/RESULTS.md](docs/RESULTS.md).
+The gate books a lot of lines when the staff category is present and nothing when it is not. The usual shortcut, a threshold from the average audited error, went over the budget in 6 of 20 months. The other policies are in [docs/RESULTS.md](docs/RESULTS.md).
 
 ## How it works
 
@@ -41,11 +45,9 @@ for tau in GRID:
 return None
 ```
 
-`conservative=False` is the average-error shortcut, reported beside the bound in the tables.
-
 ### Coding the council lines
 
-The label is the GL account staff booked, and a reviewed seed maps each raw purpose string onto one of 21 accounts ([`stockport_purpose_map.csv`](warehouse/seeds/stockport_purpose_map.csv)). For each year from 2018 through 2022 the coder in [`realgl.py`](src/trustgate/realgl.py) trains only on earlier years. On card-feed fields, character n-grams plus a local embedding reach 62.4% on 11,756 test lines, against 54.5% for a merchant lookup and 40.7% against 15.8% on merchants the model has not seen. Staff book identical inputs differently often enough to cap any deterministic model at 86.1%; the vectorizer settings are in [docs/METHODOLOGY.md](docs/METHODOLOGY.md).
+The label is the GL account staff booked. A reviewed seed maps each raw purpose string onto one of 21 accounts ([`stockport_purpose_map.csv`](warehouse/seeds/stockport_purpose_map.csv)). For each year from 2018 through 2022 the coder in [`realgl.py`](src/trustgate/realgl.py) trains only on earlier years. The model comparison is in [docs/METHODOLOGY.md](docs/METHODOLOGY.md).
 
 ### The policy agent
 
@@ -53,7 +55,7 @@ Expense decisions have no public labels, so a generator plants the receipt, who 
 
 ### The warehouse
 
-Both tracks sit in a dbt (data build tool) project on DuckDB. The council publish is three layouts, including one spreadsheet saved with a `.csv` name, checked against a SHA-256 (256-bit secure hash) manifest ([`sources/stockport.py`](src/trustgate/sources/stockport.py), [`warehouse/models/stockport`](warehouse/models/stockport)). Duplicate charges, split purchases, limit breaches, and missing receipts are defined once in SQL (Structured Query Language) and read by the agent and the marts ([`int_txn_enriched.sql`](warehouse/models/intermediate/int_txn_enriched.sql)). The warehouse holds every published line from January 2017 through October 2026; scoring uses the 14,851 labelled lines from 2017–2022.
+Both tracks sit in a dbt (data build tool) project on DuckDB ([`warehouse/`](warehouse)). Duplicate charges, split purchases, limit breaches, and missing receipts are defined once in SQL (Structured Query Language) and read by the agent and the marts ([`int_txn_enriched.sql`](warehouse/models/intermediate/int_txn_enriched.sql)). Scoring uses the 14,851 labelled lines from 2017–2022. The download, the checksum manifest, and the three publisher layouts are in [docs/METHODOLOGY.md](docs/METHODOLOGY.md).
 
 ## Design decisions
 
@@ -63,35 +65,22 @@ Both tracks sit in a dbt (data build tool) project on DuckDB. The council publis
 | Thresholds from a random audit, not from reviewer clicks | Past approvals are lenient. Thresholds learned from them broke the 1% budget in 6/10 synthetic seeds | Someone has to label the sample: 40 council lines a month, 500 in the default synthetic world |
 | Novelty guard | The score was fit on traffic the model has seen | 16.4% of the live council lines are new merchants and stay with a person |
 | Separate amount tiers | One threshold is dominated by small amounts | Large lines usually stay with a person when the audit is a random sample |
-| Treat the card feed as the result | Staff assigned the procurement category with the label. A lookup on that category alone is 90.8% | The card-feed model is 62.4% accurate, and the gate books nothing from it |
+| Treat the card feed as the result | Staff assigned the procurement category with the label. On the rolling yearly test a lookup on that category alone is 90.8% | On that same yearly test the card-feed model is 62.4%. The chart above is the live months, a different score. The gate books nothing from the card feed |
 | Local embeddings only, in the reported numbers | The run has to repeat without paying for a model call | The Claude extractor is implemented and unit-tested, and it has no benchmark numbers |
 
 The short records behind these rows are in [docs/DESIGN_DECISIONS.md](docs/DESIGN_DECISIONS.md).
 
 ## Evaluation
 
-The gate's own checks are in [`tests/test_autonomy.py`](tests/test_autonomy.py): the interval matches known values, a perfect sample of 30 never earns autonomy when 50 are required, the Wilson cutoff is at least as strict as the average-error cutoff, and routing refuses a needs-review decision, a novel line, and a locked high-value tier.
+- [`tests/test_autonomy.py`](tests/test_autonomy.py) — Wilson interval, small samples, and routing locks
+- [`tests/test_realgl.py`](tests/test_realgl.py) — label ceiling, unseen merchants, calibration
+- [`tests/test_policy.py`](tests/test_policy.py) — cited decisions; misses "Negroni" and "Delta One"
+- [`tests/test_resolve_and_extract.py`](tests/test_resolve_and_extract.py) — look-alike merchants and the Claude tool schema
+- [`tests/test_stockport.py`](tests/test_stockport.py) — the three publisher layouts
+- [`tests/test_generate.py`](tests/test_generate.py) — deterministic generation; gold stays out of the warehouse
+- [`tests/test_readme.py`](tests/test_readme.py) — this page matches the result files
 
-The rest of the unit suite:
-
-- [`tests/test_realgl.py`](tests/test_realgl.py) — label ceiling, lookup fallback for an unseen merchant, calibration error of a perfect score
-- [`tests/test_policy.py`](tests/test_policy.py) — cited decisions, and the rules extractor missing a Negroni and a "Delta One" cabin
-- [`tests/test_resolve_and_extract.py`](tests/test_resolve_and_extract.py) — look-alike merchants stay split, an unknown shop is new, the Claude extractor is called with a tool schema against a fake client
-- [`tests/test_stockport.py`](tests/test_stockport.py) — the three publisher layouts, including a spreadsheet with a `.csv` name
-- [`tests/test_generate.py`](tests/test_generate.py) — generation is deterministic, and gold labels stay out of the warehouse
-- [`tests/test_readme.py`](tests/test_readme.py) — this page and [docs/RESULTS.md](docs/RESULTS.md) match a fresh render
-
-`make test` runs ruff, mypy, and pytest. The suite is 24 tests. Continuous integration (CI) runs the same three checks ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
-
-The warehouse build runs five SQL tests:
-
-- [`assert_stockport_rows_reconcile_to_manifest.sql`](warehouse/tests/assert_stockport_rows_reconcile_to_manifest.sql) — each file's row count matches the manifest
-- [`assert_ledger_reconciles.sql`](warehouse/tests/assert_ledger_reconciles.sql) — fact totals tie to the raw amounts
-- [`assert_auto_actions_are_confident.sql`](warehouse/tests/assert_auto_actions_are_confident.sql) — nothing automatic below 0.5 confidence, and needs-review is never automatic
-- [`assert_flags_cite_policy.sql`](warehouse/tests/assert_flags_cite_policy.sql) — every reject or review cites a section
-- [`assert_no_protected_merge.sql`](warehouse/tests/assert_no_protected_merge.sql) — Amazon is not merged with Amazon Web Services, Uber with Uber Eats, or Apple with Applebee's
-
-The smoke job in that workflow runs the warehouse build, which includes those tests, and then the default synthetic world.
+`make test` runs ruff, mypy, and pytest (24 tests). Continuous integration (CI) runs the same checks ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)). The warehouse build also runs the SQL tests in [`warehouse/tests/`](warehouse/tests/). The smoke job runs that build, then the default synthetic world.
 
 The two benchmarks are the other check. On the council file, models are scored year by year and the gate is rolled forward at 2%, 5%, and 10% budgets ([`results/real/`](results/real)). On the synthetic agent, 10 seeds, a one-at-a-time sensitivity sweep with 3 seeds at each point, and a drop-one ablation ([`results/experiments.json`](results/experiments.json)). Earned autonomy kept the realized error at or under the 1% budget in 10/10 seeds and at all 16 of 16 sensitivity points. The point-estimate threshold broke the budget in 10/10 seeds. The tables are in [docs/RESULTS.md](docs/RESULTS.md).
 
@@ -122,7 +111,7 @@ make synthetic
 
 `make real` downloads the council files, checks them, builds the dbt project, and runs the GL benchmark and the monthly rollout. `make synthetic` is the policy agent on the default world (seed 7). `make experiments` reruns the 10 seeds, the sensitivity sweep, and the two perception backends. `make reproduce` runs all of that, then the site and this README.
 
-The GL benchmark file records 1,117 seconds. The experiment file records 2,865.5 seconds. Raw card files are not in the repo; the manifest and the licence are in the [data card](docs/DATA_CARD.md).
+`make real`'s benchmark takes about 19 minutes, and `make experiments` takes about 48 minutes. Raw card files are not in the repo; the manifest and the licence are in the [data card](docs/DATA_CARD.md).
 
 The results write-up and the dbt lineage docs are published from [`site/`](site): [vijaychamakuri.github.io/trustgate](https://vijaychamakuri.github.io/trustgate/) and [the dbt docs](https://vijaychamakuri.github.io/trustgate/dbt/).
 

@@ -53,7 +53,9 @@ All layouts are unioned in the parser, typed and tested in dbt staging, and tagg
 
 **Rolling temporal evaluation.** For each test year *t* ∈ {2018, …, 2022}, models train on all labelled lines from years before *t* and are scored on year *t*. Results are pooled across years, with a bootstrap 95% confidence interval over lines (2,000 resamples).
 
-**Label ceiling.** For identical inputs (same merchant string, department and service), staff did not always book the same account. The ceiling is the mean share of the majority account within each identical-input group, which is the best any deterministic model can score.
+**Label ceiling.** For identical inputs (same merchant string, department and service), staff did not always book the same account. The ceiling is the mean share of the majority account within each identical-input group, which is the best any deterministic model can score. On card-feed inputs that ceiling is 86.1%. With the procurement category added it is 99.1%.
+
+**Rolling-test scores.** These are not the accuracies printed on the rollout chart. That chart's panel titles are the model's accuracy on the 20 live months only: 66.6% from the card feed and 95.8% with the staff category, drawn rounded as 67% and 96%. Pooled over the rolling years (11,756 test lines), the combined character n-gram and embedding model is 62.4% accurate on card-feed fields (95% confidence interval 61.5%–63.3%), against 54.5% for a merchant-to-account lookup, and 40.7% against 15.8% on merchants absent from training. With the procurement category, the same model reaches 91.4% and a lookup on that category alone reaches 90.8%. The rendered table is in [RESULTS.md](RESULTS.md).
 
 **Models.**
 - majority class;
@@ -65,7 +67,8 @@ All layouts are unioned in the parser, typed and tested in dbt staging, and tagg
 **Autonomy rollout.**
 - Live months begin after a 6-month shadow period starting January 2020.
 - The model is refit on all prior months every 3 months (expanding window).
-- Each month, 40 random lines are audited, i.e. their true booking is revealed to the gate. Thresholds for month *m* use audits from months before *m*.
+- An audit is a random sample of lines whose true booking a person reveals. Each month, 40 lines are audited. Thresholds for month *m* use audits from months before *m*.
+- Card-feed fields are the merchant string, the cardholder's department and service, and the amount. The staff category is the council's procurement category, assigned by staff alongside the booked account.
 - Reported per policy and per budget (2%, 5%, 10%): share auto-posted, realised error with a Wilson confidence interval (CI), months whose realised error exceeded the budget, and value mis-posted. A policy that auto-posts nothing has no error rate. The JSON stores 0 for that ratio, from a division guarded by `max(n, 1)` in `outcome`, and a 0–100% interval from `wilson_interval(0, 0)`. The rendered tables show a dash instead.
 
 ## 4. Synthetic policy-agent track

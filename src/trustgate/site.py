@@ -133,9 +133,9 @@ Error falls as confidence rises, from {{cf_err_at_50}} of lines at 0.50 and abov
 {{cf_misposted}}. A threshold set from the average audited error auto-posted {{cf_point_auto}} of lines at {{cf_point_err}} error and
 broke the budget in {{cf_point_over}} months. On this data the useful output is a shortlist: the booked account is in the model's
 top three {{cf_top3}} of the time.</li>
-<li><strong>The coding model is a real baseline, not a strawman.</strong> From card-feed fields it reaches {{best_acc}} accuracy
+<li><strong>The coding model is a real baseline, not a strawman.</strong> On the rolling yearly test, card-feed fields reach {{best_acc}} accuracy
 (95% CI {{best_ci}}) against {{lookup_acc}} for a merchant lookup, and {{best_new}} on merchants it has never seen, against
-{{lookup_new}}. Staff code identical inputs differently often enough that no model can beat {{ceiling_card}}.</li>
+{{lookup_new}}. Staff code identical inputs differently often enough that no model can beat {{ceiling_card}}. This is not the live-month accuracy on the rollout chart below.</li>
 <li><strong>The simulated policy agent tells the same story.</strong> Earned autonomy stayed inside its budget in
 {{syn_within_budget}} seeds and in {{sens_earned_ok}} of {{sens_total}} sensitivity settings. Thresholds from the average audited
 error broke it in {{point_over}} seeds.</li>
@@ -155,7 +155,7 @@ never seen.</figcaption></figure>
 the data: card-feed fields only, and those fields plus the procurement category staff assign upstream.</p>
 <figure class=wide><img src="hero.png" alt="Bar charts of the share of lines auto-posted under five policies, card-feed on the left and upstream on the right. Only the Wilson-based policies stay within budget.">
 <figcaption><b>Figure 2.</b> Share of lines auto-posted under each policy at a 2% error budget. Red bars went over the budget in at
-least one month. Panel titles round live accuracy to the nearest percent ({{cf_model_acc}} and {{up_model_acc}}).</figcaption></figure>
+least one month. Panel titles are accuracy on these live months, {{cf_model_acc}} and {{up_model_acc}}, drawn rounded as {{cf_live_round}} and {{up_live_round}}. That is not the rolling yearly accuracy in Table 1.</figcaption></figure>
 <div class="tbl wide"><p class=cap><b>Table 2.</b> The same rollout. Each row adds one safeguard. A dash means no lines were booked, so there is no error rate.</p>{{autonomy_table}}</div>
 <figure class=narrow><img src="error_vs_confidence.png" alt="Error rate among lines above a confidence threshold, card feed against upstream.">
 <figcaption><b>Figure 3.</b> Error among lines at or above a confidence cut. On the card feed it stays above the 2% budget at every

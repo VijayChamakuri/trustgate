@@ -23,7 +23,7 @@ Live months are the last {{live_months}} labelled months, {{live_lines}} lines, 
 
 A dash means the policy booked zero lines. The result file stores an error rate of 0 for that row, because `outcome` divides by `max(n, 1)`, and a Wilson interval of 0–100%, because `wilson_interval(0, 0)` returns that. It is not a measured error rate.
 
-With the staff category, earned autonomy booked {{up_auto_n}} lines, {{up_auto_errors}} of them wrong ({{up_err}}, 95% upper bound {{up_err_ci_hi}}), and mis-booked {{up_misposted}}. It went over the budget in {{up_over}} of {{live_months}} months. The card-feed model was {{cf_model_acc}} accurate on these live lines; with the category it was {{up_model_acc}}. The figure titles round those two numbers to the nearest percent.
+With the staff category, earned autonomy booked {{up_auto_n}} lines, {{up_auto_errors}} of them wrong ({{up_err}}, 95% upper bound {{up_err_ci_hi}}), and mis-booked {{up_misposted}}. It went over the budget in {{up_over}} of {{live_months}} months. The card-feed model was {{cf_model_acc}} accurate on these live lines; with the category it was {{up_model_acc}}. The rollout chart rounds those two live-month accuracies to {{cf_live_round}} and {{up_live_round}}. They are not the rolling yearly scores in the table above.
 
 Booking every card-feed line would have mis-booked {{cf_misposted}} ({{cf_all_err}} error) and gone over the budget in all {{live_months}} months. The booked account is in the card-feed model's top 3 on {{cf_top3}} of live lines.
 
