@@ -1,19 +1,22 @@
-"""Render README.md from docs/README.template.md and results/*.json.
+"""Render README.md and docs/RESULTS.md from templates and results/*.json.
 
-Placeholders look like {{name}}. Every number in the README comes from a results file, and
-tests/test_readme.py fails if README.md differs from a fresh render, so prose and evidence
-cannot drift apart.
+Placeholders look like {{name}}. Every number comes from a results file or from the gate
+code, and tests/test_readme.py fails if either page differs from a fresh render.
 """
 
 from __future__ import annotations
 
+import ast
 import json
 import re
 
+from .autonomy import HIGH_VALUE, wilson_interval
 from .paths import RESULTS, ROOT
 
 TEMPLATE = ROOT / "docs" / "README.template.md"
 README = ROOT / "README.md"
+RESULTS_TEMPLATE = ROOT / "docs" / "RESULTS.template.md"
+RESULTS_MD = ROOT / "docs" / "RESULTS.md"
 
 
 def _j(name: str) -> dict:
@@ -22,6 +25,25 @@ def _j(name: str) -> dict:
 
 def pct(x: float | None, d: int = 1) -> str:
     return "–" if x is None else f"{100 * x:.{d}f}%"
+
+
+def _err(row: dict, digits: int = 1) -> str:
+    """No error rate when the policy booked nothing. The file stores 0 on an empty sample."""
+    if int(row.get("auto") or 0) == 0:
+        return "–"
+    return pct(row["auto_error_rate"], digits)
+
+
+def _conf_err(setting: dict, min_conf: float, digits: int = 1) -> str:
+    return pct(next(r["error"] for r in setting["accuracy_by_confidence"] if r["min_conf"] == min_conf), digits)
+
+
+def _unit_tests() -> int:
+    n = 0
+    for path in (ROOT / "tests").glob("test_*.py"):
+        tree = ast.parse(path.read_text())
+        n += sum(isinstance(node, ast.FunctionDef) and node.name.startswith("test_") for node in tree.body)
+    return n
 
 
 MODEL = {
@@ -98,15 +120,22 @@ def values() -> dict[str, str]:
     for p, lab in POL.items():
         c, u = s_cf["budgets"]["0.02"][p], s_up["budgets"]["0.02"][p]
         rows.append(
-            f"| {lab} | {pct(c['automation_rate'])} | {pct(c['auto_error_rate'])} | {c['months_over_budget']}/{s_cf['live_months']} | "
-            f"{pct(u['automation_rate'])} | {pct(u['auto_error_rate'], 2)} | {u['months_over_budget']}/{s_up['live_months']} |"
+            f"| {lab} | {pct(c['automation_rate'])} | {_err(c)} | {c['months_over_budget']}/{s_cf['live_months']} | "
+            f"{pct(u['automation_rate'])} | {_err(u, 2)} | {u['months_over_budget']}/{s_up['live_months']} |"
         )
     v["autonomy_table"] = "\n".join(rows)
+    ea_cf = s_cf["budgets"]["0.02"]["wilson+novelty+tiers"]
     ea_up = s_up["budgets"]["0.02"]["wilson+novelty+tiers"]
     v |= {
         "up_auto": pct(ea_up["automation_rate"]),
-        "up_err": pct(ea_up["auto_error_rate"], 2),
+        "up_err": _err(ea_up, 2),
         "up_err_ci_hi": pct(ea_up["auto_error_ci"][1], 2),
+        "up_auto_n": f"{ea_up['auto']:,}",
+        "up_auto_errors": str(ea_up["auto_errors"]),
+        "up_misposted": f"£{ea_up['misposted_gbp']:,.2f}",
+        "cf_earned_auto": pct(ea_cf["automation_rate"]),
+        "cf_earned_err": _err(ea_cf, 2),
+        "cf_earned_over": str(ea_cf["months_over_budget"]),
         "live_months": str(s_up["live_months"]),
         "up_over": str(ea_up["months_over_budget"]),
         "live_lines": f"{s_up['live_lines']:,}",
@@ -118,8 +147,17 @@ def values() -> dict[str, str]:
         "cf_model_acc": pct(s_cf["model_accuracy_live"]),
         "up_model_acc": pct(s_up["model_accuracy_live"]),
         "cf_top3": pct(s_cf["top3_live"]),
-        "cf_err_at_95": pct(next(r["error"] for r in s_cf["accuracy_by_confidence"] if r["min_conf"] == 0.95)),
+        "cf_err_at_50": _conf_err(s_cf, 0.5),
+        "cf_err_at_95": _conf_err(s_cf, 0.95),
+        "cf_err_at_97": _conf_err(s_cf, 0.97),
+        "up_err_at_80": _conf_err(s_up, 0.8),
+        "novel_share": pct(s_cf["novel_share_live"]),
+        "high_value_gbp": f"£{auto['config']['high_value']:,.0f}",
+        "high_value_usd": f"${HIGH_VALUE:,.0f}",
+        "syn_audits": str(int(exp["seed_runs"][0]["_meta"]["audit_per_month"])),
         "audits": str(auto["config"]["audits_per_month"]),
+        "wilson_0_40": pct(wilson_interval(0, 40)[1], 1),
+        "n_unit_tests": str(_unit_tests()),
     }
 
     seeds = exp["seeds"]
@@ -201,9 +239,13 @@ def values() -> dict[str, str]:
         "res_recall": pct(mr["registry_recall"]),
         "res_conf": str(mr["protected_pair_confusions"]),
         "verifier_auc": f"{met['verifier']['live_auc']:.3f}",
+        "syn_txns": f"{met['data']['transactions']:,}",
+        "syn_live": f"{met['data']['live_transactions']:,}",
     }
-    v["real_bench_min"] = f"{bench['seconds'] / 60:.0f}"
-    v["exp_min"] = f"{exp['seconds'] / 60:.0f}"
+    v["bench_seconds"] = f"{bench['seconds']:,.0f}"
+    v["exp_seconds"] = f"{exp['seconds']:,.1f}"
+    v["rules_personal"] = pct(ext["rules"]["signals"]["personal_memo"]["recall"])
+    v["embed_personal"] = pct(ext["rules+embed"]["signals"]["personal_memo"]["recall"])
     v["warehouse_table"] = "\n".join(
         ["| Check | Result |", "|---|---|"] + [f"| {k} | {val} |" for k, val in wh["summary"].items()]
     )
@@ -213,13 +255,23 @@ def values() -> dict[str, str]:
     return v
 
 
+def _fill(template: str, vals: dict[str, str], label: str) -> str:
+    missing = sorted(set(re.findall(r"\{\{(\w+)\}\}", template)) - set(vals))
+    if missing:
+        raise KeyError(f"{label} placeholders without values: {missing}")
+    return re.sub(r"\{\{(\w+)\}\}", lambda m: vals[m.group(1)], template)
+
+
+def render_results(vals: dict[str, str] | None = None) -> str:
+    vals = values() if vals is None else vals
+    return _fill(RESULTS_TEMPLATE.read_text(), vals, "RESULTS")
+
+
 def render(write: bool = False) -> str:
     vals = values()
-    text = TEMPLATE.read_text()
-    missing = sorted(set(re.findall(r"\{\{(\w+)\}\}", text)) - set(vals))
-    if missing:
-        raise KeyError(f"README template placeholders without values: {missing}")
-    out = re.sub(r"\{\{(\w+)\}\}", lambda m: vals[m.group(1)], text)
+    out = _fill(TEMPLATE.read_text(), vals, "README")
+    results = render_results(vals)
     if write:
         README.write_text(out)
+        RESULTS_MD.write_text(results)
     return out

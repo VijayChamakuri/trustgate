@@ -40,8 +40,8 @@ Short ADR-style records of the choices that shape the results.
 ### ADR-8: Free, local models only
 **Context:** Results must be reproducible by anyone without paying for API calls.
 **Decision:** fastembed ONNX models on CPU. The Claude extractor exists behind an extra and is unit-tested, but is not benchmarked.
-**Consequence:** Perception results reflect a 33M-parameter embedding model. The README states where an LLM would be expected to help, without claiming it.
+**Consequence:** Perception results reflect the local embedding model named in `embeddings.py` (described there as 33 million parameters). The Claude extractor has no benchmark numbers.
 
 ### ADR-9: No hand-typed numbers in the README
 **Context:** READMEs rot.
-**Decision:** The README is rendered from `docs/README.template.md` and `results/*.json`. A test fails if they diverge.
+**Decision:** `README.md` and `docs/RESULTS.md` are rendered from templates and `results/*.json`. A test fails if either diverges.

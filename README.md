@@ -1,249 +1,140 @@
 <!-- Generated from docs/README.template.md by `trustgate readme`. Edit the template, not this file. -->
 # TrustGate
 
-**AI agents earn autonomy only when the evidence says they can.**
-
-When should an AI agent act without a human? TrustGate is an autonomy gate that unlocks an action only when the *upper 95% bound* of its audited error rate fits the budget. It's evaluated on **14,851 real corporate-card lines that council finance staff actually booked**, and on a policy-agent benchmark with planted ground truth.
-
-[![CI](https://github.com/VijayChamakuri/trustgate/actions/workflows/ci.yml/badge.svg)](https://github.com/VijayChamakuri/trustgate/actions/workflows/ci.yml)
-[![Results site](https://img.shields.io/badge/results-live%20site-2457c5)](https://vijaychamakuri.github.io/trustgate/)
-[![dbt docs](https://img.shields.io/badge/dbt-lineage%20docs-ff694b)](https://vijaychamakuri.github.io/trustgate/dbt/)
-![Python 3.12](https://img.shields.io/badge/python-3.12-3776ab)
-[![Ruff](https://img.shields.io/badge/lint-ruff-261230)](https://github.com/astral-sh/ruff)
+[![Continuous integration](https://github.com/VijayChamakuri/trustgate/actions/workflows/ci.yml/badge.svg)](https://github.com/VijayChamakuri/trustgate/actions/workflows/ci.yml)
+[![Python 3.12](https://img.shields.io/badge/python-3.12-3776ab)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Data: OGL v3](https://img.shields.io/badge/data-OGL%20v3.0-lightgrey)](docs/DATA_CARD.md)
 
-![Same autonomy gate, two outcomes on real council bookings](results/real/hero.png)
+Council staff book each purchase-card line to a ledger account, and someone has to decide when a model may do that, or approve an expense, with no person checking. I built a gate that allows the action only when the upper bound on its audited error rate fits a budget, and I tested it on Stockport Council's published cards and on a synthetic expense-policy agent. On the last 20 months of council lines (3,826), it booked 41.3% of them alone when a staff category was available, at 0.13% error, and booked none from the card feed alone.
 
-## In plain English
+![Share of lines booked with no review. Left, card feed only. Right, with the staff category. Red bars went over the 2% budget.](results/real/hero.png)
 
-Finance teams want AI agents to do routine work: code each card transaction to the right account, approve or flag expense reports. The hard question is **when it's safe to let the agent act without a person checking it**.
+*Share of live lines booked with no review, at a 2% error budget. Red bars went over that budget in at least one month. Panel titles on the figure round accuracy to the nearest percent.*
 
-This project answers that with evidence instead of a gut-feel confidence setting:
+| What the model can see | Booked with no review | Error on those lines | Months over the 2% budget |
+|---|---:|---:|---:|
+| Card feed only | 0.0% | – | 0 of 20 |
+| Card feed plus the staff category | 41.3% | 0.13% | 0 of 20 |
 
-- **How it decides:** the agent only gets to act alone on a kind of transaction once a random sample of its past work, checked by a person, shows its error rate is safely under a limit. That proof is re-checked every month, so autonomy can be lost as well as earned.
-- **Real data:** tested on **14,851 real council credit-card transactions** that finance staff had coded by hand.
-  - The agent ran month by month over the final 20 months (3,826 transactions).
-  - Where the data was good enough (the council had also tagged each purchase with a category), it handled **41.3%** of transactions on its own at a **0.13%** error rate. It went over its 2% limit in **0 of 20** months.
-  - Where the data wasn't good enough (only what the card itself shows), it **refused to act alone**. Letting it act anyway would have mis-booked **£242,402**.
-- **Simulated expense reports:** checked across many simulated companies, it stayed inside its error limit every time (10/10). The common shortcut of trusting the average error rate did not.
-- **The data layer:** built in dbt (a standard tool for tested, documented SQL data models), so the same clean definitions feed both the agent and the dashboards.
+*Earned autonomy on the last 20 labelled months: Wilson upper bound, a novelty guard, and a separate threshold for larger amounts. A dash means no lines were booked, so there is no error rate.*
 
-## Terms used below
+Booked with no review means the gate posted the general ledger (GL) account and no person checked that line. An audit is a random sample whose true booking a person reveals; this rollout uses 40 lines a month, and the gate for a month may use only earlier months. The Wilson upper bound is the top of a 95% Wilson score interval on the error rate in that sample. It stays high when the sample is small, so the action stays with a person. The card feed is the merchant string, the cardholder's department and service, and the amount. The staff category is the council's procurement category, assigned alongside the booked account.
 
-| Term | Meaning |
-|---|---|
-| **GL account / GL coding** | The accounting category a transaction is booked to (e.g. "Travel", "Office supplies"). Choosing it is called coding. |
-| **Autonomy / auto-post** | The agent acts without a person reviewing that item. Everything else goes to a human review queue. |
-| **Error budget** | The highest error rate the business accepts for actions taken without review (2% for GL coding here). |
-| **Audit** | A random sample of the agent's decisions that a person checks. This is the only evidence used to grant autonomy. |
-| **Wilson upper bound** | A cautious estimate of the true error rate: "with 95% confidence, errors are at most X%". With few audits it stays high, so autonomy waits for evidence. |
-| **Point estimate** | The plain average error rate from the audits. It looks fine on small samples and is the shortcut this project argues against. |
-| **Novelty guard** | Anything the agent has never seen before (a new merchant, unfamiliar wording) always goes to a person. |
-| **Value tiers** | Large transactions have to earn their own autonomy separately from small ones. |
-| **Card-feed vs upstream setting** | Card-feed: only what a card platform sees (merchant name, team, amount). Upstream: also a category the council's staff had already assigned, which makes the job much easier. |
-| **Leakage** | Money approved by the agent that policy says should have been stopped or reviewed. |
-| **Seeds / sensitivity** | Re-running the simulation with different random worlds and different assumptions, to check the conclusion doesn't depend on luck or one guess. |
-
-## Key results
-
-**On real labels** (Stockport MBC purchase cards; 20 live months; 3,826 lines; 2% error budget):
-
-- **Earns autonomy where the data supports it.** With the upstream procurement category, the gate auto-posts **41.3% of lines at 0.13% error** (95% upper bound 0.46%). It went over budget in **0 of 20 months**.
-- **Refuses autonomy where the data doesn't.** On card-feed signals alone, the model is 66.6% accurate over the live months, and even its 95%-confidence predictions are wrong 5.3% of the time. The gate grants **nothing**.
-  - Auto-posting everything would have mis-booked **£242,402** (33.4% error).
-  - Point-estimate thresholds unlocked 4.2% at 8.2% error and broke the budget in 6 months.
-  - The right product there is suggestions: the booked account is in the top 3 **86.4%** of the time.
-
-**GL coding from card-feed signals** (rolling yearly evaluation, 11,756 test lines, 2017–2022):
-
-- **62.4%** accuracy (95% CI 61.5%–63.3%), against 54.5% for a merchant → account lookup.
-- **40.7%** on merchants never seen before, against 15.8% for the lookup.
-- The ceiling set by staff booking identical inputs differently is **86.1%**.
-
-**Policy-agent benchmark** (synthetic, planted ground truth):
-
-- Earned autonomy stays inside its error budget in **10/10 seeds** and in **16/16** sensitivity settings.
-- Point-estimate thresholds break the budget in 10/10 seeds and stay inside it in only 2/16 settings.
-- Thresholds learned from reviewer history break it in 6/10 seeds.
-- With too little evidence it correctly holds back: with 100 audits a month it grants no autonomy (0.0%), while 250 audits a month earn 48.1%.
-
-> Everything above is regenerated from [`results/`](results) by `make reproduce`; the README itself is rendered from those files and CI fails if they drift apart.
-
-## Why this matters
-
-- **Autonomy is the product decision.** Finance agents that approve, reject or post spend need a principled answer to "act alone or ask?", not a confidence slider someone tuned once.
-- **Reviewer clicks are a biased teacher.** Historical approvals are lenient. Thresholds learned from them look safe and aren't. This repo chooses thresholds from audited samples only, and shows the difference.
-- **The data layer decides what agents can know.** Here duplicates, splits, limit breaches and receipt gaps are defined once in tested dbt models, and both agents and dashboards read them.
-
-## Quickstart
-
-```bash
-git clone https://github.com/VijayChamakuri/trustgate && cd trustgate
-uv sync
-make real        # download real data (SHA-256 verified) -> dbt -> GL benchmark -> autonomy rollout
-make synthetic   # policy-agent benchmark, default world, ~40 s
-```
-
-### Reproduce everything
-
-```bash
-make reproduce   # real track + 10 seeds + 48 sensitivity worlds + perception backends + site + README
-```
-
-| Step | What it does | Time (Apple M2, 8 GB, CPU only) |
-|---|---|---|
-| `make real` | 111 monthly files → warehouse → rolling GL benchmark → monthly rollout at 3 budgets × 2 settings | 19 min for the benchmark, plus the rollout |
-| `make experiments` | 10 seeds, 16 sensitivity settings × 3 seeds, 2 perception backends | ~48 min |
-| `make synthetic` | default world, report and charts | ~40 s |
-| `make site` | static results dashboard and dbt docs | under a minute |
-
-No paid APIs. The only model download is the free `BAAI/bge-small-en-v1.5` embedding model (ONNX, CPU, via fastembed). Raw data files are verified against [`data/stockport/manifest.json`](docs/DATA_CARD.md) checksums.
+The gate books a large share of lines when that category is present and books nothing when it is not. The usual shortcut, a threshold set from the average audited error, booked 4.2% of the card-feed lines at 8.2% error and went over the budget in 6 of 20 months. Intervals and the other policies are in [docs/RESULTS.md](docs/RESULTS.md).
 
 ## How it works
 
-```mermaid
-flowchart LR
-  subgraph Real["Real track: Stockport MBC purchase cards, 2017 to present"]
-    S1[(111 monthly files<br/>3 layouts, SHA-256 manifest)] --> S2[dbt staging<br/>typed, reconciled, tested]
-    S2 --> S3[labelled lines<br/>61 raw codes → 21 accounts]
-    S3 --> S4[GL coder<br/>TF-IDF + local embeddings]
-    S2 --> S5[marts: spend, vendors,<br/>recurring, duplicates]
-  end
-  subgraph Syn["Synthetic track: policy agent"]
-    T1[generator<br/>planted truth] --> T2[dbt staging + agent features]
-    T2 --> T3[merchant resolver<br/>MATCH / NEW / ESCALATE]
-    T3 --> T4[extractor: rules / embeddings / Claude]
-    T4 --> T5[policy engine<br/>cited sections] --> T6[verifier: P correct]
-  end
-  S4 --> G{autonomy gate<br/>Wilson upper bound · novelty guard · value tiers<br/>re-earned monthly from audits}
-  T6 --> G
-  G -->|auto| A[ledger]
-  G -->|human| Q[review queue]
+### The gate
+
+The rule is `choose_threshold` in [`autonomy.py`](src/trustgate/autonomy.py). It walks a fixed grid of score cutoffs and takes the lowest one where at least 50 audited examples sit above it and the Wilson upper bound on their error rate is inside the budget. The cutoff is refit every month from earlier audits only, so a later month can lose the right to act. A merchant the model has not seen, or a memo word absent from training in the synthetic world, goes to a person whatever the score, and larger amounts (£250 on the council file, $500 in the synthetic gate) have to earn a cutoff of their own.
+
+```python
+for tau in GRID:
+    sel = conf >= tau
+    n = int(sel.sum())
+    if n < min_n:
+        return None
+    errors = int((~correct[sel]).sum())
+    bound = wilson_interval(errors, n)[1] if conservative else errors / n
+    if bound <= budget:
+        return float(tau)
+return None
 ```
 
-| Module | Responsibility |
-|---|---|
-| [`sources/stockport.py`](src/trustgate/sources/stockport.py) | CKAN download, checksum manifest, three-layout parser (incl. an `.xlsx` published as `.csv`) |
-| [`warehouse/models/stockport/`](warehouse/models/stockport) | staging, labelled population, contract-enforced fact, merchant dim, concentration/recurring/duplicate marts, semantic layer |
-| [`realgl.py`](src/trustgate/realgl.py) | rolling temporal GL benchmark, label ceiling, monthly trustgate rollout |
-| [`autonomy.py`](src/trustgate/autonomy.py) | Wilson interval, threshold selection, routing, rollout simulation |
-| [`policy.py`](src/trustgate/policy.py) · [`extract.py`](src/trustgate/extract.py) | cited policy engine, verifier; rules / embedding / Claude extractors |
-| [`experiments.py`](src/trustgate/experiments.py) | seeds, sensitivity sweeps, ablations, perception backends |
+`conservative=False` is the average-error shortcut, reported beside the bound in the tables.
 
-## Results in depth
+### Coding the council lines
 
-### Real data: GL coding (card-feed signals only)
+The label is the GL account staff booked, and a reviewed seed maps each raw purpose string onto one of 21 accounts ([`stockport_purpose_map.csv`](warehouse/seeds/stockport_purpose_map.csv)). For each year from 2018 through 2022 the coder in [`realgl.py`](src/trustgate/realgl.py) trains only on earlier years. On card-feed fields, character n-grams plus a local embedding reach 62.4% on 11,756 test lines, against 54.5% for a merchant lookup and 40.7% against 15.8% on merchants the model has not seen. Staff book identical inputs differently often enough to cap any deterministic model at 86.1%; the vectorizer settings are in [docs/METHODOLOGY.md](docs/METHODOLOGY.md).
 
-| Model (card-feed signals only) | Accuracy | 95% CI | Top-3 | Accuracy on new merchants | Macro-F1 |
-|---|---:|---:|---:|---:|---:|
-| Majority class | 17.0% | 16.3%–17.6% | – | 11.4% | 0.019 |
-| Merchant → account lookup | 54.5% | 53.6%–55.4% | – | 15.8% | 0.313 |
-| Local embeddings, kNN | 60.1% | 59.2%–61.0% | 78.4% | 37.3% | 0.339 |
-| Char TF-IDF + logistic regression | 60.9% | 60.0%–61.8% | 80.7% | 34.6% | 0.354 |
-| Local embeddings + logistic regression | 61.3% | 60.4%–62.2% | 82.5% | 38.9% | 0.366 |
-| **TF-IDF + embeddings + logistic regression** | 62.4% | 61.5%–63.3% | 82.9% | 40.7% | 0.379 |
+### The policy agent
 
-The labelled population is 14,851 lines, 21 accounts and 1,992 normalised merchants. With the council's own procurement category added (upstream setting), the same model reaches 91.4%, and a category lookup alone gets 90.8%. That field was assigned by staff alongside the label, which is why it isn't the headline ([ADR-5](docs/DESIGN_DECISIONS.md)). The upstream label ceiling is 99.1%.
+Expense decisions have no public labels, so a generator plants the receipt, who attended, the cabin, and whether the purchase was personal ([`generate.py`](src/trustgate/generate.py)). The agent sees the card descriptor, the merchant category code (MCC), the memo, and the receipt text. It resolves the merchant, fills a fixed signal record, and applies a policy that cites section ids ([`resolve.py`](src/trustgate/resolve.py), [`extract.py`](src/trustgate/extract.py), [`policy.py`](src/trustgate/policy.py)). Across 10 seeds the earned-autonomy policy kept the realized error at or under its 1% budget every time; a threshold fit to the average audited error broke that budget in 10/10.
 
-![Rolling yearly accuracy](results/real/accuracy_by_year.png)
+### The warehouse
 
-### Real data: earned autonomy
+Both tracks sit in a dbt (data build tool) project on DuckDB. The council publish is three layouts, including one spreadsheet saved with a `.csv` name, checked against a SHA-256 (256-bit secure hash) manifest ([`sources/stockport.py`](src/trustgate/sources/stockport.py), [`warehouse/models/stockport`](warehouse/models/stockport)). Duplicate charges, split purchases, limit breaches, and missing receipts are defined once in SQL (Structured Query Language) and read by the agent and the marts ([`int_txn_enriched.sql`](warehouse/models/intermediate/int_txn_enriched.sql)). The warehouse holds every published line from January 2017 through October 2026; scoring uses the 14,851 labelled lines from 2017–2022.
 
-| Policy (2% error budget) | Card feed: auto-posted | error | months over budget | Upstream: auto-posted | error | months over budget |
-|---|---:|---:|---:|---:|---:|---:|
-| Auto-post everything | 100.0% | 33.4% | 20/20 | 100.0% | 4.18% | 18/20 |
-| Point-estimate threshold | 4.2% | 8.2% | 6/20 | 62.8% | 0.50% | 1/20 |
-| Wilson upper bound | 0.0% | 0.0% | 0/20 | 14.9% | 0.18% | 0/20 |
-| + novelty guard | 0.0% | 0.0% | 0/20 | 21.6% | 0.12% | 0/20 |
-| **+ value tiers (earned autonomy)** | 0.0% | 0.0% | 0/20 | 41.3% | 0.13% | 0/20 |
+## Design decisions
 
-Each month the gate sees only audits from earlier months (40 random lines a month), and the model is refit on all prior months every quarter. Results at 5% and 10% budgets are in [`results/real/autonomy.json`](results/real/autonomy.json).
+| Choice | Why | Cost |
+|---|---|---|
+| Wilson upper bound, and at least 50 audits | Zero errors in a small sample can still hide a high error rate. The same function puts the upper bound for 0 errors in 40 audits at 8.8% | The gate waits. Early months book nothing |
+| Thresholds from a random audit, not from reviewer clicks | Past approvals are lenient. Thresholds learned from them broke the 1% budget in 6/10 synthetic seeds | Someone has to label the sample: 40 council lines a month, 500 in the default synthetic world |
+| Novelty guard | The score was fit on traffic the model has seen | 16.4% of the live council lines are new merchants and stay with a person |
+| Separate amount tiers | One threshold is dominated by small amounts | Large lines usually stay with a person when the audit is a random sample |
+| Treat the card feed as the result | Staff assigned the procurement category with the label. A lookup on that category alone is 90.8% | The card-feed model is 62.4% accurate, and the gate books nothing from it |
+| Local embeddings only, in the reported numbers | The run has to repeat without paying for a model call | The Claude extractor is implemented and unit-tested, and it has no benchmark numbers |
 
-![Error vs confidence](results/real/error_vs_confidence.png)
+The short records behind these rows are in [docs/DESIGN_DECISIONS.md](docs/DESIGN_DECISIONS.md).
 
-### Synthetic policy-agent benchmark
+## Evaluation
 
-| Autonomy policy (mean ± sd over 10 seeds) | Auto-actioned | Error on auto-actions | Seeds over the 1% budget | Policy leakage | Total cost |
-|---|---:|---:|---:|---:|---:|
-| Trust the rules engine everywhere | 88.7% ± 0.5% | 5.36% ± 0.37% | 10/10 | $24,270 ± $4,382 | $30,542 |
-| Thresholds learned from reviewer history | 80.4% ± 1.6% | 0.97% ± 0.38% | 6/10 | $6,612 ± $3,529 | $10,475 |
-| Audited gold, point-estimate threshold | 84.7% ± 0.7% | 1.44% ± 0.23% | 10/10 | $11,087 ± $2,772 | $14,197 |
-| + Wilson upper bound | 75.1% ± 8.7% | 0.68% ± 0.31% | 2/10 | $4,055 ± $2,274 | $8,985 |
-| + novelty guard | 71.8% ± 7.3% | 0.45% ± 0.14% | 0/10 | $3,955 ± $1,697 | $9,513 |
-| **+ value tiers = earned autonomy** | 62.3% ± 11.1% | 0.45% ± 0.13% | 0/10 | $1,415 ± $693 | $8,866 |
+The gate's own checks are in [`tests/test_autonomy.py`](tests/test_autonomy.py): the interval matches known values, a perfect sample of 30 never earns autonomy when 50 are required, the Wilson cutoff is at least as strict as the average-error cutoff, and routing refuses a needs-review decision, a novel line, and a locked high-value tier.
 
-**Ablations** (10 seeds):
+The rest of the unit suite:
 
-| Ablation (drop one safeguard) | Auto-actioned | Error on auto-actions | Policy leakage |
-|---|---:|---:|---:|
-| Full policy | 62.3% | 0.45% | $1,415 |
-| − Wilson bound (point estimate) | 77.3% | 0.69% | $4,516 |
-| − novelty guard | 65.7% | 0.72% | $2,387 |
-| − value tiers | 71.8% | 0.45% | $3,955 |
+- [`tests/test_realgl.py`](tests/test_realgl.py) — label ceiling, lookup fallback for an unseen merchant, calibration error of a perfect score
+- [`tests/test_policy.py`](tests/test_policy.py) — cited decisions, and the rules extractor missing a Negroni and a "Delta One" cabin
+- [`tests/test_resolve_and_extract.py`](tests/test_resolve_and_extract.py) — look-alike merchants stay split, an unknown shop is new, the Claude extractor is called with a tool schema against a fake client
+- [`tests/test_stockport.py`](tests/test_stockport.py) — the three publisher layouts, including a spreadsheet with a `.csv` name
+- [`tests/test_generate.py`](tests/test_generate.py) — generation is deterministic, and gold labels stay out of the warehouse
+- [`tests/test_readme.py`](tests/test_readme.py) — this page and [docs/RESULTS.md](docs/RESULTS.md) match a fresh render
 
-**Sensitivity:** does the conclusion survive changing the generator's assumptions?
+`make test` runs ruff, mypy, and pytest. The suite is 24 tests. Continuous integration (CI) runs the same three checks ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
 
-| Assumption varied | Values | Earned autonomy within budget | Point estimate within budget |
-|---|---|---:|---:|
-| Reviewer leniency | 0.0, 0.03, 0.06, 0.1, 0.15 | 5/5 | 0/5 |
-| Memo drift rate | 0.0, 0.15, 0.35, 0.5 | 4/4 | 1/4 |
-| Audits per month | 100, 250, 500, 1000 | 4/4 | 0/4 |
-| Error budget | 0.005, 0.01, 0.02 | 3/3 | 1/3 |
+The warehouse build runs five SQL tests:
 
-**Perception backends** (same world, rules engine, verifier and audits; only signal extraction changes):
+- [`assert_stockport_rows_reconcile_to_manifest.sql`](warehouse/tests/assert_stockport_rows_reconcile_to_manifest.sql) — each file's row count matches the manifest
+- [`assert_ledger_reconciles.sql`](warehouse/tests/assert_ledger_reconciles.sql) — fact totals tie to the raw amounts
+- [`assert_auto_actions_are_confident.sql`](warehouse/tests/assert_auto_actions_are_confident.sql) — nothing automatic below 0.5 confidence, and needs-review is never automatic
+- [`assert_flags_cite_policy.sql`](warehouse/tests/assert_flags_cite_policy.sql) — every reject or review cites a section
+- [`assert_no_protected_merge.sql`](warehouse/tests/assert_no_protected_merge.sql) — Amazon is not merged with Amazon Web Services, Uber with Uber Eats, or Apple with Applebee's
 
-| Perception backend | Alcohol recall | Premium-cabin recall | Personal-memo recall | Engine accuracy | Earned autonomy | Error |
-|---|---:|---:|---:|---:|---:|---:|
-| rules | 83.2% | 62.5% | 39.5% | 90.0% | 65.8% | 0.41% |
-| rules+embed | 86.9% | 66.7% | 86.0% | 82.0% | 59.8% | 0.28% |
+The smoke job in that workflow runs the warehouse build, which includes those tests, and then the default synthetic world.
 
-A 33M-parameter local embedding model recovers some open-vocabulary signals (e.g. "meant to use my own card", "Delta One"). It misses named cocktails like "Aperol Spritz" and airline sub-brands like "Mint", which is world knowledge. That is where an LLM extractor is expected to help. The Claude extractor is implemented and unit-tested, but wasn't benchmarked (no paid APIs).
-
-The merchant resolver matched 8,406 descriptors at 100.00% MATCH precision and 96.7% registry recall, with **0** look-alike confusions (Amazon/AWS, Uber/Uber Eats, Apple/Applebee's). The verifier's live AUC is 0.982.
-
-### Warehouse (real data, all years)
-
-| Check | Result |
-|---|---|
-| Source files downloaded (SHA-256 manifest) | 111 (110 unique; 4.5 MB) |
-| Statement months covered | 2017-01 to 2026-10 |
-| Card lines in the warehouse | 33,377 (£4,217,508 after refunds; amounts are net of VAT to 2022-06 and gross after, as published) |
-| Lines with a booked GL account (incl. refunds; scoring excludes them) | 15,355 |
-| Placeholder labels excluded from scoring | 58 |
-| Refund lines | 1,160 |
-| Distinct raw merchant strings → normalised merchant keys | 7,288 → 3,431 |
-| Publisher layouts reconciled | v1_net_10col (2017-01 to 2022-06, 14,737 lines), v2_net_8col (2020-02 to 2020-06, 676 lines), v3_gross_6col (2022-07 to 2026-10, 17,964 lines) |
-| Settlement-before-purchase dates (dbt warning) | 1,960 lines |
-| Possible duplicate charges (same merchant + amount within 3 days) | 871 (£173,972) |
-
-Card spend has become more concentrated: the top 10 merchants took 44.7% of spend in 2017 and 63.5% in 2026 (through the latest published month; see `mart_stockport_vendor_concentration`). Full lineage and column docs are on the [dbt docs site](https://vijaychamakuri.github.io/trustgate/dbt/).
+The two benchmarks are the other check. On the council file, models are scored year by year and the gate is rolled forward at 2%, 5%, and 10% budgets ([`results/real/`](results/real)). On the synthetic agent, 10 seeds, a one-at-a-time sensitivity sweep with 3 seeds at each point, and a drop-one ablation ([`results/experiments.json`](results/experiments.json)). Earned autonomy kept the realized error at or under the 1% budget in 10/10 seeds and at all 16 of 16 sensitivity points. The point-estimate threshold broke the budget in 10/10 seeds. The tables are in [docs/RESULTS.md](docs/RESULTS.md).
 
 ## Limitations
 
-- **One public-sector organisation.** Stockport's coding conventions and chart of accounts aren't a commercial company's, and in the labelled years the card feed carries no MCC or receipts.
-- **The policy-agent track is synthetic.** Every planted rate is an assumption, listed in the [data card](docs/DATA_CARD.md). Conclusions are stated only where they survive the sensitivity analysis.
-- **No LLM numbers.** The free embedding backend is a stand-in, so perception results understate what an LLM extractor would do.
-- **Random audits starve rare, high-value items.** Value-stratified auditing would let the high-value tier earn autonomy sooner.
+- One council. In the labelled years the file has no MCC and no receipts, and the chart of accounts is a local authority's.
+- The policy agent is synthetic. Every planted rate is an assumption, listed in the [data card](docs/DATA_CARD.md). I only treat a comparison as holding where the sensitivity sweep agrees.
+- The Claude extractor has no measured numbers.
+- Audits are a random sample, so the high-value tier rarely collects 50 labels and usually stays with a person.
+- Published amounts are net of value-added tax (VAT) through June 2022 and gross after that.
 
-## Roadmap
+## What I'd do next
 
-1. Value-stratified and uncertainty-targeted audit sampling, measured in labels saved per unit of autonomy.
-2. Run the Claude extractor through the same harness (per-signal recall, cost per 1k lines).
-3. Online drift detection (merchant-mix and memo-vocabulary PSI) to revoke autonomy before errors show up in audits.
-4. A text-to-SQL analyst restricted to the semantic layer, evaluated against the same agent on raw tables.
+- Draw the audit by amount, so the high-value tier can earn a cutoff. The rollout samples lines uniformly.
+- Run the Claude extractor through the same seed harness. The class is already in [`extract.py`](src/trustgate/extract.py); the benchmark does not call it.
+- On the card feed, return a shortlist instead of a booking. The booked account is in the model's top 3 on 86.4% of the live lines, and the gate correctly refuses to post.
 
-## Project structure
+## Run it
 
+```bash
+git clone https://github.com/VijayChamakuri/trustgate
+cd trustgate
+uv sync
+make test
+make real
+make synthetic
 ```
-src/trustgate/   sources/ (real data), realgl, autonomy, policy, extract, resolve, experiments, site, readme
-warehouse/             dbt project: synthetic + stockport models, seeds, macros, tests, semantic layer
-policy/                expense policy with stable section IDs (cited by the agent)
-results/               every number in this README (JSON + charts)
-docs/                  METHODOLOGY · DATA_CARD · DESIGN_DECISIONS · README template
-site/                  GitHub Pages: results dashboard + dbt docs
-```
 
-## Citation and licence
+`make real` downloads the council files, checks them, builds the dbt project, and runs the GL benchmark and the monthly rollout. `make synthetic` is the policy agent on the default world (seed 7). `make experiments` reruns the 10 seeds, the sensitivity sweep, and the two perception backends. `make reproduce` runs all of that, then the site and this README.
 
-Code is MIT-licensed ([LICENSE](LICENSE)); cite via [CITATION.cff](CITATION.cff). Real data: *Contains public sector information licensed under the Open Government Licence v3.0* (Stockport Metropolitan Borough Council).
+The GL benchmark file records 1,117 seconds. The experiment file records 2,865.5 seconds. Raw card files are not in the repo; the manifest and the licence are in the [data card](docs/DATA_CARD.md).
+
+The results write-up and the dbt lineage docs are published from [`site/`](site): [vijaychamakuri.github.io/trustgate](https://vijaychamakuri.github.io/trustgate/) and [the dbt docs](https://vijaychamakuri.github.io/trustgate/dbt/).
+
+## Repo map
+
+- [`src/trustgate/autonomy.py`](src/trustgate/autonomy.py) — the gate
+- [`src/trustgate/realgl.py`](src/trustgate/realgl.py) — council GL benchmark and rollout
+- [`src/trustgate/policy.py`](src/trustgate/policy.py), [`extract.py`](src/trustgate/extract.py), [`resolve.py`](src/trustgate/resolve.py), [`generate.py`](src/trustgate/generate.py) — the policy agent
+- [`src/trustgate/sources/stockport.py`](src/trustgate/sources/stockport.py) — download, checksums, three-layout parser
+- [`warehouse/`](warehouse) — dbt project, both tracks
+- [`policy/expense_policy.md`](policy/expense_policy.md) — the policy the agent cites
+- [`results/`](results) — the result files and charts behind every number
+- [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md), [`docs/RESULTS.md`](docs/RESULTS.md), [`docs/DATA_CARD.md`](docs/DATA_CARD.md), [`docs/DESIGN_DECISIONS.md`](docs/DESIGN_DECISIONS.md)
+
+Code is under the MIT license ([LICENSE](LICENSE)). The council file is Open Government Licence v3.0. Cite with [CITATION.cff](CITATION.cff).

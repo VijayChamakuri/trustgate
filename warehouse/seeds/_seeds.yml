@@ -3,8 +3,8 @@ version: 2
 seeds:
   - name: stockport_purpose_map
     description: >
-      Reviewed mapping from the 61 raw "Purpose of Expenditure" strings Stockport published
-      (case variants, typos, merged codes) to 21 canonical GL accounts. Placeholder strings
+      Reviewed mapping from the raw "Purpose of Expenditure" strings Stockport published
+      (case variants, typos, merged codes) to 21 canonical general-ledger accounts. Placeholder strings
       ("details to follow", "TO BE ADDED", a publisher "MISCLASSIFIED?" flag) are not labels:
       they are kept in the warehouse but excluded from training and scoring.
     config:

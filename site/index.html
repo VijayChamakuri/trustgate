@@ -48,10 +48,11 @@ and on a simulated expense-policy agent where the right answers are planted.</p>
 <li><strong>Where the data supports it, the gate earns real autonomy.</strong> With the council's procurement category available,
 the agent posted 41.3% of lines on its own at 0.13% error (95% upper bound 0.46%) and went over the 2% budget
 in 0 of 20 months.</li>
-<li><strong>Where it doesn't, the gate refuses.</strong> From card-feed fields alone the model is 66.6% accurate, and its
-confidence does not separate right answers from wrong ones, so the gate granted nothing. Posting everything would have mis-booked
-£242,402. A threshold set from the average audited error unlocked 4.2% of lines at 8.2% error and
-broke the budget in 6 months. On this data the useful product is a shortlist: the right account is in the model's
+<li><strong>Where it doesn't, the gate refuses.</strong> From card-feed fields alone the model is 66.6% accurate.
+Error falls as confidence rises, from 26.2% of lines at 0.50 and above to 5.3% at 0.95 and
+2.4% at 0.97, which is still over the 2% budget, so the gate granted nothing. Posting everything would have mis-booked
+£242,402. A threshold set from the average audited error auto-posted 4.2% of lines at 8.2% error and
+broke the budget in 6 months. On this data the useful output is a shortlist: the booked account is in the model's
 top three 86.4% of the time.</li>
 <li><strong>The coding model is a real baseline, not a strawman.</strong> From card-feed fields it reaches 62.4% accuracy
 (95% CI 61.5%–63.3%) against 54.5% for a merchant lookup, and 40.7% on merchants it has never seen, against
@@ -74,12 +75,13 @@ never seen.</figcaption></figure>
 40 random lines were audited, and the gate set thresholds from earlier audits only. The same gate ran on two versions of
 the data: card-feed fields only, and those fields plus the procurement category staff assign upstream.</p>
 <figure class=wide><img src="hero.png" alt="Bar charts of the share of lines auto-posted under five policies, card-feed on the left and upstream on the right. Only the Wilson-based policies stay within budget.">
-<figcaption><b>Figure 2.</b> Share of lines auto-posted under each policy at a 2% error budget. Red bars broke the budget in at
-least one month.</figcaption></figure>
-<div class="tbl wide"><p class=cap><b>Table 2.</b> The same rollout as a table. Each row adds one safeguard to the row above.</p><div class=scroll><table><thead><tr><th>Policy (2% error budget)</th><th class=n>Card feed: auto-posted</th><th class=n>error</th><th class=n>months over budget</th><th class=n>Upstream: auto-posted</th><th class=n>error</th><th class=n>months over budget</th></tr></thead><tbody><tr><td>Auto-post everything</td><td class=n>100.0%</td><td class=n>33.4%</td><td class=n>20/20</td><td class=n>100.0%</td><td class=n>4.18%</td><td class=n>18/20</td></tr><tr><td>Point-estimate threshold</td><td class=n>4.2%</td><td class=n>8.2%</td><td class=n>6/20</td><td class=n>62.8%</td><td class=n>0.50%</td><td class=n>1/20</td></tr><tr><td>Wilson upper bound</td><td class=n>0.0%</td><td class=n>0.0%</td><td class=n>0/20</td><td class=n>14.9%</td><td class=n>0.18%</td><td class=n>0/20</td></tr><tr><td>+ novelty guard</td><td class=n>0.0%</td><td class=n>0.0%</td><td class=n>0/20</td><td class=n>21.6%</td><td class=n>0.12%</td><td class=n>0/20</td></tr><tr><td><strong>+ value tiers (earned autonomy)</strong></td><td class=n>0.0%</td><td class=n>0.0%</td><td class=n>0/20</td><td class=n>41.3%</td><td class=n>0.13%</td><td class=n>0/20</td></tr></tbody></table></div></div>
+<figcaption><b>Figure 2.</b> Share of lines auto-posted under each policy at a 2% error budget. Red bars went over the budget in at
+least one month. Panel titles round live accuracy to the nearest percent (66.6% and 95.8%).</figcaption></figure>
+<div class="tbl wide"><p class=cap><b>Table 2.</b> The same rollout. Each row adds one safeguard. A dash means no lines were booked, so there is no error rate.</p><div class=scroll><table><thead><tr><th>Policy (2% error budget)</th><th class=n>Card feed: auto-posted</th><th class=n>error</th><th class=n>months over budget</th><th class=n>Upstream: auto-posted</th><th class=n>error</th><th class=n>months over budget</th></tr></thead><tbody><tr><td>Auto-post everything</td><td class=n>100.0%</td><td class=n>33.4%</td><td class=n>20/20</td><td class=n>100.0%</td><td class=n>4.18%</td><td class=n>18/20</td></tr><tr><td>Point-estimate threshold</td><td class=n>4.2%</td><td class=n>8.2%</td><td class=n>6/20</td><td class=n>62.8%</td><td class=n>0.50%</td><td class=n>1/20</td></tr><tr><td>Wilson upper bound</td><td class=n>0.0%</td><td class=n>–</td><td class=n>0/20</td><td class=n>14.9%</td><td class=n>0.18%</td><td class=n>0/20</td></tr><tr><td>+ novelty guard</td><td class=n>0.0%</td><td class=n>–</td><td class=n>0/20</td><td class=n>21.6%</td><td class=n>0.12%</td><td class=n>0/20</td></tr><tr><td><strong>+ value tiers (earned autonomy)</strong></td><td class=n>0.0%</td><td class=n>–</td><td class=n>0/20</td><td class=n>41.3%</td><td class=n>0.13%</td><td class=n>0/20</td></tr></tbody></table></div></div>
 <figure class=narrow><img src="error_vs_confidence.png" alt="Error rate among lines above a confidence threshold, card feed against upstream.">
-<figcaption><b>Figure 3.</b> Why the two settings diverge. On card-feed data the error rate stays above budget until confidence is
-very high; with the upstream category it falls under budget much sooner.</figcaption></figure>
+<figcaption><b>Figure 3.</b> Error among lines at or above a confidence cut. On the card feed it stays above the 2% budget at every
+recorded cut, including 2.4% wrong at 0.97 and above. With the upstream category it is 1.5% once confidence
+is at least 0.80, under the budget.</figcaption></figure>
 
 <h2>A simulated policy agent</h2>
 <p>Expense-policy decisions (approve, reject or send for review, citing the policy section) have no public labels, so this part

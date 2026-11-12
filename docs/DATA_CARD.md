@@ -28,7 +28,7 @@
 | Mixed date formats (`dd.mm.yyyy`, `dd/mm/yyyy`) | `try_strptime` with both formats; `not_null` test on purchase date |
 | Settlement dates earlier than purchase dates in some 2024 files | Flagged `is_settled_before_purchase`; dbt **warns** rather than fails (count in `results/real/warehouse.json`) |
 | `£` encoded inconsistently (UTF-8, cp1252, latin-1) | Decoder fallback chain |
-| 61 raw purpose strings with typos and case variants | Reviewed seed maps them to 21 canonical accounts; unmapped strings fail a dbt test |
+| Raw purpose strings with typos and case variants | Reviewed seed `warehouse/seeds/stockport_purpose_map.csv` maps each one to a canonical account; unmapped strings fail a dbt test |
 | Placeholder purposes ("details to follow", "TO BE ADDED", "MISCLASSIFIED? CHECK BEFORE PUBLICATION") | Kept in the warehouse, excluded from scoring, counted |
 
 **Known limitations.**

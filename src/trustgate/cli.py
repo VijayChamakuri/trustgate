@@ -4,7 +4,7 @@ trustgate real            real data: download -> load -> dbt -> GL benchmark -> 
 trustgate synthetic       policy-agent benchmark, default world (seed 7), report + charts
 trustgate experiments     10 seeds + sensitivity sweeps + perception backends (~50 min)
 trustgate site            build site/ (results dashboard + dbt docs)
-trustgate readme          render README.md from results (CI checks it is up to date)
+trustgate readme          render README.md and docs/RESULTS.md (CI checks they match)
 trustgate reproduce       everything above, in order
 """
 
@@ -117,7 +117,7 @@ def main() -> None:
     st = sub.add_parser("site", help="build the GitHub Pages site")
     st.add_argument("--no-dbt-docs", action="store_true")
     st.set_defaults(fn=cmd_site)
-    sub.add_parser("readme", help="render README.md from results").set_defaults(fn=cmd_readme)
+    sub.add_parser("readme", help="render README.md and docs/RESULTS.md from results").set_defaults(fn=cmd_readme)
     rp = sub.add_parser("reproduce", help="run everything")
     rp.add_argument("--seeds", type=int, default=10)
     rp.set_defaults(fn=cmd_reproduce)

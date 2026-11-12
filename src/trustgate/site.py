@@ -127,10 +127,11 @@ and on a simulated expense-policy agent where the right answers are planted.</p>
 <li><strong>Where the data supports it, the gate earns real autonomy.</strong> With the council's procurement category available,
 the agent posted {{up_auto}} of lines on its own at {{up_err}} error (95% upper bound {{up_err_ci_hi}}) and went over the 2% budget
 in {{up_over}} of {{live_months}} months.</li>
-<li><strong>Where it doesn't, the gate refuses.</strong> From card-feed fields alone the model is {{cf_model_acc}} accurate, and its
-confidence does not separate right answers from wrong ones, so the gate granted nothing. Posting everything would have mis-booked
-{{cf_misposted}}. A threshold set from the average audited error unlocked {{cf_point_auto}} of lines at {{cf_point_err}} error and
-broke the budget in {{cf_point_over}} months. On this data the useful product is a shortlist: the right account is in the model's
+<li><strong>Where it doesn't, the gate refuses.</strong> From card-feed fields alone the model is {{cf_model_acc}} accurate.
+Error falls as confidence rises, from {{cf_err_at_50}} of lines at 0.50 and above to {{cf_err_at_95}} at 0.95 and
+{{cf_err_at_97}} at 0.97, which is still over the 2% budget, so the gate granted nothing. Posting everything would have mis-booked
+{{cf_misposted}}. A threshold set from the average audited error auto-posted {{cf_point_auto}} of lines at {{cf_point_err}} error and
+broke the budget in {{cf_point_over}} months. On this data the useful output is a shortlist: the booked account is in the model's
 top three {{cf_top3}} of the time.</li>
 <li><strong>The coding model is a real baseline, not a strawman.</strong> From card-feed fields it reaches {{best_acc}} accuracy
 (95% CI {{best_ci}}) against {{lookup_acc}} for a merchant lookup, and {{best_new}} on merchants it has never seen, against
@@ -153,12 +154,13 @@ never seen.</figcaption></figure>
 {{audits}} random lines were audited, and the gate set thresholds from earlier audits only. The same gate ran on two versions of
 the data: card-feed fields only, and those fields plus the procurement category staff assign upstream.</p>
 <figure class=wide><img src="hero.png" alt="Bar charts of the share of lines auto-posted under five policies, card-feed on the left and upstream on the right. Only the Wilson-based policies stay within budget.">
-<figcaption><b>Figure 2.</b> Share of lines auto-posted under each policy at a 2% error budget. Red bars broke the budget in at
-least one month.</figcaption></figure>
-<div class="tbl wide"><p class=cap><b>Table 2.</b> The same rollout as a table. Each row adds one safeguard to the row above.</p>{{autonomy_table}}</div>
+<figcaption><b>Figure 2.</b> Share of lines auto-posted under each policy at a 2% error budget. Red bars went over the budget in at
+least one month. Panel titles round live accuracy to the nearest percent ({{cf_model_acc}} and {{up_model_acc}}).</figcaption></figure>
+<div class="tbl wide"><p class=cap><b>Table 2.</b> The same rollout. Each row adds one safeguard. A dash means no lines were booked, so there is no error rate.</p>{{autonomy_table}}</div>
 <figure class=narrow><img src="error_vs_confidence.png" alt="Error rate among lines above a confidence threshold, card feed against upstream.">
-<figcaption><b>Figure 3.</b> Why the two settings diverge. On card-feed data the error rate stays above budget until confidence is
-very high; with the upstream category it falls under budget much sooner.</figcaption></figure>
+<figcaption><b>Figure 3.</b> Error among lines at or above a confidence cut. On the card feed it stays above the 2% budget at every
+recorded cut, including {{cf_err_at_97}} wrong at 0.97 and above. With the upstream category it is {{up_err_at_80}} once confidence
+is at least 0.80, under the budget.</figcaption></figure>
 
 <h2>A simulated policy agent</h2>
 <p>Expense-policy decisions (approve, reject or send for review, citing the policy section) have no public labels, so this part

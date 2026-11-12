@@ -1,12 +1,13 @@
 # Methodology
 
-This document describes how every number in the README is produced. Numbers themselves live in
-[`results/`](../results) and are rendered into the README by `trustgate readme`; this page explains the
-procedures, the controls against leakage, and the statistics.
+This document describes how every number in the README and in [RESULTS.md](RESULTS.md) is produced.
+Numbers themselves live in [`results/`](../results) and are rendered into those two pages by
+`trustgate readme`. This page is the procedure: the splits, the controls against leakage, and the
+statistics. Hyperparameters live here, not in the README.
 
 ## 1. Question
 
-A finance agent proposes an action: post a card line to a GL account, or approve, reject or flag an
+A finance agent proposes an action: post a card line to a general ledger (GL) account, or approve, reject or flag an
 expense. **When may it execute that action without a human?** The answer has to hold up against:
 
 - **finite evidence:** a few hundred audited examples, not millions;
@@ -43,29 +44,29 @@ outcomes from earlier months:
 All layouts are unioned in the parser, typed and tested in dbt staging, and tagged with `schema_version`.
 
 **Labels.**
-- "Purpose of Expenditure" is the account staff booked. Its 61 raw strings (case variants, typos, merged codes) map to 21 canonical accounts via the reviewed seed `warehouse/seeds/stockport_purpose_map.csv`.
+- "Purpose of Expenditure" is the account staff booked. The reviewed seed `warehouse/seeds/stockport_purpose_map.csv` maps each raw string (case variants, typos, merged codes) to a canonical account. Placeholder strings are excluded from scoring.
 - Placeholder strings ("details to follow", "TO BE ADDED", a publisher "MISCLASSIFIED?" flag) and refunds are excluded from scoring and counted.
 
 **Two feature settings.**
 - **Card feed:** merchant string, cardholder department, service category and amount. This is what a card program sees, so it's the headline.
 - **Upstream:** card feed plus the council's procurement category. That field was assigned by staff alongside the booked purpose and predicts it almost perfectly on its own, so this setting is reported as a reference for "an upstream system already categorised the line".
 
-**Rolling temporal evaluation.** For each test year *t* ∈ {2018, …, 2022}, models train on all labelled lines from years before *t* and are scored on year *t*. Results are pooled across years, with a bootstrap 95% CI over lines (2,000 resamples).
+**Rolling temporal evaluation.** For each test year *t* ∈ {2018, …, 2022}, models train on all labelled lines from years before *t* and are scored on year *t*. Results are pooled across years, with a bootstrap 95% confidence interval over lines (2,000 resamples).
 
 **Label ceiling.** For identical inputs (same merchant string, department and service), staff did not always book the same account. The ceiling is the mean share of the majority account within each identical-input group, which is the best any deterministic model can score.
 
 **Models.**
 - majority class;
 - merchant → account lookup with a department+service fallback;
-- character TF-IDF (2–5 grams) + one-hot + log-amount logistic regression;
-- local-embedding kNN and logistic regression, using `BAAI/bge-small-en-v1.5` via fastembed (ONNX, CPU, no API);
+- character term frequency–inverse document frequency (TF-IDF), character 2–5 grams, plus one-hot department and service and a log-amount feature, in a logistic regression (`C=6`, `max_iter=2000` in [`realgl.py`](../src/trustgate/realgl.py));
+- local-embedding k-nearest neighbours (kNN, k=15) and logistic regression, using `BAAI/bge-small-en-v1.5` via fastembed. [`embeddings.py`](../src/trustgate/embeddings.py) describes that model as 33 million parameters and 384 dimensions, run locally in ONNX (Open Neural Network Exchange) on a central processing unit (CPU), with no paid application programming interface (API);
 - the combined TF-IDF + embedding model.
 
 **Autonomy rollout.**
 - Live months begin after a 6-month shadow period starting January 2020.
 - The model is refit on all prior months every 3 months (expanding window).
 - Each month, 40 random lines are audited, i.e. their true booking is revealed to the gate. Thresholds for month *m* use audits from months before *m*.
-- Reported per policy and per budget (2%, 5%, 10%): share auto-posted, realised error with a Wilson CI, months whose realised error exceeded the budget, and value mis-posted.
+- Reported per policy and per budget (2%, 5%, 10%): share auto-posted, realised error with a Wilson confidence interval (CI), months whose realised error exceeded the budget, and value mis-posted. A policy that auto-posts nothing has no error rate. The JSON stores 0 for that ratio, from a division guarded by `max(n, 1)` in `outcome`, and a 0–100% interval from `wilson_interval(0, 0)`. The rendered tables show a dash instead.
 
 ## 4. Synthetic policy-agent track
 
@@ -92,6 +93,6 @@ The agent sees only what a platform would see: card descriptors, MCCs, memos and
 
 ## 5. What is *not* claimed
 
-- No paid-API LLM results are reported. The Claude extractor is implemented and unit-tested against a fake client, but was not benchmarked.
+- No paid large language model (LLM) results are reported. The Claude extractor is implemented and unit-tested against a fake client, but was not benchmarked.
 - Synthetic rates are assumptions. Conclusions are stated only where they survive the sensitivity analysis.
-- Stockport is one public-sector organisation. Its coding conventions are not a commercial company's, and the card-feed features are a subset of what a commercial platform sees (no receipts, no MCC in the labelled years).
+- Stockport is one public-sector organisation. Its coding conventions are not a commercial company's, and the card-feed features are a subset of what a commercial platform sees (no receipts, no merchant category code in the labelled years).
